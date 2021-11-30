@@ -9,6 +9,7 @@ import FullWidthWithImage from "components/hero/FullWidthWithImage";
 import BackgroundAsImage from "components/hero/BackgroundAsImage";
 import TwoColWithSteps from "components/features/TwoColWithSteps";
 import TwoColWithButton from "components/features/TwoColWithButton";
+import SimpleContactUs from "components/forms/SimpleContactUs";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <BackgroundAsImage />
       <TwoColWithButton />
       <TabCardGrid />
+      <SimpleContactUs />
     </AnimationRevealPage>
   )
 }

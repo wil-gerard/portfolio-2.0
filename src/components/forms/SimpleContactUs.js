@@ -40,8 +40,8 @@ export default () => {
       <Content>
         <FormContainer>
           <div tw="mx-auto max-w-4xl">
-            <h2>Organize an Event</h2>
-            <form action="#">
+            <h2>Contact Me</h2>
+            <form method="POST" action="https://formspree.io/f/xgerkqlv">
               <TwoColumn>
                 <Column>
                   <InputContainer>
@@ -56,7 +56,7 @@ export default () => {
                 <Column>
                   <InputContainer tw="flex-1">
                     <Label htmlFor="name-input">Your Message</Label>
-                    <TextArea id="message-input" name="message" placeholder="E.g. Details about your event"/>
+                    <TextArea id="message-input" name="message" placeholder="Details about your company or project"/>
                   </InputContainer>
                 </Column>
               </TwoColumn>
