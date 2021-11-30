@@ -3,14 +3,15 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
+import { PrimaryLink as Link } from "components/misc/Links";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import TeamIllustrationSrc from "images/team-illustration-2.svg";
-import {ReactComponent as SvgDotPattern } from "images/dot-pattern.svg"
+import ProfilePic from "images/profile-pic.png";
+import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg"
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
-const ImageColumn = tw(Column)`md:w-6/12 flex-shrink-0 relative`;
+const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 relative`;
 const TextColumn = styled(Column)(props => [
   tw`md:w-6/12 mt-16 md:mt-0`,
   props.textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`
@@ -39,18 +40,21 @@ const PrimaryButton = styled(PrimaryButtonBase)(props => [
   props.buttonRounded && tw`rounded-full`
 ]);
 
-
 export default ({
-  subheading = "Our Expertise",
+  subheading = "About Me",
   heading = (
     <>
-      Designed & Developed by <span tw="text-primary-500">Professionals.</span>
+      About Me <span tw="text-primary-500">Professionals.</span>
     </>
   ),
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  description = (
+    <>
+      I come from a diverse background of career experience while working as a freelancer. My current focus is to effect positive change in the world with a career in tech. I'm passionate about mental health, education as a right, and <Link href="https://www.effectivealtruism.org/">effective altruism.</Link> I'm also a big fan of <Link href="https://www.chess.com/member/wilgerard">chess,</Link> yoga, meditation, and my cat Lou.
+    </>
+  ),
   primaryButtonText = "Learn More",
   primaryButtonUrl = "https://timerse.com",
-  imageSrc = TeamIllustrationSrc,
+  imageSrc = ProfilePic,
   buttonRounded = true,
   imageRounded = true,
   imageBorder = false,
@@ -66,7 +70,7 @@ export default ({
     <Container>
       <TwoColumn>
         <ImageColumn>
-          <Image css={imageCss} src={imageSrc} imageBorder={imageBorder} imageShadow={imageShadow} imageRounded={imageRounded}/>
+          <Image css={imageCss} src={imageSrc} imageBorder={imageBorder} imageShadow={imageShadow} imageRounded={imageRounded} />
           {imageDecoratorBlob && <DecoratorBlob css={imageDecoratorBlobCss} />}
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
