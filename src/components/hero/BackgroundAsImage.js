@@ -3,6 +3,9 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import HeroImage from "images/hero-background.jpg";
 import { Subheading as Subheading } from "components/misc/Headings.js";
+import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
+import { ReactComponent as LinkedinIcon } from "../../images/linkedin-icon.svg";
+import { ReactComponent as GithubIcon } from "../../images/github-icon.svg";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
 import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
@@ -28,19 +31,18 @@ const TwoColumn = tw.div`pt-24 pb-32 px-4 flex justify-between items-center flex
 const LeftColumn = tw.div`flex flex-col items-center lg:block`;
 const RightColumn = tw.div`w-full sm:w-5/6 lg:w-1/2 mt-16 lg:mt-0 lg:pl-8`;
 
+const SocialLinksContainer = tw.div`mt-4 `;
+const SocialLink = styled.a`
+  ${tw`cursor-pointer inline-block p-2 rounded-full bg-gray-700 text-gray-100 hover:bg-gray-900 transition duration-300 mr-4`}
+  svg {
+    ${tw`w-5 h-5`}
+  }
+`;
+
 const Heading = styled.h1`
   ${tw`text-3xl text-center lg:text-left sm:text-4xl lg:text-5xl xl:text-6xl font-black text-gray-100 leading-none`}
   span {
     ${tw`inline-block mt-2`}
-  }
-`;
-
-
-const SlantedBackground = styled.span`
-  ${tw`relative text-primary-500 px-4 -mx-4 py-2`}
-  &::before {
-    content: "";
-    ${tw`absolute inset-0 bg-gray-100 transform -skew-x-12 -z-10`}
   }
 `;
 
@@ -70,12 +72,25 @@ export default () => {
         <StyledHeader links={navLinks} />
         <TwoColumn>
           <LeftColumn>
-            <Notification>We have now launched operations in Europe.</Notification>
+            <Notification>Based in Minneapolis, MN</Notification>
             <Heading>
               <span>Wil Gerard</span>
           
             </Heading>
-            <Subheading>Software Engineer | Fullstack Developer</Subheading>
+            <Subheading>
+              Software Engineer | Fullstack Developer
+            </Subheading>
+            <SocialLinksContainer>
+              <SocialLink href="https://linkedin.com/in/wilgerard/">
+                <LinkedinIcon />
+              </SocialLink>
+              <SocialLink href="https://github.com/wil-gerard">
+                <GithubIcon />
+              </SocialLink>
+              <SocialLink href="https://twitter.com/wil_gerard">
+                <TwitterIcon />
+              </SocialLink>
+            </SocialLinksContainer>
             <PrimaryAction>Contact me</PrimaryAction>
           </LeftColumn>
         </TwoColumn>
