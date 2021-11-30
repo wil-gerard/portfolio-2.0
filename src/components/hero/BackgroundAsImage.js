@@ -1,10 +1,11 @@
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
+import HeroImage from "images/hero-background.jpg";
+import { Subheading as Subheading } from "components/misc/Headings.js";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
 import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
-import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 max-w-none`}
@@ -17,7 +18,7 @@ const StyledHeader = styled(Header)`
 `;
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover`}
-  background-image: url("https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+  background-image: url(${HeroImage});
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-primary-500 opacity-25`;
@@ -34,6 +35,7 @@ const Heading = styled.h1`
   }
 `;
 
+
 const SlantedBackground = styled.span`
   ${tw`relative text-primary-500 px-4 -mx-4 py-2`}
   &::before {
@@ -46,15 +48,6 @@ const Notification = tw.span`inline-block my-4 pl-3 py-1 text-gray-100 border-l-
 
 const PrimaryAction = tw.button`px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 bg-gray-100 text-primary-500 font-bold rounded shadow transition duration-300 hocus:bg-primary-500 hocus:text-gray-100 focus:shadow-outline`;
 
-const StyledResponsiveVideoEmbed = styled(ResponsiveVideoEmbed)`
-  padding-bottom: 56.25% !important;
-  padding-top: 0px !important;
-  ${tw`rounded`}
-  iframe {
-    ${tw`rounded bg-black shadow-xl`}
-  }
-`;
-
 export default () => {
   const navLinks = [
     <NavLinks key={1}>
@@ -62,20 +55,12 @@ export default () => {
         About
       </NavLink>
       <NavLink href="#">
-        Blog
+        Portfolio
       </NavLink>
-      <NavLink href="#">
-        Locations
-      </NavLink>
-      <NavLink href="#">
-        Pricing
+      <NavLink href="SimpleContactUs">
+        Contact
       </NavLink>
     </NavLinks>,
-    <NavLinks key={2}>
-      <PrimaryLink href="/#">
-        Hire Us
-      </PrimaryLink>
-    </NavLinks>
   ];
 
   return (
@@ -87,11 +72,11 @@ export default () => {
           <LeftColumn>
             <Notification>We have now launched operations in Europe.</Notification>
             <Heading>
-              <span>Hire the best</span>
-              <br />
-              <SlantedBackground>Marketing Team.</SlantedBackground>
+              <span>Wil Gerard</span>
+          
             </Heading>
-            <PrimaryAction>Read Customer Stories</PrimaryAction>
+            <Subheading>Software Engineer | Fullstack Developer</Subheading>
+            <PrimaryAction>Contact me</PrimaryAction>
           </LeftColumn>
         </TwoColumn>
       </HeroContainer>
