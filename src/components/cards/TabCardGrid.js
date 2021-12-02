@@ -7,6 +7,29 @@ import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import PortfolioImage1 from "images/portfolio/avenues-recovery.png";
+import PortfolioImage2 from "images/portfolio/foci.jpg";
+import PortfolioImage3 from "images/portfolio/react-runner.png";
+import PortfolioImage4 from "images/portfolio/bert-bot.png";
+import PhotographyImage1 from "images/portfolio/photography-1.jpg";
+import PhotographyImage2 from "images/portfolio/photography-2.jpg";
+import PhotographyImage3 from "images/portfolio/photography-3.jpg";
+import PhotographyImage4 from "images/portfolio/photography-4.jpg";
+import PhotographyImage5 from "images/portfolio/photography-5.jpg";
+import PhotographyImage6 from "images/portfolio/photography-6.jpg";
+import { ReactComponent as HtmlIcon } from "images/tech/html-5.svg";
+import { ReactComponent as CssIcon } from "images/tech/css-3.svg"
+import { ReactComponent as JsIcon } from "images/tech/javascript.svg"
+import { ReactComponent as ReactIcon } from "images/tech/react.svg"
+import { ReactComponent as SassIcon } from "images/tech/sass.svg"
+import { ReactComponent as NodeJsIcon } from "images/tech/nodejs-icon.svg"
+import { ReactComponent as TailwindIcon } from "images/tech/tailwindcss-icon.svg"
+import { ReactComponent as MaterialUiIcon } from "images/tech/material-ui.svg"
+import { ReactComponent as TensorflowIcon } from "images/tech/tensorflow.svg"
+import { ReactComponent as GitIcon } from "images/tech/git-icon.svg"
+import { ReactComponent as GitHubIcon } from "images/tech/github-icon.svg"
+import { ReactComponent as NetlifyIcon } from "images/tech/netlify.svg"
+import { ReactComponent as HerokuIcon } from "images/tech/heroku-icon.svg"
+import { ReactComponent as SquarespaceIcon } from "images/tech/squarespace.svg"
 import { ReactComponent as StarIcon } from "images/star-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
@@ -39,6 +62,22 @@ const CardRating = styled.div`
   }
 `;
 
+const CardTechIcons = styled.div`
+  ${tw`flex flex-row justify-start mt-2`}
+  svg {
+    ${tw`w-6 h-6 mr-3`}
+  }
+`;
+
+const TechUsed = tw.h6`text-sm font-medium mt-2`
+
+// const CardTechIcons = styled.div`
+//   ${tw`flex flex-row justify-center mt-3 bg-gray-100 rounded-full p-3`}
+//   svg {
+//     ${tw`w-6 h-6 ml-2 mr-2`}
+//   }
+// `;
+
 const CardHoverOverlay = styled(motion.div)`
   background-color: rgba(255, 255, 255, 0.5);
   ${tw`absolute inset-0 flex justify-center items-center`}
@@ -50,7 +89,7 @@ const CardReview = tw.div`font-medium text-xs text-gray-600`;
 const CardText = tw.div`p-4 text-gray-900`;
 const CardTitle = tw.h5`text-lg font-semibold group-hover:text-primary-500`;
 const CardContent = tw.p`mt-1 text-sm font-medium text-gray-600`;
-const CardPrice = tw.p`mt-4 text-xl font-bold`;
+// const CardTechIcons = tw.p`mt-4 text-xl font-bold`;
 
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
   ${tw`pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 transform translate-x-2/3 -translate-y-12 text-pink-400`}
@@ -66,26 +105,86 @@ export default ({
       {
         imageSrc:
           `${PortfolioImage1}`,
-        title: "Veg Mixer",
+        title: "Avenues Recovery",
         content: "Website and branding for Avenues Recovery, an outpatient clinic in St. Paul, MN.",
-        price: "$5.99",
-        rating: "5.0",
-        reviews: "87",
-        url: "#"
+        techIcons:
+          <>
+            <HtmlIcon />
+            <CssIcon />
+            <JsIcon />
+            <GitIcon />
+            <GitHubIcon />
+          </>,
+        url: "https://avenuesrecovery.org/"
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-        title: "Macaroni",
-        content: "Cheese Pizza",
+          `${PortfolioImage2}`,
+        title: "Foci MCGA",
+        content: "Graphic and web design for the Minnesota Center for Glass Arts",
+        techIcons:
+          <>
+            <HtmlIcon />
+            <CssIcon />
+            <SquarespaceIcon />
+          </>,
+        url: "https://www.mnglassart.org/strategic-plan"
+      },
+      {
+        imageSrc:
+          `${PortfolioImage3}`,
+        title: "React Runner",
+        content: "React Runner is a 2D game with voice commands built using React, Node.js, Sass, Tensorflow.js",
+        techIcons:
+          <>
+            <ReactIcon />
+            <NodeJsIcon />
+            <SassIcon />
+            <TensorflowIcon />
+            <GitIcon />
+            <GitHubIcon />
+            <NetlifyIcon />
+          </>,
+        url: "https://react-runner.netlify.app/"
+      },
+      {
+        imageSrc:
+          `${PortfolioImage4}`,
+        title: "BERT Bot",
+        content: "BERT Bot is a web app that allows users to answers questions based on the given text",
+        techIcons:
+          <>
+            <ReactIcon />
+            <NodeJsIcon />
+            <MaterialUiIcon />
+            <GitIcon />
+            <GitHubIcon />
+            <NetlifyIcon />
+          </>,
+        url: "https://bert-bot.netlify.app/"
+      },
+    ],
+    Photography: [
+      {
+        imageSrc:
+          `${PhotographyImage1}`,
+        title: "Avenues Recovery",
+        content: "Website and branding for Avenues Recovery, an outpatient clinic in St. Paul, MN.",
+        url: "https://avenuesrecovery.org/"
+      },
+      {
+        imageSrc:
+          `${PhotographyImage2}`,
+        title: "React Runner",
+        content: "React Runner is a 2D game with voice commands built using React, Node.js, Sass, Tensorflow.js",
         price: "$2.99",
         rating: "4.8",
         reviews: "32",
-        url: "#"
+        url: "https://react-runner.netlify.app/"
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327??ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+          `${PhotographyImage3}`,
         title: "Nelli",
         content: "Hamburger & Fries",
         price: "$7.99",
@@ -95,18 +194,35 @@ export default ({
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327??ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-        title: "Nelli",
-        content: "Hamburger & Fries",
+          `${PhotographyImage4}`,
+        title: "BERT Bot",
+        content: "BERT Bot is a web app that allows users to answers questions based on the given text",
+        price: "$7.99",
+        rating: "4.9",
+        reviews: "89",
+        url: "#"
+      },
+      {
+        imageSrc:
+          `${PhotographyImage5}`,
+        title: "BERT Bot",
+        content: "BERT Bot is a web app that allows users to answers questions based on the given text",
+        price: "$7.99",
+        rating: "4.9",
+        reviews: "89",
+        url: "#"
+      },
+      {
+        imageSrc:
+          `${PhotographyImage6}`,
+        title: "BERT Bot",
+        content: "BERT Bot is a web app that allows users to answers questions based on the given text",
         price: "$7.99",
         rating: "4.9",
         reviews: "89",
         url: "#"
       },
     ],
-    Main: getRandomCards(),
-    Soup: getRandomCards(),
-    Desserts: getRandomCards()
   }
 }) => {
   /*
@@ -137,12 +253,12 @@ export default ({
             variants={{
               current: {
                 opacity: 1,
-                scale:1,
+                scale: 1,
                 display: "flex",
               },
               hidden: {
                 opacity: 0,
-                scale:0.8,
+                scale: 0.8,
                 display: "none",
               }
             }}
@@ -154,13 +270,7 @@ export default ({
               <CardContainer key={index}>
                 <Card className="group" href={card.url} initial="rest" whileHover="hover" animate="rest">
                   <CardImageContainer imageSrc={card.imageSrc}>
-                    <CardRatingContainer>
-                      <CardRating>
-                        <StarIcon />
-                        {card.rating}
-                      </CardRating>
-                      <CardReview>({card.reviews})</CardReview>
-                    </CardRatingContainer>
+
                     <CardHoverOverlay
                       variants={{
                         hover: {
@@ -174,13 +284,18 @@ export default ({
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      <CardButton>Buy Now</CardButton>
+                      <CardButton>Check it out</CardButton>
                     </CardHoverOverlay>
                   </CardImageContainer>
                   <CardText>
                     <CardTitle>{card.title}</CardTitle>
                     <CardContent>{card.content}</CardContent>
-                    <CardPrice>{card.price}</CardPrice>
+                    {card.techIcons == null ? null :
+                      <>
+                        <TechUsed>Tech used: </TechUsed>
+                        <CardTechIcons>{card.techIcons}</CardTechIcons>
+                      </>
+                    }
                   </CardText>
                 </Card>
               </CardContainer>
@@ -192,93 +307,4 @@ export default ({
       <DecoratorBlob2 />
     </Container>
   );
-};
-
-/* This function is only there for demo purposes. It populates placeholder cards */
-const getRandomCards = () => {
-  const cards = [
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Chicken Chilled",
-      content: "Chicken Main Course",
-      price: "$5.99",
-      rating: "5.0",
-      reviews: "87",
-      url: "#"
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1582254465498-6bc70419b607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Samsa Beef",
-      content: "Fried Mexican Beef",
-      price: "$3.99",
-      rating: "4.5",
-      reviews: "34",
-      url: "#"
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1565310022184-f23a884f29da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Carnet Nachos",
-      content: "Chilli Crispy Nachos",
-      price: "$3.99",
-      rating: "3.9",
-      reviews: "26",
-      url: "#"
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Guacamole Mex",
-      content: "Mexican Chilli",
-      price: "$3.99",
-      rating: "4.2",
-      reviews: "95",
-      url: "#"
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Chillie Cake",
-      content: "Deepfried Chicken",
-      price: "$2.99",
-      rating: "5.0",
-      reviews: "61",
-      url: "#"
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327??ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Nelli",
-      content: "Hamburger & Fries",
-      price: "$7.99",
-      rating: "4.9",
-      reviews: "89",
-      url: "#"
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Jalapeno Poppers",
-      content: "Crispy Soyabeans",
-      price: "$8.99",
-      rating: "4.6",
-      reviews: "12",
-      url: "#"
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-      title: "Cajun Chicken",
-      content: "Roasted Chicken & Egg",
-      price: "$7.99",
-      rating: "4.2",
-      reviews: "19",
-      url: "#"
-    }
-  ];
-
-  // Shuffle array
-  return cards.sort(() => Math.random() - 0.5);
 };

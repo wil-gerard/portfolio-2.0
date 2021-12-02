@@ -74,7 +74,7 @@ export default () => {
           <LeftColumn>
             <Notification>Based in Minneapolis, MN</Notification>
             <Heading>
-              <span>Hi, I'm Wil!</span>
+              <span>Hi, I'm Wil</span>
             </Heading>
             <Subheading>
               Software Engineer | Fullstack Developer

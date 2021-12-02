@@ -41,10 +41,9 @@ const PrimaryButton = styled(PrimaryButtonBase)(props => [
 ]);
 
 export default ({
-  subheading = "About Me",
   heading = (
     <>
-      About Me <span tw="text-primary-500">Professionals.</span>
+      About Me
     </>
   ),
   description = (
@@ -60,9 +59,9 @@ export default ({
   imageBorder = false,
   imageShadow = false,
   imageCss = null,
-  imageDecoratorBlob = false,
+  imageDecoratorBlob = true,
   imageDecoratorBlobCss = null,
-  textOnLeft = true
+  textOnLeft = false
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
 
@@ -77,9 +76,6 @@ export default ({
           <TextContent>
             <Heading>{heading}</Heading>
             <Description>{description}</Description>
-            <PrimaryButton buttonRounded={buttonRounded} as="a" href={primaryButtonUrl}>
-              {primaryButtonText}
-            </PrimaryButton>
           </TextContent>
         </TextColumn>
       </TwoColumn>
