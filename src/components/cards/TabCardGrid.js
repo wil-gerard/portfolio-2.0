@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
@@ -48,19 +49,19 @@ const TabControl = styled.div`
 `;
 
 const TabContent = tw(motion.div)`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
-const CardContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:pr-10 md:pr-6 lg:pr-12`;
+const CardContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/3`;
 const Card = tw(motion.a)`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
 const CardImageContainer = styled.div`
   ${props => css`background-image: url("${props.imageSrc}");`}
   ${tw`h-56 xl:h-64 bg-center bg-cover relative rounded-t`}
 `;
-const CardRatingContainer = tw.div`leading-none absolute inline-flex bg-gray-100 bottom-0 left-0 ml-4 mb-4 rounded-full px-5 py-2 items-end`;
-const CardRating = styled.div`
-  ${tw`mr-1 text-sm font-bold flex items-end`}
-  svg {
-    ${tw`w-4 h-4 fill-current text-orange-400 mr-1`}
-  }
+
+const CardPhotographyContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/2`;
+const CardPhotographyImageContainer = styled.div`
+  ${props => css`background-image: url("${props.imageSrc}");`}
+  ${tw`h-56 xl:h-96 bg-center bg-cover relative rounded-t`}
 `;
+
 
 const CardTechIcons = styled.div`
   ${tw`flex flex-row justify-start mt-2`}
@@ -71,25 +72,15 @@ const CardTechIcons = styled.div`
 
 const TechUsed = tw.h6`text-sm font-medium mt-2`
 
-// const CardTechIcons = styled.div`
-//   ${tw`flex flex-row justify-center mt-3 bg-gray-100 rounded-full p-3`}
-//   svg {
-//     ${tw`w-6 h-6 ml-2 mr-2`}
-//   }
-// `;
-
 const CardHoverOverlay = styled(motion.div)`
   background-color: rgba(255, 255, 255, 0.5);
   ${tw`absolute inset-0 flex justify-center items-center`}
 `;
 const CardButton = tw(PrimaryButtonBase)`text-sm`;
 
-const CardReview = tw.div`font-medium text-xs text-gray-600`;
-
 const CardText = tw.div`p-4 text-gray-900`;
 const CardTitle = tw.h5`text-lg font-semibold group-hover:text-primary-500`;
 const CardContent = tw.p`mt-1 text-sm font-medium text-gray-600`;
-// const CardTechIcons = tw.p`mt-4 text-xl font-bold`;
 
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
   ${tw`pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 transform translate-x-2/3 -translate-y-12 text-pink-400`}
@@ -168,59 +159,38 @@ export default ({
       {
         imageSrc:
           `${PhotographyImage1}`,
-        title: "Avenues Recovery",
-        content: "Website and branding for Avenues Recovery, an outpatient clinic in St. Paul, MN.",
-        url: "https://avenuesrecovery.org/"
+        title: "Casa Pancha",
+        content: "Mexico City, Mexico",
       },
       {
         imageSrc:
           `${PhotographyImage2}`,
-        title: "React Runner",
-        content: "React Runner is a 2D game with voice commands built using React, Node.js, Sass, Tensorflow.js",
-        price: "$2.99",
-        rating: "4.8",
-        reviews: "32",
-        url: "https://react-runner.netlify.app/"
+        title: "Foci MCGA",
+        content: "Minneapolis, Minnesota",
       },
       {
         imageSrc:
           `${PhotographyImage3}`,
-        title: "Nelli",
-        content: "Hamburger & Fries",
-        price: "$7.99",
-        rating: "4.9",
-        reviews: "89",
-        url: "#"
+        title: "Untitled",
+        content: "Minneapolis, Minnesota",
       },
       {
         imageSrc:
           `${PhotographyImage4}`,
-        title: "BERT Bot",
-        content: "BERT Bot is a web app that allows users to answers questions based on the given text",
-        price: "$7.99",
-        rating: "4.9",
-        reviews: "89",
-        url: "#"
+        title: "Casa Pancha",
+        content: "Mexico City, Mexico",
       },
       {
         imageSrc:
           `${PhotographyImage5}`,
-        title: "BERT Bot",
-        content: "BERT Bot is a web app that allows users to answers questions based on the given text",
-        price: "$7.99",
-        rating: "4.9",
-        reviews: "89",
-        url: "#"
+        title: "Tianguis Cultural de Chopo",
+        content: "Mexico City, Mexico",
       },
       {
         imageSrc:
           `${PhotographyImage6}`,
-        title: "BERT Bot",
-        content: "BERT Bot is a web app that allows users to answers questions based on the given text",
-        price: "$7.99",
-        rating: "4.9",
-        reviews: "89",
-        url: "#"
+        title: "Casa Pancha",
+        content: "Mexico City, Mexico",
       },
     ],
   }
@@ -266,7 +236,34 @@ export default ({
             initial={activeTab === tabKey ? "current" : "hidden"}
             animate={activeTab === tabKey ? "current" : "hidden"}
           >
-            {tabs[tabKey].map((card, index) => (
+            {/* gallery conditional render logic based on tab name*/}
+            {activeTab === "Photography" ? tabs[tabKey].map((card, index) => (
+                <CardPhotographyContainer key={index}>
+                  <Card className="group" href={card.url} initial="rest" whileHover="hover" animate="rest">
+                    <CardPhotographyImageContainer imageSrc={card.imageSrc}>
+
+                      <CardHoverOverlay
+                        variants={{
+                          hover: {
+                            opacity: 0,
+                            height: "auto"
+                          },
+                          rest: {
+                            opacity: 0,
+                            height: 0
+                          }
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                      </CardHoverOverlay>
+                    </CardPhotographyImageContainer>
+                    <CardText>
+                      <CardTitle>{card.title}</CardTitle>
+                      <CardContent>{card.content}</CardContent>
+                    </CardText>
+                  </Card>
+                </CardPhotographyContainer>
+            )) : tabs[tabKey].map((card, index) => (
               <CardContainer key={index}>
                 <Card className="group" href={card.url} initial="rest" whileHover="hover" animate="rest">
                   <CardImageContainer imageSrc={card.imageSrc}>
@@ -305,6 +302,6 @@ export default ({
       </ContentWithPaddingXl>
       <DecoratorBlob1 />
       <DecoratorBlob2 />
-    </Container>
+    </Container >
   );
 };

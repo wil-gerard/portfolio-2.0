@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -33,7 +34,7 @@ const RightColumn = tw.div`w-full sm:w-5/6 lg:w-1/2 mt-16 lg:mt-0 lg:pl-8`;
 
 const SocialLinksContainer = tw.div`mt-6 `;
 const SocialLink = styled.a`
-  ${tw`cursor-pointer inline-block p-2 rounded-full bg-gray-700 text-gray-100 hover:bg-gray-900 transition duration-300 m-2 lg:mr-4 lg:mb-0 lg:mt-0 lg:ml-0`}
+  ${tw`cursor-pointer inline-block p-2 rounded-full bg-gray-100 text-primary-500 hocus:bg-primary-500 hocus:text-gray-100 transition duration-300 m-2 lg:mr-4 lg:mb-0 lg:mt-0 lg:ml-0`}
   svg {
     ${tw`w-6 h-6`}
   }

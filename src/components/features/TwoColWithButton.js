@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -6,7 +7,11 @@ import { SectionHeading, Subheading as SubheadingBase } from "components/misc/He
 import { PrimaryLink as Link } from "components/misc/Links";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import ProfilePic from "images/profile-pic.png";
+import Resume from "images/resume/william-gerard-resume.pdf"
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg"
+import { PrimaryLink } from "components/headers/light";
+
+
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center`;
@@ -49,7 +54,11 @@ export default ({
   description = (
     <>
       I come from a diverse background of career experience while working as a freelancer. My current focus is to effect positive change in the world with a career in tech. I'm passionate about mental health, education as a right, and <Link href="https://www.effectivealtruism.org/">effective altruism.</Link> I'm also a big fan of <Link href="https://www.chess.com/member/wilgerard">chess,</Link> yoga, meditation, and my cat Lou.
+      <br/>
+      <br/>
+      I offer a versatile skill-set, including full-stack web development, software engineering, graphic design, and photography. My coding stack is React, Node, Express, and MongoDB, but I love to learn! Currently open to new job opportunities and always open to new connections.
     </>
+    
   ),
   primaryButtonText = "Learn More",
   primaryButtonUrl = "https://timerse.com",
@@ -76,6 +85,9 @@ export default ({
           <TextContent>
             <Heading>{heading}</Heading>
             <Description>{description}</Description>
+            <a href={Resume} target="_blank" rel="noreferrer">
+              <PrimaryButton>View my resume</PrimaryButton>
+            </a>
           </TextContent>
         </TextColumn>
       </TwoColumn>
