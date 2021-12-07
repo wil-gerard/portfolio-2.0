@@ -23,15 +23,14 @@ import { ReactComponent as JsIcon } from "images/tech/javascript.svg"
 import { ReactComponent as ReactIcon } from "images/tech/react.svg"
 import { ReactComponent as SassIcon } from "images/tech/sass.svg"
 import { ReactComponent as NodeJsIcon } from "images/tech/nodejs-icon.svg"
-import { ReactComponent as TailwindIcon } from "images/tech/tailwindcss-icon.svg"
+// import { ReactComponent as TailwindIcon } from "images/tech/tailwindcss-icon.svg"
 import { ReactComponent as MaterialUiIcon } from "images/tech/material-ui.svg"
 import { ReactComponent as TensorflowIcon } from "images/tech/tensorflow.svg"
 import { ReactComponent as GitIcon } from "images/tech/git-icon.svg"
 import { ReactComponent as GitHubIcon } from "images/tech/github-icon.svg"
 import { ReactComponent as NetlifyIcon } from "images/tech/netlify.svg"
-import { ReactComponent as HerokuIcon } from "images/tech/heroku-icon.svg"
+// import { ReactComponent as HerokuIcon } from "images/tech/heroku-icon.svg"
 import { ReactComponent as SquarespaceIcon } from "images/tech/squarespace.svg"
-import { ReactComponent as StarIcon } from "images/star-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 

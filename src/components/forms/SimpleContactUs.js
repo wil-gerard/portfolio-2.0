@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -46,11 +47,11 @@ export default () => {
                 <Column>
                   <InputContainer>
                     <Label htmlFor="name-input">Your Name</Label>
-                    <Input id="name-input" type="text" name="name" placeholder="E.g. John Doe" />
+                    <Input id="name-input" type="text" name="name" placeholder="E.g. Jane Doe" />
                   </InputContainer>
                   <InputContainer>
                     <Label htmlFor="email-input">Your Email Address</Label>
-                    <Input id="email-input" type="email" name="email" placeholder="E.g. john@mail.com" />
+                    <Input id="email-input" type="email" name="email" placeholder="E.g. jane@mail.com" />
                   </InputContainer>
                 </Column>
                 <Column>
