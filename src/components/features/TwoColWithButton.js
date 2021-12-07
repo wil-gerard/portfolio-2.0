@@ -3,13 +3,13 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
+import { SectionHeading } from "components/misc/Headings.js";
 import { PrimaryLink as Link } from "components/misc/Links";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import ProfilePic from "images/profile-pic.png";
-import Resume from "images/resume/william-gerard-resume.pdf"
-import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg"
-import { PrimaryLink } from "components/headers/light";
+import Resume from "images/resume/william-gerard-resume.pdf";
+import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
+// import { PrimaryLink } from "components/headers/light";
 
 
 
@@ -34,7 +34,7 @@ const DecoratorBlob = styled(SvgDotPattern)(props => [
 
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
 
-const Subheading = tw(SubheadingBase)`text-center md:text-left`;
+// const Subheading = tw(SubheadingBase)`text-center md:text-left`;
 const Heading = tw(
   SectionHeading
 )`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;

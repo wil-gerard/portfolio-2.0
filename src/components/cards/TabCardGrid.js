@@ -97,7 +97,7 @@ export default ({
         imageSrc:
           `${PortfolioImage1}`,
         title: "Avenues Recovery",
-        content: "Website and branding for Avenues Recovery, an outpatient clinic in St. Paul, MN.",
+        content: "A fully-responsive website with custom-created content: including logo design and photography for Avenues Recovery outpatient clinic in St. Paul, MN.",
         techIcons:
           <>
             <HtmlIcon />
@@ -112,7 +112,7 @@ export default ({
         imageSrc:
           `${PortfolioImage2}`,
         title: "Foci MCGA",
-        content: "Graphic and web design for the Minnesota Center for Glass Arts",
+        content: "Working with the executive director, I assisted with web design, graphics, photography, and copywriting for the Minnesota Center for Glass Arts.",
         techIcons:
           <>
             <HtmlIcon />
@@ -125,7 +125,7 @@ export default ({
         imageSrc:
           `${PortfolioImage3}`,
         title: "React Runner",
-        content: "React Runner is a 2D game with voice commands built using React, Node.js, Sass, Tensorflow.js",
+        content: "React Runner is a 2D side-scroller game with voice commands and a collaborative project built within a week using React, Node, and Tensorflow.js, for the August 2021 Mintbean Hackathon.",
         techIcons:
           <>
             <ReactIcon />
@@ -142,7 +142,7 @@ export default ({
         imageSrc:
           `${PortfolioImage4}`,
         title: "BERT Bot",
-        content: "BERT Bot is a web app that allows users to answers questions based on the given text",
+        content: "BERT Bot is an AI-powered web app that allows users to explore Natural Language Processing by inputting questions and receiving answers ranked with confidence level based on the context of a given passage of text.",
         techIcons:
           <>
             <ReactIcon />
