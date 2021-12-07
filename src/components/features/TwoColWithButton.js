@@ -53,7 +53,7 @@ export default ({
   ),
   description = (
     <>
-      I come from a diverse background of career experience while working as a freelancer. My current focus is to effect positive change in the world with a career in tech. I'm passionate about mental health, education as a right, and <Link href="https://www.effectivealtruism.org/">effective altruism.</Link> I'm also a big fan of <Link href="https://www.chess.com/member/wilgerard">chess,</Link> yoga, meditation, and my cat Lou.
+      I come from a diverse background of career experience while working as a freelancer. My current focus is to effect positive change in the world with a career in tech. I'm passionate about mental health awareness, education as a right, and <Link href="https://www.effectivealtruism.org/">effective altruism.</Link> I'm also a big fan of <Link href="https://www.chess.com/member/wilgerard">chess,</Link> yoga, meditation, and my cat Lou.
       <br/>
       <br/>
       I offer a versatile skill-set, including full-stack web development, software engineering, graphic design, and photography. My coding stack is React, Node, Express, and MongoDB, but I love to learn! Currently open to new job opportunities and always open to new connections.
