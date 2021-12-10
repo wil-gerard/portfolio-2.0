@@ -79,7 +79,7 @@ export default () => {
               <span>Hi, I'm Wil</span>
             </Heading>
             <Subheading>
-              JavaScript Developer | Graphic Designer | Photographer
+              JavaScript Developer | Designer | Photographer
             </Subheading>
             <SocialLinksContainer>
               <SocialLink href="https://linkedin.com/in/wilgerard/">
