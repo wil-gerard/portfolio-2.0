@@ -96,7 +96,7 @@ export default ({
         imageSrc:
           `${PortfolioImage1}`,
         title: "Avenues Recovery",
-        content: "A fully-responsive website with custom-created content: including logo design and photography for Avenues Recovery outpatient clinic in St. Paul, MN.",
+        content: "I'm currently working with Avenues Recovery, an outpatient clinic in St. Paul, MN, to design a fully-responsive website with a custom logo and photography.",
         techIcons:
           <>
             <HtmlIcon />
@@ -111,7 +111,7 @@ export default ({
         imageSrc:
           `${PortfolioImage2}`,
         title: "Foci MCGA",
-        content: "Working with the executive director, I assisted with web design, graphics, photography, and copywriting for the Minnesota Center for Glass Arts.",
+        content: "I assisted with web design, development, graphics, photography, and copywriting for the Minnesota Center for Glass Arts. Projects included designing their strategic plan for 2020-2022 and creating marketing assets for a successful $50k capital campaign.",
         techIcons:
           <>
             <HtmlIcon />
@@ -264,7 +264,7 @@ export default ({
                 </CardPhotographyContainer>
             )) : tabs[tabKey].map((card, index) => (
               <CardContainer key={index}>
-                <Card className="group" href={card.url} initial="rest" whileHover="hover" animate="rest">
+                <Card className="group" href={card.url} target="_blank" rel="noreferrer noopener" initial="rest" whileHover="hover" animate="rest">
                   <CardImageContainer imageSrc={card.imageSrc}>
 
                     <CardHoverOverlay

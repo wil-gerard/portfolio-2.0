@@ -2,6 +2,9 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
+import { ReactComponent as LinkedinIcon } from "../../images/linkedin-icon.svg";
+import { ReactComponent as GithubIcon } from "../../images/github-icon.svg";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import {ReactComponent as SvgDotPatternIcon} from "../../images/dot-pattern.svg"
 
@@ -25,6 +28,14 @@ const FormContainer = styled.div`
   }
 `;
 
+const SocialLinksContainer = tw.div`mt-6 `;
+const SocialLink = styled.a`
+  ${tw`cursor-pointer inline-block p-2 rounded-full bg-gray-100 text-primary-500 hocus:bg-gray-400 transition duration-300 m-2 lg:mr-4 lg:mb-0 lg:mt-0 lg:ml-0`}
+  svg {
+    ${tw`w-6 h-6`}
+  }
+`;
+
 const TwoColumn = tw.div`flex flex-col sm:flex-row justify-between`;
 const Column = tw.div`sm:w-5/12 flex flex-col`;
 const InputContainer = tw.div`relative py-5 mt-6`;
@@ -42,6 +53,17 @@ export default () => {
         <FormContainer>
           <div tw="mx-auto max-w-4xl">
             <h2>Contact Me</h2>
+            <SocialLinksContainer>
+              <SocialLink href="https://linkedin.com/in/wilgerard/">
+                <LinkedinIcon />
+              </SocialLink>
+              <SocialLink href="https://github.com/wil-gerard">
+                <GithubIcon />
+              </SocialLink>
+              <SocialLink href="https://twitter.com/wil_gerard">
+                <TwitterIcon />
+              </SocialLink>
+            </SocialLinksContainer>
             <form method="POST" action="https://formspree.io/f/xgerkqlv">
               <TwoColumn>
                 <Column>

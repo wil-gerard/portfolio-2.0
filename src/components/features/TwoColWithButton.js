@@ -4,7 +4,6 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings.js";
-import { PrimaryLink as Link } from "components/misc/Links";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import ProfilePic from "images/profile-pic.png";
 import Resume from "images/resume/william-gerard-resume.pdf";
@@ -16,7 +15,7 @@ import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
-const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 relative`;
+const ImageColumn = tw(Column)`md:w-4/12 flex-shrink-0 relative`;
 const TextColumn = styled(Column)(props => [
   tw`md:w-6/12 mt-16 md:mt-0`,
   props.textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`
@@ -53,12 +52,11 @@ export default ({
   ),
   description = (
     <>
-      I come from a diverse background of career experience while working as a freelancer. My current focus is to effect positive change in the world with a career in tech. I'm passionate about mental health awareness, education as a right, and <Link href="https://www.effectivealtruism.org/">effective altruism.</Link> I'm also a big fan of <Link href="https://www.chess.com/member/wilgerard">chess,</Link> yoga, meditation, and my cat Lou.
+      I offer a versatile skill-set, including JavaScript development, graphic design, and photography. My coding stack is React, Node, Express, and MongoDB, but I'm open-minded and excited to learn something new every day. 
       <br/>
       <br/>
-      I offer a versatile skill-set, including full-stack web development, software engineering, graphic design, and photography. My coding stack is React, Node, Express, and MongoDB, but I love to learn! Currently open to new job opportunities and always open to new connections.
+      I love connecting with others and helping their ideas come to life through design and code. When I'm not working, you can find me playing chess, reading a book with my cat Lou, or making electronic music.
     </>
-    
   ),
   primaryButtonText = "Learn More",
   primaryButtonUrl = "https://timerse.com",
