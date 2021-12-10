@@ -96,7 +96,7 @@ export default ({
         imageSrc:
           `${PortfolioImage1}`,
         title: "Avenues Recovery",
-        content: "I'm currently working with Avenues Recovery, an outpatient clinic in St. Paul, MN, to design a fully-responsive website with a custom logo and photography.",
+        content: "Working with specifications from the director at Avenues Recovery - I redesigned and developed a responsive website with custom-created assets, including logo design, photography, and copywriting.",
         techIcons:
           <>
             <HtmlIcon />
@@ -111,7 +111,7 @@ export default ({
         imageSrc:
           `${PortfolioImage2}`,
         title: "Foci MCGA",
-        content: "I assisted with web design, development, graphics, photography, and copywriting for the Minnesota Center for Glass Arts. Projects included designing their strategic plan for 2020-2022 and creating marketing assets for a successful $50k capital campaign.",
+        content: "I assisted with web design, development, graphics, photography, and copywriting for the Minnesota Center for Glass Arts. Key projects include designing their strategic plan for 2020-2022 and creating marketing assets for a successful $50k capital campaign.",
         techIcons:
           <>
             <HtmlIcon />
