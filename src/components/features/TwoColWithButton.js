@@ -52,7 +52,7 @@ export default ({
   ),
   description = (
     <>
-      I offer a versatile skill-set, including JavaScript development, design, and photography. My coding stack is React, Node, Express, and MongoDB, but I'm open-minded and excited to learn something new every day. 
+      I offer a versatile skill-set, including web development, software engineering, design, and photography. My coding stack is React, Node, Express, and MongoDB, but I'm open-minded and excited to learn something new every day. 
       <br/>
       <br/>
       I love connecting with others and helping their ideas come to life through design and code. When I'm not working, you can find me playing chess, reading a book with my cat Lou, or making electronic music.

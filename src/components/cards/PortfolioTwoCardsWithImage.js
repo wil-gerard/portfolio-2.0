@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -77,6 +78,24 @@ export default ({
       title: "Personalized Ad Campaign using Google AdWords",
       durationText: "90 Days Campaign",
       locationText: "New York"
+    },
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1573165231977-3f0e27806045?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
+      company: "Nestle",
+      type: "SEO Marketing",
+      title: "Ranking #1 for keywords like Chocolate, Snack",
+      durationText: "180 Day Campaign",
+      locationText: "Palo Alto"
+    },
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1573165231977-3f0e27806045?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
+      company: "Nestle",
+      type: "SEO Marketing",
+      title: "Ranking #1 for keywords like Chocolate, Snack",
+      durationText: "180 Day Campaign",
+      locationText: "Palo Alto"
     },
     {
       imageSrc:
