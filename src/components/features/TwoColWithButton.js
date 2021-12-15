@@ -22,7 +22,7 @@ const TextColumn = styled(Column)(props => [
 ]);
 
 const Image = styled.img(props => [
-  props.imageRounded && tw`rounded`,
+  props.imageRounded && tw`rounded-full`,
   props.imageBorder && tw`border`,
   props.imageShadow && tw`shadow`,
 ]);
@@ -63,8 +63,8 @@ export default ({
   imageSrc = ProfilePic,
   buttonRounded = true,
   imageRounded = true,
-  imageBorder = false,
-  imageShadow = false,
+  imageBorder = true,
+  imageShadow = true,
   imageCss = null,
   imageDecoratorBlob = true,
   imageDecoratorBlobCss = null,
