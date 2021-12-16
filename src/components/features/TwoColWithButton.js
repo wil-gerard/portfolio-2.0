@@ -52,10 +52,10 @@ export default ({
   ),
   description = (
     <>
-      I offer a versatile skill-set, including full-stack JavaScript development, software engineering, design, and photography. My main coding stack is React, Node, Express, and MongoDB. For design, I use Adobe software and Figma. I'm always open to expanding my horizons and finding the right tool for the job.
+      I offer a versatile skill-set, including full-stack JavaScript development, software engineering, design, and photography. My main coding stack is React, Node, Express, and MongoDB. For design, I use Adobe software and Figma. I'm grateful for the opportunity to connect with others, help their ideas come to life, and learn something new every day - Feel free to reach out!
       <br />
       <br />
-      I love what I do and am grateful to connect with people and help their ideas come to life. I'm an active reader and appreciate learning something new every day. When I'm not working, you can find me playing chess, hanging out with my cat Lou, or making music.
+      When I'm not working, you can find me playing chess, learning Spanish on Duolingo, hanging out with my cat Lou, or making music.
     </>
   ),
   primaryButtonText = "Learn More",
