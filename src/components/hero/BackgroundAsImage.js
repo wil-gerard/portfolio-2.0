@@ -9,17 +9,6 @@ import { ReactComponent as LinkedinIcon } from "../../images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "../../images/github-icon.svg";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
-// import Header, { NavLink, NavLinks, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
-
-// const StyledHeader = styled(Header)`
-//   ${tw`pt-8 max-w-none`}
-//   ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
-//     ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
-//   }
-//   ${NavToggle}.closed {
-//     ${tw`text-gray-100 hover:text-primary-500`}
-//   }
-// `;
 
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover`}
@@ -50,22 +39,8 @@ const Heading = styled.h1`
 
 const Notification = tw.span`inline-block my-4 pl-3 py-1 text-gray-100 border-l-4 border-blue-500 font-medium text-sm`;
 
-// const PrimaryAction = tw.button`px-8 py-3 mt-5 text-sm sm:text-base sm:mt-8 sm:px-8 sm:py-4 bg-gray-100 text-primary-500 font-bold rounded shadow transition duration-300 hocus:bg-primary-500 hocus:text-gray-100 focus:shadow-outline`;
 
 export default () => {
-  // const navLinks = [
-  //   <NavLinks key={1}>
-  //     <NavLink href="#">
-  //       About
-  //     </NavLink>
-  //     <NavLink href="#">
-  //       Portfolio
-  //     </NavLink>
-  //     <NavLink href="#">
-  //       Contact
-  //     </NavLink>
-  //   </NavLinks>,
-  // ];
 
   return (
     <Container>
@@ -79,7 +54,7 @@ export default () => {
               <span>Hi, I'm Wil</span>
             </Heading>
             <Subheading>
-              JavaScript Developer | Designer | Photographer
+              Software Engineer | Designer | Photographer
             </Subheading>
             <SocialLinksContainer>
               <SocialLink href="https://linkedin.com/in/wilgerard/">
