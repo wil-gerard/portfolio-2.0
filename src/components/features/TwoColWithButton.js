@@ -52,7 +52,7 @@ export default ({
   ),
   description = (
     <>
-      I offer a versatile skill-set, including full-stack web development, software engineering, design, and photography. My main coding stack is React, Node, Express, and MongoDB. For design, I use Adobe software and Figma. I'm grateful for the opportunity to connect with others, help their ideas come to life, and learn something new every day - Feel free to reach out!
+      I offer a versatile skill-set that includes full-stack web development, software engineering, design, and photography. My main coding stack is React, Node, Express, and MongoDB. For design, I use Adobe software and Figma. I'm grateful for any opportunity to connect with others, help ideas come to life, and continually expand my horizons.
       <br />
       <br />
       When I'm not working, you can find me playing chess, learning Spanish on Duolingo, hanging out with my cat Lou, or making music.
