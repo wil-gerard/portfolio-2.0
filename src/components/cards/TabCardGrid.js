@@ -93,7 +93,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 export default ({
   heading = "Portfolio",
   tabs = {
-    Development: [
+    "Development + Design": [
       {
         imageSrc:
           `${AvenuesRecovery}`,
