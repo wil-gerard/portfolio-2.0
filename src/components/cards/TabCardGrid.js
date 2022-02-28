@@ -7,10 +7,11 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import PortfolioImage1 from "images/portfolio/avenues-recovery.png";
-import PortfolioImage2 from "images/portfolio/foci.jpg";
-import PortfolioImage3 from "images/portfolio/react-runner.png";
-import PortfolioImage4 from "images/portfolio/bert-bot.png";
+import AvenuesRecovery from "images/portfolio/avenues-recovery.png";
+import Foci from "images/portfolio/foci.jpg";
+import ReactRunner from "images/portfolio/react-runner.png";
+import DevLocator from "images/portfolio/dev-locator.png";
+import BertBot from "images/portfolio/bert-bot.png";
 import PhotographyImage1 from "images/portfolio/photography-1.jpg";
 import PhotographyImage2 from "images/portfolio/photography-2.jpg";
 import PhotographyImage3 from "images/portfolio/photography-3.jpg";
@@ -23,12 +24,13 @@ import { ReactComponent as JsIcon } from "images/tech/javascript.svg"
 import { ReactComponent as ReactIcon } from "images/tech/react.svg"
 import { ReactComponent as SassIcon } from "images/tech/sass.svg"
 import { ReactComponent as NodeJsIcon } from "images/tech/nodejs-icon.svg"
-// import { ReactComponent as TailwindIcon } from "images/tech/tailwindcss-icon.svg"
+import { ReactComponent as TailwindIcon } from "images/tech/tailwindcss.svg"
 import { ReactComponent as MaterialUiIcon } from "images/tech/material-ui.svg"
 import { ReactComponent as TensorflowIcon } from "images/tech/tensorflow.svg"
 import { ReactComponent as GitIcon } from "images/tech/git-icon.svg"
 import { ReactComponent as GitHubIcon } from "images/tech/github-icon.svg"
 import { ReactComponent as NetlifyIcon } from "images/tech/netlify.svg"
+import { ReactComponent as TypeScriptIcon } from "images/tech/typescript.svg"
 // import { ReactComponent as HerokuIcon } from "images/tech/heroku-icon.svg"
 import { ReactComponent as SquarespaceIcon } from "images/tech/squarespace.svg"
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
@@ -94,7 +96,7 @@ export default ({
     Development: [
       {
         imageSrc:
-          `${PortfolioImage1}`,
+          `${AvenuesRecovery}`,
         title: "Avenues Recovery",
         content: "Working with specifications from the director at Avenues Recovery - I redesigned and developed a responsive website with custom-created assets, including logo design, photography, and copywriting.",
         techIcons:
@@ -109,7 +111,7 @@ export default ({
       },
       {
         imageSrc:
-          `${PortfolioImage2}`,
+          `${Foci}`,
         title: "Foci MCGA",
         content: "I assisted with web design, development, graphics, photography, and copywriting for the Minnesota Center for Glass Arts. Key projects include designing their strategic plan for 2020-2022 and creating marketing assets for a successful $50k capital campaign.",
         techIcons:
@@ -122,7 +124,23 @@ export default ({
       },
       {
         imageSrc:
-          `${PortfolioImage3}`,
+          `${DevLocator}`,
+        title: "Dev Locator",
+        content: "Dev Locator allows users to easily find and connect with fellow devs by location using GitHub's search API",
+        techIcons:
+          <>
+            <TypeScriptIcon />
+            <ReactIcon />
+            <TailwindIcon />
+            <GitIcon />
+            <GitHubIcon />
+            <NetlifyIcon />
+          </>,
+        url: "https://dev-locator.netlify.app/"
+      },
+      {
+        imageSrc:
+          `${ReactRunner}`,
         title: "React Runner",
         content: "React Runner is a 2D side-scroller game with voice commands and a collaborative project built within a week using React, Node, and Tensorflow.js, for the August 2021 Mintbean Hackathon.",
         techIcons:
@@ -139,7 +157,7 @@ export default ({
       },
       {
         imageSrc:
-          `${PortfolioImage4}`,
+          `${BertBot}`,
         title: "BERT Bot",
         content: "BERT Bot is an AI-powered web app that allows users to explore Natural Language Processing by inputting questions and receiving answers ranked with confidence level based on the context of a given passage of text.",
         techIcons:
