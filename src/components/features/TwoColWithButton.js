@@ -6,7 +6,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import ProfilePic from "images/profile-pic.png";
-import Resume from "images/resume/wil-gerard-resume.pdf";
+import Resume from "images/resume/william-gerard-resume.pdf";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 // import { PrimaryLink } from "components/headers/light";
 
@@ -55,7 +55,7 @@ export default ({
       I offer a versatile skill-set that includes full-stack web development, software engineering, design, and photography. My main coding stack is React, Node, Express, and MongoDB. For design, I use Adobe software and Figma. I'm grateful for any opportunity to connect with others, help ideas come to life, and continually expand my horizons.
       <br />
       <br />
-      When I'm not working, you can find me playing chess, learning Spanish on Duolingo, hanging out with my cat Lou, or making music.
+      When I'm not working, you can find me playing chess, hanging out with my cat Lou, or climbing at the bouldering gym.
     </>
   ),
   primaryButtonText = "Learn More",

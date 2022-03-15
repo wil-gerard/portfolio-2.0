@@ -69,22 +69,38 @@ export default () => {
                 <Column>
                   <InputContainer>
                     <Label htmlFor="name-input">Your Name</Label>
-                    <Input id="name-input" type="text" name="name" placeholder="E.g. Jane Doe" />
+                    <Input
+                      id="name-input"
+                      type="text"
+                      name="name"
+                      placeholder="E.g. Jean-Luc Picard"
+                    />
                   </InputContainer>
                   <InputContainer>
                     <Label htmlFor="email-input">Your Email Address</Label>
-                    <Input id="email-input" type="email" name="email" placeholder="E.g. jane@mail.com" />
+                    <Input
+                      id="email-input"
+                      type="email"
+                      name="email"
+                      placeholder="E.g. jean-luc-picard@mail.com"
+                    />
                   </InputContainer>
                 </Column>
                 <Column>
                   <InputContainer tw="flex-1">
                     <Label htmlFor="name-input">Your Message</Label>
-                    <TextArea id="message-input" name="message" placeholder="Details about your company or project"/>
+                    <TextArea
+                      id="message-input"
+                      name="message"
+                      placeholder="Details about your company or project"
+                    />
                   </InputContainer>
                 </Column>
               </TwoColumn>
 
-              <SubmitButton type="submit" value="Submit">Submit</SubmitButton>
+              <SubmitButton type="submit" value="Submit">
+                Submit
+              </SubmitButton>
             </form>
           </div>
           <SvgDotPattern1 />

@@ -54,7 +54,7 @@ export default () => {
               <span>Hi, I'm Wil</span>
             </Heading>
             <Subheading>
-              Software Engineer | Designer | Photographer
+              Software Engineer | Full-stack Developer | Designer | Photographer
             </Subheading>
             <SocialLinksContainer>
               <SocialLink href="https://linkedin.com/in/wilgerard/">
