@@ -12,6 +12,7 @@ import Foci from "images/portfolio/foci.jpg";
 import ReactRunner from "images/portfolio/react-runner.png";
 import DevLocator from "images/portfolio/dev-locator.png";
 import BertBot from "images/portfolio/bert-bot.png";
+import GitConnected from "images/portfolio/git-connected.png";
 import PhotographyImage1 from "images/portfolio/photography-1.jpg";
 import PhotographyImage2 from "images/portfolio/photography-2.jpg";
 import PhotographyImage3 from "images/portfolio/photography-3.jpg";
@@ -19,20 +20,22 @@ import PhotographyImage4 from "images/portfolio/photography-4.jpg";
 import PhotographyImage5 from "images/portfolio/photography-5.jpg";
 import PhotographyImage6 from "images/portfolio/photography-6.jpg";
 import { ReactComponent as HtmlIcon } from "images/tech/html-5.svg";
-import { ReactComponent as CssIcon } from "images/tech/css-3.svg"
-import { ReactComponent as JsIcon } from "images/tech/javascript.svg"
-import { ReactComponent as ReactIcon } from "images/tech/react.svg"
-import { ReactComponent as SassIcon } from "images/tech/sass.svg"
-import { ReactComponent as NodeJsIcon } from "images/tech/nodejs-icon.svg"
-import { ReactComponent as TailwindIcon } from "images/tech/tailwindcss.svg"
-import { ReactComponent as MaterialUiIcon } from "images/tech/material-ui.svg"
-import { ReactComponent as TensorflowIcon } from "images/tech/tensorflow.svg"
-import { ReactComponent as GitIcon } from "images/tech/git-icon.svg"
-import { ReactComponent as GitHubIcon } from "images/tech/github-icon.svg"
-import { ReactComponent as NetlifyIcon } from "images/tech/netlify.svg"
-import { ReactComponent as TypeScriptIcon } from "images/tech/typescript.svg"
-// import { ReactComponent as HerokuIcon } from "images/tech/heroku-icon.svg"
-import { ReactComponent as SquarespaceIcon } from "images/tech/squarespace.svg"
+import { ReactComponent as CssIcon } from "images/tech/css-3.svg";
+import { ReactComponent as JsIcon } from "images/tech/javascript.svg";
+import { ReactComponent as ReactIcon } from "images/tech/react.svg";
+import { ReactComponent as SassIcon } from "images/tech/sass.svg";
+import { ReactComponent as NodeJsIcon } from "images/tech/nodejs-icon.svg";
+import { ReactComponent as TailwindIcon } from "images/tech/tailwindcss.svg";
+import { ReactComponent as MaterialUiIcon } from "images/tech/material-ui.svg";
+import { ReactComponent as TensorflowIcon } from "images/tech/tensorflow.svg";
+import { ReactComponent as GitIcon } from "images/tech/git-icon.svg";
+import { ReactComponent as GitHubIcon } from "images/tech/github-icon.svg";
+import { ReactComponent as NetlifyIcon } from "images/tech/netlify.svg";
+import { ReactComponent as TypeScriptIcon } from "images/tech/typescript.svg";
+import { ReactComponent as HerokuIcon } from "images/tech/heroku-icon.svg"
+import { ReactComponent as MongoDbIcon } from "images/tech/mongodb.svg";
+import { ReactComponent as ExpressJsIcon } from "images/tech/expressjs.svg";
+import { ReactComponent as SquarespaceIcon } from "images/tech/squarespace.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 
@@ -45,24 +48,33 @@ const TabControl = styled.div`
   &:hover {
     ${tw`bg-gray-300 text-gray-700`}
   }
-  ${props => props.active && tw`bg-primary-500! text-gray-100!`}
+  ${(props) => props.active && tw`bg-primary-500! text-gray-100!`}
   }
 `;
 
-const TabContent = tw(motion.div)`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
+const TabContent = tw(
+  motion.div
+)`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
 const CardContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/3`;
-const Card = tw(motion.a)`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
+const Card = tw(
+  motion.a
+)`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
 const CardImageContainer = styled.div`
-  ${props => css`background-image: url("${props.imageSrc}");`}
+  ${(props) =>
+    css`
+      background-image: url("${props.imageSrc}");
+    `}
   ${tw`h-56 xl:h-64 bg-center bg-cover relative rounded-t`}
 `;
 
 const CardPhotographyContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/2`;
 const CardPhotographyImageContainer = styled.div`
-  ${props => css`background-image: url("${props.imageSrc}");`}
+  ${(props) =>
+    css`
+      background-image: url("${props.imageSrc}");
+    `}
   ${tw`h-56 xl:h-96 bg-center bg-cover relative rounded-t`}
 `;
-
 
 const CardTechIcons = styled.div`
   ${tw`flex flex-row justify-start mt-2`}
@@ -71,7 +83,7 @@ const CardTechIcons = styled.div`
   }
 `;
 
-const TechUsed = tw.h6`text-sm font-medium mt-2`
+const TechUsed = tw.h6`text-sm font-medium mt-2`;
 
 const CardHoverOverlay = styled(motion.div)`
   background-color: rgba(255, 255, 255, 0.5);
@@ -95,39 +107,47 @@ export default ({
   tabs = {
     "Development + Design": [
       {
-        imageSrc:
-          `${AvenuesRecovery}`,
+        imageSrc: `${GitConnected}`,
+        title: "Git Connected",
+        content: `I maintain and develop Git Connected: an open-source project that helps early-career software engineers collaborate and quickly build a supportive social network.
+`,
+        techIcons: (
+          <>
+            <TypeScriptIcon />
+            <ReactIcon />
+            <NodeJsIcon />
+            <MongoDbIcon />
+            <ExpressJsIcon />
+            <TailwindIcon />
+            <GitIcon />
+            <GitHubIcon />
+            <HerokuIcon />
+          </>
+        ),
+        url: "https://git-connected.herokuapp.com/",
+      },
+      {
+        imageSrc: `${AvenuesRecovery}`,
         title: "Avenues Recovery",
-        content: "Working with specifications from the director at Avenues Recovery - I redesigned and developed a responsive website with custom-created assets, including logo design, photography, and copywriting.",
-        techIcons:
+        content:
+          "Redesigned and developed a responsive website with custom-created assets, including logo design, photography, and copywriting. For Avenues Recovery, an outpatient and co-occurring disorders clinic in St. Paul, Minnesota.",
+        techIcons: (
           <>
             <HtmlIcon />
             <CssIcon />
             <JsIcon />
             <GitIcon />
             <GitHubIcon />
-          </>,
-        url: "https://avenuesrecovery.org/"
+          </>
+        ),
+        url: "https://avenuesrecovery.org/",
       },
       {
-        imageSrc:
-          `${Foci}`,
-        title: "Foci MCGA",
-        content: "I assisted with web design, development, graphics, photography, and copywriting for the Minnesota Center for Glass Arts. Key projects include designing their strategic plan for 2020-2022 and creating marketing assets for a successful $50k capital campaign.",
-        techIcons:
-          <>
-            <HtmlIcon />
-            <CssIcon />
-            <SquarespaceIcon />
-          </>,
-        url: "https://www.mnglassart.org/strategic-plan"
-      },
-      {
-        imageSrc:
-          `${DevLocator}`,
+        imageSrc: `${DevLocator}`,
         title: "Dev Locator",
-        content: "Dev Locator allows users to easily find and connect with fellow devs by location using GitHub's search API",
-        techIcons:
+        content:
+          "Dev Locator allows users to easily find and connect with fellow devs by location using GitHub's search API",
+        techIcons: (
           <>
             <TypeScriptIcon />
             <ReactIcon />
@@ -135,15 +155,31 @@ export default ({
             <GitIcon />
             <GitHubIcon />
             <NetlifyIcon />
-          </>,
-        url: "https://dev-locator.netlify.app/"
+          </>
+        ),
+        url: "https://dev-locator.netlify.app/",
       },
       {
-        imageSrc:
-          `${ReactRunner}`,
+        imageSrc: `${Foci}`,
+        title: "Foci MCGA",
+        content:
+          "I assisted with web design, development, graphics, photography, and copywriting for the Minnesota Center for Glass Arts. Key projects include designing their strategic plan for 2020-2022 and creating marketing assets for a successful $50k capital campaign.",
+        techIcons: (
+          <>
+            <HtmlIcon />
+            <CssIcon />
+            <SquarespaceIcon />
+          </>
+        ),
+        url: "https://www.mnglassart.org/strategic-plan",
+      },
+
+      {
+        imageSrc: `${ReactRunner}`,
         title: "React Runner",
-        content: "React Runner is a 2D side-scroller game with voice commands and a collaborative project built within a week using React, Node, and Tensorflow.js, for the August 2021 Mintbean Hackathon.",
-        techIcons:
+        content:
+          "React Runner is a 2D side-scroller game with voice commands and a collaborative project built within a week using React, Node, and Tensorflow.js, for the August 2021 Mintbean Hackathon.",
+        techIcons: (
           <>
             <ReactIcon />
             <NodeJsIcon />
@@ -152,15 +188,16 @@ export default ({
             <GitIcon />
             <GitHubIcon />
             <NetlifyIcon />
-          </>,
-        url: "https://react-runner.netlify.app/"
+          </>
+        ),
+        url: "https://react-runner.netlify.app/",
       },
       {
-        imageSrc:
-          `${BertBot}`,
+        imageSrc: `${BertBot}`,
         title: "BERT Bot",
-        content: "BERT Bot is an AI-powered web app that allows users to explore Natural Language Processing by inputting questions and receiving answers ranked with confidence level based on the context of a given passage of text.",
-        techIcons:
+        content:
+          "BERT Bot is an AI-powered web app that allows users to explore Natural Language Processing by inputting questions and receiving answers ranked with confidence level based on the context of a given passage of text.",
+        techIcons: (
           <>
             <ReactIcon />
             <NodeJsIcon />
@@ -168,49 +205,45 @@ export default ({
             <GitIcon />
             <GitHubIcon />
             <NetlifyIcon />
-          </>,
-        url: "https://bert-bot.netlify.app/"
+            <TensorflowIcon />
+          </>
+        ),
+        url: "https://bert-bot.netlify.app/",
       },
     ],
     Photography: [
       {
-        imageSrc:
-          `${PhotographyImage1}`,
+        imageSrc: `${PhotographyImage1}`,
         title: "Casa Pancha",
         content: "Mexico City, Mexico",
       },
       {
-        imageSrc:
-          `${PhotographyImage2}`,
+        imageSrc: `${PhotographyImage2}`,
         title: "Foci MCGA",
         content: "Minneapolis, Minnesota",
       },
       {
-        imageSrc:
-          `${PhotographyImage3}`,
+        imageSrc: `${PhotographyImage3}`,
         title: "Untitled",
         content: "Minneapolis, Minnesota",
       },
       {
-        imageSrc:
-          `${PhotographyImage4}`,
+        imageSrc: `${PhotographyImage4}`,
         title: "Casa Pancha",
         content: "Mexico City, Mexico",
       },
       {
-        imageSrc:
-          `${PhotographyImage5}`,
+        imageSrc: `${PhotographyImage5}`,
         title: "Tianguis Cultural de Chopo",
         content: "Mexico City, Mexico",
       },
       {
-        imageSrc:
-          `${PhotographyImage6}`,
+        imageSrc: `${PhotographyImage6}`,
         title: "Casa Pancha",
         content: "Mexico City, Mexico",
       },
     ],
-  }
+  },
 }) => {
   /*
    * To customize the tabs, pass in data using the `tabs` prop. It should be an object which contains the name of the tab
@@ -227,7 +260,11 @@ export default ({
           <Header>{heading}</Header>
           <TabsControl>
             {Object.keys(tabs).map((tabName, index) => (
-              <TabControl key={index} active={activeTab === tabName} onClick={() => setActiveTab(tabName)}>
+              <TabControl
+                key={index}
+                active={activeTab === tabName}
+                onClick={() => setActiveTab(tabName)}
+              >
                 {tabName}
               </TabControl>
             ))}
@@ -247,78 +284,91 @@ export default ({
                 opacity: 0,
                 scale: 0.8,
                 display: "none",
-              }
+              },
             }}
             transition={{ duration: 0.4 }}
             initial={activeTab === tabKey ? "current" : "hidden"}
             animate={activeTab === tabKey ? "current" : "hidden"}
           >
             {/* gallery conditional render logic based on tab name*/}
-            {activeTab === "Photography" ? tabs[tabKey].map((card, index) => (
-                <CardPhotographyContainer key={index}>
-                  <Card className="group" href={card.url} initial="rest" whileHover="hover" animate="rest">
-                    <CardPhotographyImageContainer imageSrc={card.imageSrc}>
-
-                      <CardHoverOverlay
-                        variants={{
-                          hover: {
-                            opacity: 0,
-                            height: "auto"
-                          },
-                          rest: {
-                            opacity: 0,
-                            height: 0
-                          }
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                      </CardHoverOverlay>
-                    </CardPhotographyImageContainer>
-                    <CardText>
-                      <CardTitle>{card.title}</CardTitle>
-                      <CardContent>{card.content}</CardContent>
-                    </CardText>
-                  </Card>
-                </CardPhotographyContainer>
-            )) : tabs[tabKey].map((card, index) => (
-              <CardContainer key={index}>
-                <Card className="group" href={card.url} target="_blank" rel="noreferrer noopener" initial="rest" whileHover="hover" animate="rest">
-                  <CardImageContainer imageSrc={card.imageSrc}>
-
-                    <CardHoverOverlay
-                      variants={{
-                        hover: {
-                          opacity: 1,
-                          height: "auto"
-                        },
-                        rest: {
-                          opacity: 0,
-                          height: 0
-                        }
-                      }}
-                      transition={{ duration: 0.3 }}
+            {activeTab === "Photography"
+              ? tabs[tabKey].map((card, index) => (
+                  <CardPhotographyContainer key={index}>
+                    <Card
+                      className="group"
+                      href={card.url}
+                      initial="rest"
+                      whileHover="hover"
+                      animate="rest"
                     >
-                      <CardButton>Check it out</CardButton>
-                    </CardHoverOverlay>
-                  </CardImageContainer>
-                  <CardText>
-                    <CardTitle>{card.title}</CardTitle>
-                    <CardContent>{card.content}</CardContent>
-                    {card.techIcons == null ? null :
-                      <>
-                        <TechUsed>Tech used: </TechUsed>
-                        <CardTechIcons>{card.techIcons}</CardTechIcons>
-                      </>
-                    }
-                  </CardText>
-                </Card>
-              </CardContainer>
-            ))}
+                      <CardPhotographyImageContainer imageSrc={card.imageSrc}>
+                        <CardHoverOverlay
+                          variants={{
+                            hover: {
+                              opacity: 0,
+                              height: "auto",
+                            },
+                            rest: {
+                              opacity: 0,
+                              height: 0,
+                            },
+                          }}
+                          transition={{ duration: 0.3 }}
+                        ></CardHoverOverlay>
+                      </CardPhotographyImageContainer>
+                      <CardText>
+                        <CardTitle>{card.title}</CardTitle>
+                        <CardContent>{card.content}</CardContent>
+                      </CardText>
+                    </Card>
+                  </CardPhotographyContainer>
+                ))
+              : tabs[tabKey].map((card, index) => (
+                  <CardContainer key={index}>
+                    <Card
+                      className="group"
+                      href={card.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      initial="rest"
+                      whileHover="hover"
+                      animate="rest"
+                    >
+                      <CardImageContainer imageSrc={card.imageSrc}>
+                        <CardHoverOverlay
+                          variants={{
+                            hover: {
+                              opacity: 1,
+                              height: "auto",
+                            },
+                            rest: {
+                              opacity: 0,
+                              height: 0,
+                            },
+                          }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <CardButton>Check it out</CardButton>
+                        </CardHoverOverlay>
+                      </CardImageContainer>
+                      <CardText>
+                        <CardTitle>{card.title}</CardTitle>
+                        <CardContent>{card.content}</CardContent>
+                        {card.techIcons == null ? null : (
+                          <>
+                            <TechUsed>Tech used: </TechUsed>
+                            <CardTechIcons>{card.techIcons}</CardTechIcons>
+                          </>
+                        )}
+                      </CardText>
+                    </Card>
+                  </CardContainer>
+                ))}
           </TabContent>
         ))}
       </ContentWithPaddingXl>
       <DecoratorBlob1 />
       <DecoratorBlob2 />
-    </Container >
+    </Container>
   );
 };
