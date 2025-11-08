@@ -23,7 +23,10 @@ const LeftColumn = tw.div`flex flex-col items-center lg:block`;
 // const RightColumn = tw.div`w-full sm:w-5/6 lg:w-1/2 mt-16 lg:mt-0 lg:pl-8`;
 
 const SocialLinksContainer = tw.div`mt-6 `;
-const SocialLink = styled.a`
+const SocialLink = styled.a.attrs({
+  target: "_blank",
+  rel: "noopener noreferrer"
+})`
   ${tw`cursor-pointer inline-block p-2 rounded-full bg-gray-100 text-primary-500 hocus:bg-primary-800 hocus:text-gray-100 transition duration-300 m-2 lg:mr-4 lg:mb-0 lg:mt-0 lg:ml-0`}
   svg {
     ${tw`w-6 h-6`}

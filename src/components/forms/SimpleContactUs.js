@@ -29,8 +29,11 @@ const FormContainer = styled.div`
 `;
 
 const SocialLinksContainer = tw.div`mt-6 `;
-const SocialLink = styled.a`
-  ${tw`cursor-pointer inline-block p-2 rounded-full bg-gray-100 text-primary-500 hocus:bg-gray-400 transition duration-300 m-2 lg:mr-4 lg:mb-0 lg:mt-0 lg:ml-0`}
+const SocialLink = styled.a.attrs({
+  target: "_blank",
+  rel: "noopener noreferrer"
+})`
+  ${tw`cursor-pointer inline-block p-2 rounded-full bg-gray-100 text-primary-500 hocus:bg-primary-800 hocus:text-gray-100 transition duration-300 m-2`}
   svg {
     ${tw`w-6 h-6`}
   }
