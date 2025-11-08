@@ -11,13 +11,13 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 
 
 const Container = styled.div`
-  ${tw`relative -mx-8 -mt-8 bg-center bg-cover`}
+  ${tw`relative -mx-8 -mt-8 bg-center bg-cover min-h-screen`}
   background-image: url(${HeroImage});
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-primary-500 opacity-25`;
 
-const HeroContainer = tw.div`z-20 relative px-4 sm:px-8 max-w-screen-xl h-1/2 mx-auto`;
+const HeroContainer = tw.div`z-20 relative px-4 sm:px-8 max-w-screen-xl min-h-screen flex items-center mx-auto`;
 const TwoColumn = tw.div`pt-32 pb-32 px-4 flex justify-between items-center flex-col lg:flex-row`;
 const LeftColumn = tw.div`flex flex-col items-center lg:block`;
 // const RightColumn = tw.div`w-full sm:w-5/6 lg:w-1/2 mt-16 lg:mt-0 lg:pl-8`;
@@ -46,7 +46,6 @@ export default () => {
     <Container>
       <OpacityOverlay />
       <HeroContainer>
-        {/* <StyledHeader links={navLinks} /> */}
         <TwoColumn>
           <LeftColumn>
             <Notification>Based in Minneapolis, MN</Notification>
@@ -67,7 +66,6 @@ export default () => {
                 <TwitterIcon />
               </SocialLink>
             </SocialLinksContainer>
-            {/* <PrimaryAction>Contact me</PrimaryAction> */}
           </LeftColumn>
         </TwoColumn>
       </HeroContainer>
