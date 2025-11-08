@@ -62,9 +62,6 @@ export default () => {
               <SocialLink href="https://github.com/wil-gerard">
                 <GithubIcon />
               </SocialLink>
-              <SocialLink href="https://twitter.com/wil_gerard">
-                <TwitterIcon />
-              </SocialLink>
             </SocialLinksContainer>
           </LeftColumn>
         </TwoColumn>

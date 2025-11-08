@@ -60,9 +60,6 @@ export default () => {
               <SocialLink href="https://github.com/wil-gerard">
                 <GithubIcon />
               </SocialLink>
-              <SocialLink href="https://twitter.com/wil_gerard">
-                <TwitterIcon />
-              </SocialLink>
             </SocialLinksContainer>
             <form method="POST" action="https://formspree.io/f/xgerkqlv">
               <TwoColumn>
