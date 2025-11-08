@@ -7,8 +7,6 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import AvenuesRecovery from "images/portfolio/avenues-recovery.png";
-import Foci from "images/portfolio/foci.jpg";
 import ReactRunner from "images/portfolio/react-runner.png";
 import DevLocator from "images/portfolio/dev-locator.png";
 import BertBot from "images/portfolio/bert-bot.png";
@@ -19,9 +17,6 @@ import PhotographyImage3 from "images/portfolio/photography-3.jpg";
 import PhotographyImage4 from "images/portfolio/photography-4.jpg";
 import PhotographyImage5 from "images/portfolio/photography-5.jpg";
 import PhotographyImage6 from "images/portfolio/photography-6.jpg";
-import { ReactComponent as HtmlIcon } from "images/tech/html-5.svg";
-import { ReactComponent as CssIcon } from "images/tech/css-3.svg";
-import { ReactComponent as JsIcon } from "images/tech/javascript.svg";
 import { ReactComponent as ReactIcon } from "images/tech/react.svg";
 import { ReactComponent as SassIcon } from "images/tech/sass.svg";
 import { ReactComponent as NodeJsIcon } from "images/tech/nodejs-icon.svg";
@@ -34,8 +29,7 @@ import { ReactComponent as NetlifyIcon } from "images/tech/netlify.svg";
 import { ReactComponent as TypeScriptIcon } from "images/tech/typescript.svg";
 import { ReactComponent as HerokuIcon } from "images/tech/heroku-icon.svg"
 import { ReactComponent as MongoDbIcon } from "images/tech/mongodb.svg";
-import { ReactComponent as ExpressJsIcon } from "images/tech/expressjs.svg";
-import { ReactComponent as SquarespaceIcon } from "images/tech/squarespace.svg";
+import { ReactComponent as ExpressJsIcon } from "images/tech/expressjs.svg"; 
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 
@@ -55,7 +49,6 @@ const TabControl = styled.div`
 const TabContent = tw(
   motion.div
 )`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
-const CardContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/3`;
 const Card = tw(
   motion.a
 )`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
@@ -68,7 +61,7 @@ const CardImageContainer = styled.div`
 `;
 
 const CardPhotographyContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/2`;
-const CardPhotographyImageContainer = styled.div`
+const CardContainer = styled.div`
   ${(props) =>
     css`
       background-image: url("${props.imageSrc}");
@@ -109,7 +102,7 @@ export default ({
       {
         imageSrc: `${GitConnected}`,
         title: "Git Connected",
-        content: `I maintain and develop Git Connected: an open-source project that helps early-career software engineers collaborate and quickly build a supportive social network.
+        content: `I maintained and developed Git Connected: an open-source project that helps early-career software engineers collaborate and quickly build a supportive social network.
 `,
         techIcons: (
           <>
@@ -124,23 +117,7 @@ export default ({
             <HerokuIcon />
           </>
         ),
-        url: "https://git-connected.herokuapp.com/",
-      },
-      {
-        imageSrc: `${AvenuesRecovery}`,
-        title: "Avenues Recovery",
-        content:
-          "Redesigned and developed a responsive website with custom-created assets, including logo design, photography, and copywriting. For Avenues Recovery, an outpatient and co-occurring disorders clinic in St. Paul, Minnesota.",
-        techIcons: (
-          <>
-            <HtmlIcon />
-            <CssIcon />
-            <JsIcon />
-            <GitIcon />
-            <GitHubIcon />
-          </>
-        ),
-        url: "https://avenuesrecovery.org/",
+        url: "https://github.com/wil-gerard/git-connected",
       },
       {
         imageSrc: `${DevLocator}`,
@@ -158,20 +135,6 @@ export default ({
           </>
         ),
         url: "https://dev-locator.netlify.app/",
-      },
-      {
-        imageSrc: `${Foci}`,
-        title: "Foci MCGA",
-        content:
-          "I assisted with web design, development, graphics, photography, and copywriting for the Minnesota Center for Glass Arts. Key projects include designing their strategic plan for 2020-2022 and creating marketing assets for a successful $50k capital campaign.",
-        techIcons: (
-          <>
-            <HtmlIcon />
-            <CssIcon />
-            <SquarespaceIcon />
-          </>
-        ),
-        url: "https://www.mnglassart.org/strategic-plan",
       },
 
       {
@@ -293,77 +256,77 @@ export default ({
             {/* gallery conditional render logic based on tab name*/}
             {activeTab === "Photography"
               ? tabs[tabKey].map((card, index) => (
-                  <CardPhotographyContainer key={index}>
-                    <Card
-                      className="group"
-                      href={card.url}
-                      initial="rest"
-                      whileHover="hover"
-                      animate="rest"
-                    >
-                      <CardPhotographyImageContainer imageSrc={card.imageSrc}>
-                        <CardHoverOverlay
-                          variants={{
-                            hover: {
-                              opacity: 0,
-                              height: "auto",
-                            },
-                            rest: {
-                              opacity: 0,
-                              height: 0,
-                            },
-                          }}
-                          transition={{ duration: 0.3 }}
-                        ></CardHoverOverlay>
-                      </CardPhotographyImageContainer>
-                      <CardText>
-                        <CardTitle>{card.title}</CardTitle>
-                        <CardContent>{card.content}</CardContent>
-                      </CardText>
-                    </Card>
-                  </CardPhotographyContainer>
-                ))
+                <CardPhotographyContainer key={index}>
+                  <Card
+                    className="group"
+                    href={card.url}
+                    initial="rest"
+                    whileHover="hover"
+                    animate="rest"
+                  >
+                    <CardContainer imageSrc={card.imageSrc}>
+                      <CardHoverOverlay
+                        variants={{
+                          hover: {
+                            opacity: 0,
+                            height: "auto",
+                          },
+                          rest: {
+                            opacity: 0,
+                            height: 0,
+                          },
+                        }}
+                        transition={{ duration: 0.3 }}
+                      ></CardHoverOverlay>
+                    </CardContainer>
+                    <CardText>
+                      <CardTitle>{card.title}</CardTitle>
+                      <CardContent>{card.content}</CardContent>
+                    </CardText>
+                  </Card>
+                </CardPhotographyContainer>
+              ))
               : tabs[tabKey].map((card, index) => (
-                  <CardContainer key={index}>
-                    <Card
-                      className="group"
-                      href={card.url}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      initial="rest"
-                      whileHover="hover"
-                      animate="rest"
-                    >
-                      <CardImageContainer imageSrc={card.imageSrc}>
-                        <CardHoverOverlay
-                          variants={{
-                            hover: {
-                              opacity: 1,
-                              height: "auto",
-                            },
-                            rest: {
-                              opacity: 0,
-                              height: 0,
-                            },
-                          }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <CardButton>Check it out</CardButton>
-                        </CardHoverOverlay>
-                      </CardImageContainer>
-                      <CardText>
-                        <CardTitle>{card.title}</CardTitle>
-                        <CardContent>{card.content}</CardContent>
-                        {card.techIcons == null ? null : (
-                          <>
-                            <TechUsed>Tech used: </TechUsed>
-                            <CardTechIcons>{card.techIcons}</CardTechIcons>
-                          </>
-                        )}
-                      </CardText>
-                    </Card>
-                  </CardContainer>
-                ))}
+                <CardPhotographyContainer key={index}>
+                  <Card
+                    className="group"
+                    href={card.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    initial="rest"
+                    whileHover="hover"
+                    animate="rest"
+                  >
+                    <CardImageContainer imageSrc={card.imageSrc}>
+                      <CardHoverOverlay
+                        variants={{
+                          hover: {
+                            opacity: 1,
+                            height: "auto",
+                          },
+                          rest: {
+                            opacity: 0,
+                            height: 0,
+                          },
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <CardButton>Check it out</CardButton>
+                      </CardHoverOverlay>
+                    </CardImageContainer>
+                    <CardText>
+                      <CardTitle>{card.title}</CardTitle>
+                      <CardContent>{card.content}</CardContent>
+                      {card.techIcons == null ? null : (
+                        <>
+                          <TechUsed>Tech used: </TechUsed>
+                          <CardTechIcons>{card.techIcons}</CardTechIcons>
+                        </>
+                      )}
+                    </CardText>
+                  </Card>
+                </CardPhotographyContainer>
+              ))}
           </TabContent>
         ))}
       </ContentWithPaddingXl>
