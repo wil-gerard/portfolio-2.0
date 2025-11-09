@@ -4,7 +4,6 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import HeroImage from "images/hero-background.jpg";
 import { Subheading } from "components/misc/Headings.js";
-import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
 import { ReactComponent as LinkedinIcon } from "../../images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "../../images/github-icon.svg";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -43,8 +42,7 @@ const Heading = styled.h1`
 const Notification = tw.span`inline-block my-4 pl-3 py-1 text-gray-100 border-l-4 border-blue-500 font-medium text-sm`;
 
 
-export default () => {
-
+const BackgroundAsImage = () => {
   return (
     <Container>
       <OpacityOverlay />
@@ -72,3 +70,5 @@ export default () => {
     </Container>
   );
 };
+
+export default BackgroundAsImage;

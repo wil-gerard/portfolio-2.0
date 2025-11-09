@@ -2,7 +2,6 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
 import { ReactComponent as LinkedinIcon } from "../../images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "../../images/github-icon.svg";
 import { css } from "styled-components/macro"; //eslint-disable-line
