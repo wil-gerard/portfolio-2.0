@@ -6,7 +6,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import ProfilePic from "images/profile-pic.png";
-import Resume from "images/resume/william-gerard-resume.pdf";
+import Resume from "images/resume/wil-gerard-resume.pdf";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 // import { PrimaryLink } from "components/headers/light";
 
