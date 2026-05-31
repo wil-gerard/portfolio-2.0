@@ -5,10 +5,10 @@ import styled, { css } from "styled-components";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons";
-import ReactRunner from "images/portfolio/react-runner.png";
 import DevLocator from "images/portfolio/dev-locator.png";
-import BertBot from "images/portfolio/bert-bot.png";
 import GitConnected from "images/portfolio/git-connected.png";
+import Cragcast from "images/portfolio/cragcast.png";
+import Graybox from "images/portfolio/graybox.png";
 import PhotographyImage1 from "images/portfolio/photography-1.jpg";
 import PhotographyImage2 from "images/portfolio/photography-2.jpg";
 import PhotographyImage3 from "images/portfolio/photography-3.jpg";
@@ -16,13 +16,8 @@ import PhotographyImage4 from "images/portfolio/photography-4.jpg";
 import PhotographyImage5 from "images/portfolio/photography-5.jpg";
 import PhotographyImage6 from "images/portfolio/photography-6.jpg";
 import ReactIcon from "images/tech/react.svg?react";
-import SassIcon from "images/tech/sass.svg?react";
 import NodeJsIcon from "images/tech/nodejs-icon.svg?react";
 import TailwindIcon from "images/tech/tailwindcss.svg?react";
-import MaterialUiIcon from "images/tech/material-ui.svg?react";
-import TensorflowIcon from "images/tech/tensorflow.svg?react";
-import GitIcon from "images/tech/git-icon.svg?react";
-import GitHubIcon from "images/tech/github-icon.svg?react";
 import NetlifyIcon from "images/tech/netlify.svg?react";
 import TypeScriptIcon from "images/tech/typescript.svg?react";
 import HerokuIcon from "images/tech/heroku-icon.svg?react";
@@ -60,15 +55,17 @@ const TabControl = styled.div<{ active?: boolean }>`
 const TabContent = tw(
   motion.div
 )`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
+
 const Card = tw(
   motion.a
 )`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
+
 const CardImageContainer = styled.div<{ imageSrc: string }>`
   ${(props) =>
     css`
       background-image: url("${props.imageSrc}");
     `}
-  ${tw`h-56 xl:h-64 bg-center bg-cover relative rounded-t`}
+  ${tw`h-56 xl:h-96 bg-center bg-cover relative rounded-t`}
 `;
 
 const CardPhotographyContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/2`;
@@ -113,10 +110,40 @@ const TabCardGrid = ({
   tabs = {
     "Development + Design": [
       {
+        imageSrc: `${Graybox}`,
+        title: "Graybox",
+        content:
+          "Graybox locks your Screen Time passcode in an encrypted vault behind a deliberate unlock flow. Enough friction to stop casual bypasses, not enough to lock you out when it matters.",
+        techIcons: (
+          <>
+            <TypeScriptIcon />
+            <ReactIcon />
+            <TailwindIcon />
+            <NodeJsIcon />
+          </>
+        ),
+        url: "https://graybox.app/",
+      },
+      {
+        imageSrc: `${DevLocator}`,
+        title: "Dev Locator",
+        content:
+          "Dev Locator searches GitHub by location so you can find developers near you, filter by language or stats, and browse their profiles at a glance.",
+        techIcons: (
+          <>
+            <TypeScriptIcon />
+            <ReactIcon />
+            <TailwindIcon />
+            <NetlifyIcon />
+          </>
+        ),
+        url: "https://dev-locator.netlify.app/",
+      },
+      {
         imageSrc: `${GitConnected}`,
         title: "Git Connected",
-        content: `I maintained and developed Git Connected: an open-source project that helps early-career software engineers collaborate and quickly build a supportive social network.
-`,
+        content:
+          "Git Connected is an open source platform for early career engineers to collaborate, get feedback, and build a real professional network.",
         techIcons: (
           <>
             <TypeScriptIcon />
@@ -125,66 +152,24 @@ const TabCardGrid = ({
             <MongoDbIcon />
             <ExpressJsIcon />
             <TailwindIcon />
-            <GitIcon />
-            <GitHubIcon />
             <HerokuIcon />
           </>
         ),
         url: "https://github.com/wil-gerard/git-connected",
       },
+
       {
-        imageSrc: `${DevLocator}`,
-        title: "Dev Locator",
+        imageSrc: `${Cragcast}`,
+        title: "Cragcast",
         content:
-          "Dev Locator allows users to easily find and connect with fellow devs by location using GitHub's search API",
+          "Cragcast checks the weather at your climbing spot and tells you whether conditions are safe. Powered by Xweather data and a simple climbing risk algorithm.",
         techIcons: (
           <>
             <TypeScriptIcon />
             <ReactIcon />
-            <TailwindIcon />
-            <GitIcon />
-            <GitHubIcon />
-            <NetlifyIcon />
           </>
         ),
-        url: "https://dev-locator.netlify.app/",
-      },
-
-      {
-        imageSrc: `${ReactRunner}`,
-        title: "React Runner",
-        content:
-          "React Runner is a 2D side-scroller game with voice commands and a collaborative project built within a week using React, Node, and Tensorflow.js, for the August 2021 Mintbean Hackathon.",
-        techIcons: (
-          <>
-            <ReactIcon />
-            <NodeJsIcon />
-            <SassIcon />
-            <TensorflowIcon />
-            <GitIcon />
-            <GitHubIcon />
-            <NetlifyIcon />
-          </>
-        ),
-        url: "https://react-runner.netlify.app/",
-      },
-      {
-        imageSrc: `${BertBot}`,
-        title: "BERT Bot",
-        content:
-          "BERT Bot is an AI-powered web app that allows users to explore Natural Language Processing by inputting questions and receiving answers ranked with confidence level based on the context of a given passage of text.",
-        techIcons: (
-          <>
-            <ReactIcon />
-            <NodeJsIcon />
-            <MaterialUiIcon />
-            <GitIcon />
-            <GitHubIcon />
-            <NetlifyIcon />
-            <TensorflowIcon />
-          </>
-        ),
-        url: "https://bert-bot.netlify.app/",
+        url: "https://github.com/wil-gerard/cragcast",
       },
     ],
     Photography: [
