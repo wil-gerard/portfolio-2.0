@@ -27,7 +27,7 @@ import NetlifyIcon from "images/tech/netlify.svg?react";
 import TypeScriptIcon from "images/tech/typescript.svg?react";
 import HerokuIcon from "images/tech/heroku-icon.svg?react";
 import MongoDbIcon from "images/tech/mongodb.svg?react";
-import ExpressJsIcon from "images/tech/expressjs.svg?react"; 
+import ExpressJsIcon from "images/tech/expressjs.svg?react";
 import SvgDecoratorBlob1 from "images/svg-decorator-blob-5.svg?react";
 import SvgDecoratorBlob2 from "images/svg-decorator-blob-7.svg?react";
 
@@ -89,7 +89,9 @@ const CardTechIcons = styled.div`
 
 const TechUsed = tw.h6`text-sm font-medium mt-2`;
 
-const CardHoverOverlay = styled(motion.div)`
+const MotionDiv = (props: React.ComponentProps<typeof motion.div>) => <motion.div {...props} />;
+const CardHoverOverlay = styled(MotionDiv)`
+
   background-color: rgba(255, 255, 255, 0.5);
   ${tw`absolute inset-0 flex justify-center items-center`}
 `;

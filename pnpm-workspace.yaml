@@ -1,3 +1,6 @@
 allowBuilds:
   core-js: true
   core-js-pure: true
+
+overrides:
+  "@types/react": "^17.0.92"
