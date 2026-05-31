@@ -23,6 +23,10 @@ import TypeScriptIcon from "images/tech/typescript.svg?react";
 import HerokuIcon from "images/tech/heroku-icon.svg?react";
 import MongoDbIcon from "images/tech/mongodb.svg?react";
 import ExpressJsIcon from "images/tech/expressjs.svg?react";
+import HonoIcon from "images/tech/hono-logo.svg?react";
+import RenderIcon from "images/tech/Render Symbol SVG.svg?react";
+import ResendIcon from "images/tech/resend-icon-black.svg?react";
+import CloudflareIcon from "images/tech/cloudflare.svg?react"
 import SvgDecoratorBlob1 from "images/svg-decorator-blob-5.svg?react";
 import SvgDecoratorBlob2 from "images/svg-decorator-blob-7.svg?react";
 
@@ -84,7 +88,7 @@ const CardTechIcons = styled.div`
   }
 `;
 
-const TechUsed = tw.h6`text-sm font-medium mt-2`;
+const BuiltWith = tw.h6`text-sm font-medium mt-2`;
 
 const MotionDiv = (props: React.ComponentProps<typeof motion.div>) => <motion.div {...props} />;
 const CardHoverOverlay = styled(MotionDiv)`
@@ -120,6 +124,10 @@ const TabCardGrid = ({
             <ReactIcon />
             <TailwindIcon />
             <NodeJsIcon />
+            <HonoIcon />
+            <RenderIcon />
+            <CloudflareIcon />
+            <ResendIcon />
           </>
         ),
         url: "https://graybox.app/",
@@ -317,7 +325,7 @@ const TabCardGrid = ({
                       <CardContent>{card.content}</CardContent>
                       {card.techIcons == null ? null : (
                         <>
-                          <TechUsed>Tech used: </TechUsed>
+                          <BuiltWith>Built with: </BuiltWith>
                           <CardTechIcons>{card.techIcons}</CardTechIcons>
                         </>
                       )}
