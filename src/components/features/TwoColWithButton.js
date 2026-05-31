@@ -8,9 +8,6 @@ import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import ProfilePic from "images/profile-pic.png";
 import Resume from "images/resume/wil-gerard-resume.pdf";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
-// import { PrimaryLink } from "components/headers/light";
-
-
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center`;
