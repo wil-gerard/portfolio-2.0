@@ -36,7 +36,7 @@ function AnimationReveal({ disabled, children }: AnimationRevealProps) {
 }
 
 function AnimatedSlideInComponent({ direction = "left", offset = 30, children }: AnimatedSlideInProps) {
-  const [ref, inView] = useInView(30);
+  const [ref, inView] = useInView(offset);
 
   const x: { target: string; initial?: string } = { target: "0%" };
 

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
@@ -267,8 +266,8 @@ const TabCardGrid = ({
           >
             {/* gallery conditional render logic based on tab name*/}
             {activeTab === "Photography"
-              ? tabs[tabKey].map((card, index) => (
-                <CardPhotographyContainer key={index}>
+              ? tabs[tabKey].map((card, cardIdx) => (
+                <CardPhotographyContainer key={cardIdx}>
                   <Card
                     className="group"
                     href={card.url}
@@ -298,8 +297,8 @@ const TabCardGrid = ({
                   </Card>
                 </CardPhotographyContainer>
               ))
-              : tabs[tabKey].map((card, index) => (
-                <CardPhotographyContainer key={index}>
+              : tabs[tabKey].map((card, cardIdx) => (
+                <CardPhotographyContainer key={cardIdx}>
                   <Card
                     className="group"
                     href={card.url}

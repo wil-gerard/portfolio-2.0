@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -16,9 +15,9 @@ type TwoColWithButtonProps = {
   imageRounded?: boolean;
   imageBorder?: boolean;
   imageShadow?: boolean;
-  imageCss?: any;
+  imageCss?: React.CSSProperties | null;
   imageDecoratorBlob?: boolean;
-  imageDecoratorBlobCss?: any;
+  imageDecoratorBlobCss?: React.CSSProperties | null;
   textOnLeft?: boolean;
 };
 
@@ -69,7 +68,7 @@ export default ({
     </>
   ),
   imageSrc = ProfilePic,
-  buttonRounded = true,
+  buttonRounded: _buttonRounded = true,
   imageRounded = true,
   imageBorder = true,
   imageShadow = true,
