@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
-import { SectionHeading } from "components/misc/Headings.js";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
+import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
+import { SectionHeading } from "components/misc/Headings";
+import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons";
 import ReactRunner from "images/portfolio/react-runner.png";
 import DevLocator from "images/portfolio/dev-locator.png";
 import BertBot from "images/portfolio/bert-bot.png";
@@ -33,11 +33,24 @@ import { ReactComponent as ExpressJsIcon } from "images/tech/expressjs.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 
+type PortfolioCard = {
+  imageSrc: string;
+  title: string;
+  content: string;
+  techIcons?: JSX.Element;
+  url?: string;
+};
+
+type TabCardGridProps = {
+  heading?: string | JSX.Element;
+  tabs?: Record<string, PortfolioCard[]>;
+};
+
 const HeaderRow = tw.div`flex justify-between items-center flex-col xl:flex-row`;
 const Header = tw(SectionHeading)``;
 const TabsControl = tw.div`flex flex-wrap bg-gray-200 px-2 py-2 rounded leading-none mt-12 xl:mt-0`;
 
-const TabControl = styled.div`
+const TabControl = styled.div<{ active?: boolean }>`
   ${tw`cursor-pointer px-6 py-3 mt-2 sm:mt-0 sm:mr-2 last:mr-0 text-gray-600 font-medium rounded-sm transition duration-300 text-sm sm:text-base w-1/2 sm:w-auto text-center`}
   &:hover {
     ${tw`bg-gray-300 text-gray-700`}
@@ -52,7 +65,7 @@ const TabContent = tw(
 const Card = tw(
   motion.a
 )`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
-const CardImageContainer = styled.div`
+const CardImageContainer = styled.div<{ imageSrc: string }>`
   ${(props) =>
     css`
       background-image: url("${props.imageSrc}");
@@ -61,7 +74,7 @@ const CardImageContainer = styled.div`
 `;
 
 const CardPhotographyContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/2`;
-const CardContainer = styled.div`
+const CardContainer = styled.div<{ imageSrc: string }>`
   ${(props) =>
     css`
       background-image: url("${props.imageSrc}");
@@ -95,7 +108,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
   ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 transform -translate-x-2/3 text-primary-500`}
 `;
 
-export default ({
+const TabCardGrid = ({
   heading = "Portfolio",
   tabs = {
     "Development + Design": [
@@ -207,7 +220,7 @@ export default ({
       },
     ],
   },
-}) => {
+}: TabCardGridProps) => {
   /*
    * To customize the tabs, pass in data using the `tabs` prop. It should be an object which contains the name of the tab
    * as the key and value of the key will be its content (as an array of objects).
@@ -335,3 +348,5 @@ export default ({
     </Container>
   );
 };
+
+export default TabCardGrid;
