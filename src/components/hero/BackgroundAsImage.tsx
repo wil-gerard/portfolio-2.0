@@ -52,7 +52,7 @@ const BackgroundAsImage = () => {
               <span>Hi, I'm Wil</span>
             </Heading>
             <Subheading>
-              Software Engineer | Full-stack Developer
+              Full Stack Developer
             </Subheading>
             <SocialLinksContainer>
               <SocialLink href="https://linkedin.com/in/wilgerard/">
