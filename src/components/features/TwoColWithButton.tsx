@@ -2,12 +2,11 @@
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons";
 import ProfilePic from "images/profile-pic.png";
 import Resume from "images/resume/wil-gerard-resume.pdf";
-import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
+import SvgDotPattern from "images/dot-pattern.svg?react";
 
 type TwoColWithButtonProps = {
   heading?: JSX.Element;

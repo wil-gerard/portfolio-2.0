@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
-import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
+import styled, { css } from "styled-components";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons";
@@ -17,21 +16,21 @@ import PhotographyImage3 from "images/portfolio/photography-3.jpg";
 import PhotographyImage4 from "images/portfolio/photography-4.jpg";
 import PhotographyImage5 from "images/portfolio/photography-5.jpg";
 import PhotographyImage6 from "images/portfolio/photography-6.jpg";
-import { ReactComponent as ReactIcon } from "images/tech/react.svg";
-import { ReactComponent as SassIcon } from "images/tech/sass.svg";
-import { ReactComponent as NodeJsIcon } from "images/tech/nodejs-icon.svg";
-import { ReactComponent as TailwindIcon } from "images/tech/tailwindcss.svg";
-import { ReactComponent as MaterialUiIcon } from "images/tech/material-ui.svg";
-import { ReactComponent as TensorflowIcon } from "images/tech/tensorflow.svg";
-import { ReactComponent as GitIcon } from "images/tech/git-icon.svg";
-import { ReactComponent as GitHubIcon } from "images/tech/github-icon.svg";
-import { ReactComponent as NetlifyIcon } from "images/tech/netlify.svg";
-import { ReactComponent as TypeScriptIcon } from "images/tech/typescript.svg";
-import { ReactComponent as HerokuIcon } from "images/tech/heroku-icon.svg"
-import { ReactComponent as MongoDbIcon } from "images/tech/mongodb.svg";
-import { ReactComponent as ExpressJsIcon } from "images/tech/expressjs.svg"; 
-import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
-import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
+import ReactIcon from "images/tech/react.svg?react";
+import SassIcon from "images/tech/sass.svg?react";
+import NodeJsIcon from "images/tech/nodejs-icon.svg?react";
+import TailwindIcon from "images/tech/tailwindcss.svg?react";
+import MaterialUiIcon from "images/tech/material-ui.svg?react";
+import TensorflowIcon from "images/tech/tensorflow.svg?react";
+import GitIcon from "images/tech/git-icon.svg?react";
+import GitHubIcon from "images/tech/github-icon.svg?react";
+import NetlifyIcon from "images/tech/netlify.svg?react";
+import TypeScriptIcon from "images/tech/typescript.svg?react";
+import HerokuIcon from "images/tech/heroku-icon.svg?react";
+import MongoDbIcon from "images/tech/mongodb.svg?react";
+import ExpressJsIcon from "images/tech/expressjs.svg?react"; 
+import SvgDecoratorBlob1 from "images/svg-decorator-blob-5.svg?react";
+import SvgDecoratorBlob2 from "images/svg-decorator-blob-7.svg?react";
 
 type PortfolioCard = {
   imageSrc: string;

@@ -4,9 +4,8 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import HeroImage from "images/hero-background.jpg";
 import { Subheading } from "components/misc/Headings";
-import { ReactComponent as LinkedinIcon } from "../../images/linkedin-icon.svg";
-import { ReactComponent as GithubIcon } from "../../images/github-icon.svg";
-import { css } from "styled-components/macro"; //eslint-disable-line
+import LinkedinIcon from "../../images/linkedin-icon.svg?react";
+import GithubIcon from "../../images/github-icon.svg?react";
 
 
 const Container = styled.div`

@@ -2,10 +2,9 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { ReactComponent as LinkedinIcon } from "../../images/linkedin-icon.svg";
-import { ReactComponent as GithubIcon } from "../../images/github-icon.svg";
-import { css } from "styled-components/macro"; //eslint-disable-line
-import {ReactComponent as SvgDotPatternIcon} from "../../images/dot-pattern.svg"
+import LinkedinIcon from "../../images/linkedin-icon.svg?react";
+import GithubIcon from "../../images/github-icon.svg?react";
+import SvgDotPatternIcon from "../../images/dot-pattern.svg?react";
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
