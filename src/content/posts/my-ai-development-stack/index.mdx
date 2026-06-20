@@ -1,0 +1,60 @@
+---
+title: My AI development stack
+subtitle: AGENTS.md, MCP, and skills
+date: Jun 20, 2026
+readTime: 3 min read
+excerpt: AI tooling moves fast and everyone uses it differently. Here is a snapshot of my current stack. AGENTS.md for project instructions, MCP for external tools, and skills for repeatable workflows.
+tags:
+  - ai
+  - tooling
+  - workflow
+  - mcp
+---
+
+AI tooling moves fast and everyone uses it slightly differently. I wanted to share how my personal workflow has been lately as a way to bounce ideas off other developers, and as a snapshot to look back on as I continue to refine things.
+
+My current AI development stack has three layers. AGENTS.md for project instructions, MCP for external tools and context, and skills for repeatable workflows.
+
+## AGENTS.md
+
+AGENTS.md is a markdown file that tells an AI agent how to behave in a given context. I maintain one at the global level and one per project.
+
+My [global AGENTS.md](https://github.com/wil-gerard/agent-stack/blob/main/global/AGENTS.md) holds hard rules I never want any agent to break. No destructive version control, always conventional commits, [always use pnpm](/blog/the-worm-in-your-node-modules).
+
+My [project level AGENTS.md](https://github.com/wil-gerard/agent-stack/blob/main/project/AGENTS.md) is where I do more targeted work. It is hard to stop slop sometimes, and I have found it hard to balance what belongs in agent instructions versus what is just token bloat. What I keep coming back to is this. Do not build more than what was asked, keep it explicit, stay consistent with what is already there, and when in doubt do less and make it obvious.
+
+AI also tends to solve things locally instead of globally. It will write CSS scoped to a single header instead of reaching for the design system, or define a new interface for a data shape that already exists elsewhere in the codebase. So I add explicit rules around that.
+
+## MCP
+
+MCP (Model Context Protocol) is a standard way for AI agents to interact directly with external applications. Instead of copying a connection string, running a CLI command, or switching tabs to grab some data, the agent can just fetch it on its own.
+
+In practice, MCP servers act as agent superpowers during development conversations. The agent gets direct access to my infrastructure without me having to context switch.
+
+These are the servers I use most.
+
+- [Context7](https://github.com/upstash/context7), pulls in relevant library docs directly into the conversation
+- [Neon](https://github.com/neondatabase/mcp-server-neon), database access and schema inspection
+- [Cloudflare](https://github.com/cloudflare/mcp-server-cloudflare), workers, bindings, and observability
+- [Resend](https://github.com/resend/resend-mcp), email tooling
+- [Render](https://github.com/render-oss/render-mcp-server), deployment and service management
+
+Context7 has been particularly useful. Instead of copying docs into my prompt or hoping the model's training data is current, I can just ask and the agent pulls in accurate, current documentation for whatever library I am working with.
+
+## Skills
+
+Skills are prompt driven workflows that turn repeated agent tasks into something repeatable and reliable. Rather than explaining a process again every session, a skill encodes the steps once and the agent follows them consistently.
+
+Two have made a real difference.
+
+**Dex** changed how I plan projects. Whether I am starting from scratch, tackling a new feature, or doing a full refactor, Dex creates a ticket structure with epics and issues stored as JSON. My agent and I both reference it throughout the work. This is especially helpful for features that span multiple days. It is too easy to lose context across chat windows. Either I forget where things stood or the agent hallucinates the plan. Dex keeps a persistent record while I am working.
+
+**Playwright** has saved me more times than I can count. I trigger this skill whenever I hit a UI discrepancy like viewport clipping, layout jumping, or mobile versus desktop differences. Instead of describing the problem to the agent and hoping it guesses right, the agent can directly inspect the browser and see what is actually happening.
+
+## The repo
+
+I keep all of this organized in a public repo called [agent-stack](https://github.com/wil-gerard/agent-stack). It holds my AGENTS.md patterns, skills, and MCP notes. Keeping it in one place makes it easy to reuse across projects and update as my workflow evolves.
+
+## What this has changed
+
+Less context switching. Better planning. More reliable agent sessions. Fewer vague prompts. The big shift has been moving from "AI writes code" to something more structured. Instructions plus tools plus repeatable workflows. That combination is where the real leverage is.
