@@ -1,0 +1,16 @@
+# Wil Gerard
+
+Wil Gerard is a full stack developer based in Minneapolis, MN. This site is his personal portfolio and technical blog.
+
+## Links
+
+- Homepage: https://wilgerard.com
+- Blog: https://wilgerard.com/blog
+- GitHub: https://github.com/wil-gerard
+- LinkedIn: https://linkedin.com/in/wilgerard
+- Contact: williamrgerard@gmail.com
+
+## Blog
+
+- [My AI development stack](https://wilgerard.com/blog/my-ai-development-stack) — A look at Wil's current AI workflow: AGENTS.md for project instructions, MCP for external tools and context, and skills for repeatable workflows.
+- [The worm in your node_modules](https://wilgerard.com/blog/the-worm-in-your-node-modules) — How Mini Shai-Hulud, a supply chain worm, compromised TanStack npm packages, and why pnpm's minimum release age setting would have blocked it.
