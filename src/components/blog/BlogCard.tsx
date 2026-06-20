@@ -6,13 +6,22 @@ import { BlogPost } from "data/blogPosts";
 import BlogMeta from "./BlogMeta";
 
 const Card = styled(Link)`
-  ${tw`bg-gray-100 rounded-lg p-6 flex flex-col transition duration-300 no-underline`}
+  ${tw`bg-gray-100 rounded-lg overflow-hidden flex flex-col transition duration-300 no-underline`}
   &:hover {
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
     transform: translateY(-2px);
   }
 `;
 
+const Thumbnail = styled.div<{ src: string }>`
+  width: 100%;
+  padding-top: 52%;
+  background-image: url(${({ src }) => src});
+  background-size: cover;
+  background-position: center;
+`;
+
+const Body = tw.div`p-6 flex flex-col flex-1`;
 const DateText = tw.p`text-sm text-gray-500`;
 const Title = tw.h3`text-xl font-bold text-secondary-500 mt-1 leading-snug`;
 const Subtitle = tw.p`text-base text-secondary-300 mt-1`;
@@ -25,12 +34,15 @@ type BlogCardProps = {
 
 const BlogCard = ({ post }: BlogCardProps) => (
   <Card className="group" to={`/blog/${post.slug}`}>
-    <DateText>{post.date}</DateText>
-    <Title>{post.title}</Title>
-    <Subtitle>{post.subtitle}</Subtitle>
-    <Excerpt>{post.excerpt}</Excerpt>
-    <BlogMeta tags={post.tags} />
-    <ReadMore>Read More →</ReadMore>
+    {post.thumbnail && <Thumbnail src={post.thumbnail} />}
+    <Body>
+      <DateText>{post.date}</DateText>
+      <Title>{post.title}</Title>
+      <Subtitle>{post.subtitle}</Subtitle>
+      <Excerpt>{post.excerpt}</Excerpt>
+      <BlogMeta tags={post.tags} />
+      <ReadMore>Read More →</ReadMore>
+    </Body>
   </Card>
 );
 

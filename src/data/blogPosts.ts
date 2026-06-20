@@ -9,11 +9,13 @@ export type BlogPost = {
   readTime: string;
   excerpt: string;
   tags: string[];
+  thumbnail?: string;
   Content: ComponentType;
 };
 
 export const blogPosts: BlogPost[] = getPosts().map((post) => ({
   slug: post.slug,
   ...post.frontmatter,
+  thumbnail: post.thumbnail,
   Content: post.Content,
 }));

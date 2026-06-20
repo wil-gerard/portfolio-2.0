@@ -1,5 +1,5 @@
-import React from "react"
-import { Routes, Route } from "react-router-dom"
+import React, { useEffect } from "react"
+import { Routes, Route, useLocation } from "react-router-dom"
 import Navbar from "components/nav/Navbar"
 import "style.css"
 import "tailwindcss/dist/base.css"
@@ -22,9 +22,16 @@ const Home = () => (
   </AnimationRevealPage>
 );
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+};
+
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <Routes>
       <Route path="/" element={<Home />} />
