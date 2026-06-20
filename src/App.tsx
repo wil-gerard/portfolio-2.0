@@ -1,5 +1,6 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
+import Navbar from "components/nav/Navbar"
 import "style.css"
 import "tailwindcss/dist/base.css"
 import AnimationRevealPage from "helpers/AnimationRevealPage";
@@ -23,11 +24,14 @@ const Home = () => (
 
 function App() {
   return (
-    <Routes>
+    <>
+      <Navbar />
+      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/blog" element={<BlogIndex />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
     </Routes>
+    </>
   );
 }
 
