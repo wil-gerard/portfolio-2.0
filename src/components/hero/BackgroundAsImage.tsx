@@ -15,7 +15,7 @@ const Container = styled.div`
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-primary-500 opacity-25`;
 
 const HeroContainer = tw.div`z-20 relative px-4 sm:px-8 max-w-screen-xl min-h-screen flex items-center mx-auto`;
-const TwoColumn = tw.div`pt-32 pb-32 px-4 flex justify-between items-center flex-col lg:flex-row`;
+const TwoColumn = tw.div`w-full flex flex-col items-center lg:flex-row lg:justify-between lg:py-32`;
 const LeftColumn = tw.div`flex flex-col items-center lg:block`;
 // const RightColumn = tw.div`w-full sm:w-5/6 lg:w-1/2 mt-16 lg:mt-0 lg:pl-8`;
 
