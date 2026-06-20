@@ -1,0 +1,51 @@
+---
+title: The worm in your node_modules
+subtitle: Supply chain security and the case for switching your package manager
+date: Jun 20, 2026
+readTime: 2 min read
+excerpt: Mini Shai-Hulud, a supply chain worm that spreads on its own, hit TanStack and hundreds of other npm packages. It sent me down a rabbit hole of pnpm's security features, and I haven't looked back
+tags:
+  - pnpm
+  - security
+  - npm
+  - package management
+---
+
+Last month, a supply chain worm called Mini Shai-Hulud that spreads on its own [compromised dozens of official TanStack npm packages](https://snyk.io/blog/tanstack-npm-packages-compromised/), part of a broader campaign that has hit over 500 unique packages across npm, PyPI, and Composer. I had just started a new project using TanStack at the time. None of the poisoned packages ended up in my tree, but if I had started that project a day earlier, my credentials would have been gone.
+
+So I went looking for prevention. The simplest fix was switching to [pnpm](https://pnpm.io/). Attackers hijacked GitHub Actions to push malicious versions directly to npm under the real TanStack package names. pnpm has a minimum release age setting that rejects any package version less than 24 hours old. That one setting would have blocked the attack. It's on by default in pnpm v11.
+
+```sh
+npm install -g pnpm
+```
+
+Digging further, pnpm has a handful of supply chain protections worth knowing.
+
+## Block risky `postinstall` scripts
+
+Compromised packages commonly run `postinstall` scripts that execute code the moment you install. pnpm blocks those scripts by default.
+
+## Prevent exotic transitive dependencies
+
+Dependencies can silently pull code from arbitrary Git repos, tarballs, or URLs instead of the npm registry. Run this to stop it.
+
+```sh
+pnpm config set blockExoticSubdepts true
+```
+
+## Enforce trust with `trustPolicy`
+
+Set to `no-downgrade` and pnpm refuses to install a package whose trust level dropped compared to its previous version.
+
+```sh
+pnpm config set trustPolicy no-downgrade
+```
+
+## Use a lockfile
+
+This isn't specific to pnpm, but always commit a lockfile. It pins every dependency to an exact version, keeps builds reproducible, and stops unexpected updates from sneaking in.
+
+
+## Performance and disk savings
+
+pnpm also installs faster and saves disk space by linking packages from a shared global store instead of copying them per project. If you work across multiple repos, you'll notice it immediately. [Monorepo workspaces](https://pnpm.io/workspaces) and [stricter dependency isolation](https://pnpm.io/symlinked-node-modules-structure) are worth looking into too.
