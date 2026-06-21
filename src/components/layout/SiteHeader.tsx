@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const navLinkBase = "text-sm font-semibold no-underline transition duration-200";
 
-const Navbar = () => {
+const SiteHeader = () => {
   const [visible, setVisible] = useState(false);
   const location = useLocation();
 
@@ -14,16 +14,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // On non-home pages the hero isn't present, so always show
   const alwaysShow = location.pathname !== "/";
   const show = visible || alwaysShow;
-
   const navClass =
     "fixed top-0 left-0 right-0 z-50 bg-white shadow-xs transition duration-300 ease-in-out " +
     (show
       ? "lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto"
       : "lg:-translate-y-full lg:opacity-0 lg:pointer-events-none");
-
   const navLinkClass = (active: boolean) =>
     active
       ? `${navLinkBase} text-primary-500`
@@ -48,4 +45,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default SiteHeader;

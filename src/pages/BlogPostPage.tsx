@@ -18,7 +18,7 @@ const BackLink = (props: ComponentProps<typeof Link>) => (
   <Link {...props} className={primaryButtonClass} />
 );
 
-const BlogPost = () => {
+const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find((p) => p.slug === slug);
 
@@ -67,4 +67,4 @@ const BlogPost = () => {
   );
 };
 
-export default BlogPost;
+export default BlogPostPage;

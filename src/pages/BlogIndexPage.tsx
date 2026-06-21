@@ -18,7 +18,7 @@ const BackLink = (props: ComponentProps<typeof Link>) => (
 
 const allTags = Array.from(new Set(blogPosts.flatMap((p) => p.tags)));
 
-const BlogIndex = () => {
+const BlogIndexPage = () => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
   const filtered = activeTag
@@ -58,4 +58,4 @@ const BlogIndex = () => {
   );
 };
 
-export default BlogIndex;
+export default BlogIndexPage;
