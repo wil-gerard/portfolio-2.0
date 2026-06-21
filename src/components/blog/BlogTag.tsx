@@ -1,30 +1,9 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import tw from "twin.macro";
-
-const base = css`
-  ${tw`inline-block text-xs font-medium px-3 py-1 rounded-full transition duration-200`}
-  background: #edf2f7;
-  color: #506582;
-`;
-
-const activeStyle = css`
-  background: #243E63;
-  color: #fff;
-`;
-
-const Tag = styled.span`
-  ${base}
-`;
-
-const TagButton = styled.button<{ active?: boolean }>`
-  ${base}
-  cursor: pointer;
-  ${({ active }) => active && activeStyle}
-  &:hover {
-    ${({ active }) => !active && `background: #e2e8f0;`}
-  }
-`;
+const baseClass = "inline-block text-xs font-medium px-3 py-1 rounded-full transition duration-200";
+const tagClass = `${baseClass} bg-gray-200 text-secondary-300`;
+const tagButtonClass = (active?: boolean) =>
+  active
+    ? `${baseClass} cursor-pointer bg-secondary-500 text-white`
+    : `${baseClass} cursor-pointer bg-gray-200 text-secondary-300 hover:bg-gray-300`;
 
 type BlogTagProps = {
   label: string;
@@ -34,11 +13,11 @@ type BlogTagProps = {
 
 const BlogTag = ({ label, active, onClick }: BlogTagProps) =>
   onClick !== undefined ? (
-    <TagButton active={active} onClick={onClick}>
+    <button className={tagButtonClass(active)} onClick={onClick}>
       {label}
-    </TagButton>
+    </button>
   ) : (
-    <Tag>{label}</Tag>
+    <span className={tagClass}>{label}</span>
   );
 
 export default BlogTag;

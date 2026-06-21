@@ -1,7 +1,7 @@
-import React from "react";
-import tw from "twin.macro";
-import styled from "styled-components";
+import { ComponentProps } from "react";
 import { Link } from "react-router-dom";
+import { tag } from "helpers/tag";
+import { primaryButtonClass } from "components/misc/Buttons";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import { SectionHeading } from "components/misc/Headings";
 import { blogPosts } from "data/blogPosts";
@@ -9,17 +9,19 @@ import BlogCard from "./BlogCard";
 import SvgDecoratorBlob1 from "images/svg-decorator-blob-10.svg?react";
 import SvgDecoratorBlob2 from "images/svg-decorator-blob-2.svg?react";
 
-const Subheading = tw.p`text-center text-gray-500 mt-4 text-lg`;
-const Grid = tw.div`mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8`;
-const ViewAllRow = tw.div`flex justify-center mt-12`;
-const ViewAllLink = tw(Link)`px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`;
+const Subheading = tag("p", "text-center text-gray-500 mt-4 text-lg");
+const Grid = tag("div", "mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8");
+const ViewAllRow = tag("div", "flex justify-center mt-12");
+const ViewAllLink = (props: ComponentProps<typeof Link>) => (
+  <Link {...props} className={primaryButtonClass} />
+);
 
-const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
-  ${tw`pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 transform translate-x-2/3 -translate-y-12 text-teal-400`}
-`;
-const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
-  ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 transform -translate-x-2/3 text-indigo-400`}
-`;
+const DecoratorBlob1 = () => (
+  <SvgDecoratorBlob1 className="pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 translate-x-2/3 -translate-y-12 text-teal-400" />
+);
+const DecoratorBlob2 = () => (
+  <SvgDecoratorBlob2 className="pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 -translate-x-2/3 text-indigo-400" />
+);
 
 const BlogSection = () => {
   const preview = blogPosts.slice(0, 3);

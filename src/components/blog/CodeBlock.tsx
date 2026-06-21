@@ -1,28 +1,8 @@
 import React, { useRef, useState } from "react";
-import tw from "twin.macro";
-import styled from "styled-components";
 
-const Wrapper = styled.div`
-  ${tw`relative my-6`}
-`;
-
-const Pre = styled.pre`
-  ${tw`bg-gray-200 rounded-lg px-5 py-4 overflow-x-auto`}
-  code {
-    ${tw`bg-transparent text-secondary-500 px-0 text-sm`}
-  }
-`;
-
-const CopyButton = styled.button<{ copied: boolean }>`
-  ${tw`absolute flex items-center gap-1 rounded px-2 py-1 text-xs font-medium transition duration-200`}
-  top: 0.5rem;
-  right: 0.5rem;
-  background: ${({ copied }) => (copied ? "#c6f6d5" : "#e2e8f0")};
-  color: ${({ copied }) => (copied ? "#276749" : "#506582")};
-  &:hover {
-    background: ${({ copied }) => (copied ? "#c6f6d5" : "#cbd5e0")};
-  }
-`;
+const copyButtonClass = (copied: boolean) =>
+  "absolute top-2 right-2 flex items-center gap-1 rounded-sm px-2 py-1 text-xs font-medium transition duration-200 " +
+  (copied ? "bg-[#c6f6d5] text-[#276749]" : "bg-gray-300 text-secondary-300 hover:bg-gray-400");
 
 const CopyIcon = () => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -52,15 +32,19 @@ const CodeBlock = ({ children, ...rest }: Props) => {
   };
 
   return (
-    <Wrapper>
-      <Pre ref={preRef} {...rest}>
+    <div className="relative my-6">
+      <pre
+        ref={preRef}
+        className="bg-gray-200 rounded-lg px-5 py-4 overflow-x-auto [&_code]:bg-transparent [&_code]:text-secondary-500 [&_code]:px-0 [&_code]:text-sm"
+        {...rest}
+      >
         {children}
-      </Pre>
-      <CopyButton copied={copied} onClick={handleCopy} aria-label="Copy code">
+      </pre>
+      <button className={copyButtonClass(copied)} onClick={handleCopy} aria-label="Copy code">
         {copied ? <CheckIcon /> : <CopyIcon />}
         {copied ? "Copied" : "Copy"}
-      </CopyButton>
-    </Wrapper>
+      </button>
+    </div>
   );
 };
 

@@ -50,3 +50,63 @@
   /* v2 focus-ring shadow removed from v4 defaults */
   --shadow-outline: 0 0 0 3px rgba(66, 153, 225, 0.5);
 }
+
+/* Long-form article body for rendered MDX blog posts */
+.post-prose {
+  font-size: 1.0625rem;
+}
+.post-prose p {
+  margin-bottom: 1.5rem;
+}
+.post-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-secondary-500);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.post-prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-secondary-500);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.post-prose hr {
+  border-color: var(--color-gray-300);
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.post-prose :not(pre) > code {
+  background: var(--color-gray-200);
+  color: var(--color-secondary-500);
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+.post-prose ul,
+.post-prose ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.post-prose ul {
+  list-style-type: disc;
+}
+.post-prose ol {
+  list-style-type: decimal;
+}
+.post-prose li {
+  margin-bottom: 0.5rem;
+}
+.post-prose a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #4769ff;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 200ms;
+}
+.post-prose a:hover,
+.post-prose a:focus {
+  text-decoration-color: #1f48ff;
+}
