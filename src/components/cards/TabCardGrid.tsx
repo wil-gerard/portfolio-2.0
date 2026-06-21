@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import Lightbox from "components/misc/Lightbox";
 import tw from "twin.macro";
 import styled, { css } from "styled-components";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import { SectionHeading } from "components/misc/Headings";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons";
+import { hoverLift } from "components/misc/cardStyles";
 import DevLocator from "images/portfolio/dev-locator.png";
 import GitConnected from "images/portfolio/git-connected.png";
 import Cragcast from "images/portfolio/cragcast.png";
@@ -27,8 +28,6 @@ import HonoIcon from "images/tech/hono-logo.svg?react";
 import RenderIcon from "images/tech/Render Symbol SVG.svg?react";
 import ResendIcon from "images/tech/resend-icon-black.svg?react";
 import CloudflareIcon from "images/tech/cloudflare.svg?react"
-import SvgDecoratorBlob1 from "images/svg-decorator-blob-5.svg?react";
-import SvgDecoratorBlob2 from "images/svg-decorator-blob-7.svg?react";
 
 type PortfolioCard = {
   imageSrc: string;
@@ -60,16 +59,17 @@ const TabContent = tw(
   motion.div
 )`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
 
-const Card = tw(
-  motion.a
-)`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`;
+const Card = styled.a`
+  ${tw`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`}
+  ${hoverLift}
+`;
 
 const CardImageContainer = styled.div<{ imageSrc: string }>`
   ${(props) =>
     css`
       background-image: url("${props.imageSrc}");
     `}
-  ${tw`h-56 xl:h-96 bg-center bg-cover relative rounded-t`}
+  ${tw`h-56 xl:h-96 bg-center bg-cover rounded-t`}
 `;
 
 const CardPhotographyContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/2`;
@@ -78,7 +78,7 @@ const CardContainer = styled.div<{ imageSrc: string }>`
     css`
       background-image: url("${props.imageSrc}");
     `}
-  ${tw`h-56 xl:h-96 bg-center bg-cover relative rounded-t`}
+  ${tw`h-56 xl:h-96 bg-center bg-cover rounded-t`}
 `;
 
 const CardTechIcons = styled.div`
@@ -90,24 +90,15 @@ const CardTechIcons = styled.div`
 
 const BuiltWith = tw.h6`text-sm font-medium mt-2`;
 
-const MotionDiv = (props: React.ComponentProps<typeof motion.div>) => <motion.div {...props} />;
-const CardHoverOverlay = styled(MotionDiv)`
-
-  background-color: rgba(255, 255, 255, 0.5);
-  ${tw`absolute inset-0 flex justify-center items-center`}
-`;
-const CardButton = tw(PrimaryButtonBase)`text-sm`;
-
 const CardText = tw.div`p-4 text-gray-900`;
-const CardTitle = tw.h5`text-lg font-semibold group-hover:text-primary-500`;
+const CardTitle = tw.h5`text-lg font-semibold`;
 const CardContent = tw.p`mt-1 text-sm font-medium text-gray-600`;
 
-const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
-  ${tw`pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 transform translate-x-2/3 -translate-y-12 text-pink-400`}
+const PhotoCard = styled.div`
+  ${tw`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0 cursor-pointer`}
+  ${hoverLift}
 `;
-const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
-  ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 transform -translate-x-2/3 text-primary-500`}
-`;
+
 
 const TabCardGrid = ({
   heading = "Portfolio",
@@ -221,8 +212,12 @@ const TabCardGrid = ({
    */
   const tabsKeys = Object.keys(tabs);
   const [activeTab, setActiveTab] = useState(tabsKeys[0]);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const photographyPhotos = tabs["Photography"] ?? [];
 
   return (
+    <>
+    <Lightbox photos={photographyPhotos} initialIndex={selectedIndex} onClose={() => setSelectedIndex(null)} />
     <Container>
       <ContentWithPaddingXl>
         <HeaderRow>
@@ -263,63 +258,23 @@ const TabCardGrid = ({
             {activeTab === "Photography"
               ? tabs[tabKey].map((card, cardIdx) => (
                 <CardPhotographyContainer key={cardIdx}>
-                  <Card
-                    className="group"
-                    href={card.url}
-                    initial="rest"
-                    whileHover="hover"
-                    animate="rest"
-                  >
-                    <CardContainer imageSrc={card.imageSrc}>
-                      <CardHoverOverlay
-                        variants={{
-                          hover: {
-                            opacity: 0,
-                            height: "auto",
-                          },
-                          rest: {
-                            opacity: 0,
-                            height: 0,
-                          },
-                        }}
-                        transition={{ duration: 0.3 }}
-                      ></CardHoverOverlay>
-                    </CardContainer>
+                  <PhotoCard onClick={() => setSelectedIndex(cardIdx)}>
+                    <CardContainer imageSrc={card.imageSrc} />
                     <CardText>
                       <CardTitle>{card.title}</CardTitle>
                       <CardContent>{card.content}</CardContent>
                     </CardText>
-                  </Card>
+                  </PhotoCard>
                 </CardPhotographyContainer>
               ))
               : tabs[tabKey].map((card, cardIdx) => (
                 <CardPhotographyContainer key={cardIdx}>
                   <Card
-                    className="group"
                     href={card.url}
                     target="_blank"
                     rel="noreferrer noopener"
-                    initial="rest"
-                    whileHover="hover"
-                    animate="rest"
                   >
-                    <CardImageContainer imageSrc={card.imageSrc}>
-                      <CardHoverOverlay
-                        variants={{
-                          hover: {
-                            opacity: 1,
-                            height: "auto",
-                          },
-                          rest: {
-                            opacity: 0,
-                            height: 0,
-                          },
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <CardButton>Check it out</CardButton>
-                      </CardHoverOverlay>
-                    </CardImageContainer>
+                    <CardImageContainer imageSrc={card.imageSrc} />
                     <CardText>
                       <CardTitle>{card.title}</CardTitle>
                       <CardContent>{card.content}</CardContent>
@@ -336,9 +291,8 @@ const TabCardGrid = ({
           </TabContent>
         ))}
       </ContentWithPaddingXl>
-      <DecoratorBlob1 />
-      <DecoratorBlob2 />
     </Container>
+    </>
   );
 };
 

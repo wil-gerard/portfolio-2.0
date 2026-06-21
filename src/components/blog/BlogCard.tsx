@@ -1,16 +1,13 @@
-import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { hoverLift } from "components/misc/cardStyles";
 import { BlogPost } from "data/blogPosts";
 import BlogMeta from "./BlogMeta";
 
 const Card = styled(Link)`
-  ${tw`bg-gray-100 rounded-lg overflow-hidden flex flex-col transition duration-300 no-underline`}
-  &:hover {
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
-  }
+  ${tw`bg-gray-100 rounded-lg overflow-hidden flex flex-col no-underline`}
+  ${hoverLift}
 `;
 
 const Thumbnail = styled.div<{ src: string }>`
