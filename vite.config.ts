@@ -5,8 +5,6 @@ import tailwindcss from '@tailwindcss/vite';
 import svgr from 'vite-plugin-svgr';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import mdx from '@mdx-js/rollup';
-import remarkFrontmatter from 'remark-frontmatter';
-import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import { defineConfig, Plugin } from 'vite';
 
 function sitemapPlugin(): Plugin {
@@ -43,7 +41,7 @@ export default defineConfig({
     svgr(),
     {
       enforce: 'pre',
-      ...mdx({ remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter] }),
+      ...mdx(),
     },
     react(),
     sitemapPlugin(),

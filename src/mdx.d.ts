@@ -1,7 +1,5 @@
 declare module "*.mdx" {
-  import { ComponentType } from "react";
-  import { PostFrontmatter } from "lib/getPosts";
+  import type { ComponentType } from "react";
   const Component: ComponentType;
   export default Component;
-  export const frontmatter: PostFrontmatter;
 }
