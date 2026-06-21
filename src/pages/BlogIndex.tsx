@@ -36,12 +36,12 @@ const BlogIndex = () => {
             active={activeTag === null}
             onClick={() => setActiveTag(null)}
           />
-          {allTags.map((tag) => (
+          {allTags.map((tagName) => (
             <BlogTag
-              key={tag}
-              label={tag}
-              active={activeTag === tag}
-              onClick={() => setActiveTag(tag)}
+              key={tagName}
+              label={tagName}
+              active={activeTag === tagName}
+              onClick={() => setActiveTag(tagName)}
             />
           ))}
         </FilterRow>
