@@ -17,10 +17,10 @@ const ViewAllLink = (props: ComponentProps<typeof Link>) => (
 );
 
 const DecoratorBlob1 = () => (
-  <SvgDecoratorBlob1 className="pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 translate-x-2/3 -translate-y-12 text-teal-400" />
+  <SvgDecoratorBlob1 className="pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 translate-x-1/4 -translate-y-12 text-teal-400" />
 );
 const DecoratorBlob2 = () => (
-  <SvgDecoratorBlob2 className="pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 -translate-x-2/3 text-indigo-400" />
+  <SvgDecoratorBlob2 className="pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 -translate-x-1/4 text-indigo-400" />
 );
 
 const BlogSection = () => {

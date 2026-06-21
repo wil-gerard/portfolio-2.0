@@ -67,14 +67,16 @@ export default ({
   return (
     <div className="relative">
       <div className="flex flex-col md:flex-row justify-between max-w-7xl mx-auto py-20 md:py-24 items-center">
-        <div className={`${columnBase} md:w-4/12 shrink-0 relative`}>
-          <img className={imageClass} style={imageCss ?? undefined} src={imageSrc} alt="Wil Gerard" />
-          {imageDecoratorBlob && (
-            <SvgDotPattern
-              className="w-20 h-20 absolute right-0 bottom-0 translate-x-1/2 translate-y-1/2 fill-current text-primary-500 -z-10"
-              style={imageDecoratorBlobCss ?? undefined}
-            />
-          )}
+        <div className={`${columnBase} md:w-4/12 shrink-0`}>
+          <div className="relative inline-block">
+            <img className={imageClass} style={imageCss ?? undefined} src={imageSrc} alt="Wil Gerard" />
+            {imageDecoratorBlob && (
+              <SvgDotPattern
+                className="w-20 h-20 absolute right-0 bottom-0 translate-x-1/3 translate-y-1/3 fill-current text-primary-500 -z-10"
+                style={imageDecoratorBlobCss ?? undefined}
+              />
+            )}
+          </div>
         </div>
         <div className={textColumnClass}>
           <div className="lg:py-8 text-center md:text-left">

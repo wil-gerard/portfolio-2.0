@@ -76,7 +76,7 @@ const SimpleContactUs = () => {
 
               <button
                 type="submit"
-                className="w-full sm:w-32 mt-6 py-3 bg-gray-100 text-primary-500 rounded-full font-bold tracking-wide shadow-lg uppercase text-sm transition duration-300 focus:outline-hidden focus:shadow-outline hover:bg-gray-300 hover:text-primary-700 hover:-translate-y-px focus:-translate-y-px hover:shadow-xl"
+                className="w-full sm:w-32 mt-6 py-3 bg-gray-100 text-primary-500 rounded-full font-bold tracking-wide shadow-lg uppercase text-sm transition duration-300 focus:outline-hidden focus:shadow-outline hover:bg-gray-300 hover:text-primary-700"
               >
                 Submit
               </button>
