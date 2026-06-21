@@ -38,7 +38,7 @@ type PortfolioCard = {
   url?: string;
 };
 
-type TabCardGridProps = {
+type PortfolioSectionProps = {
   heading?: string | JSX.Element;
   tabs?: Record<string, PortfolioCard[]>;
 };
@@ -90,7 +90,7 @@ const DecoratorBlob2 = () => (
 );
 
 
-const TabCardGrid = ({
+const PortfolioSection = ({
   heading = "Portfolio",
   tabs = {
     "Development + Design": [
@@ -194,7 +194,7 @@ const TabCardGrid = ({
       },
     ],
   },
-}: TabCardGridProps) => {
+}: PortfolioSectionProps) => {
   /*
    * To customize the tabs, pass in data using the `tabs` prop. It should be an object which contains the name of the tab
    * as the key and value of the key will be its content (as an array of objects).
@@ -288,4 +288,4 @@ const TabCardGrid = ({
   );
 };
 
-export default TabCardGrid;
+export default PortfolioSection;

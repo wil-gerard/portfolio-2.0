@@ -5,7 +5,7 @@ import { primaryButtonClass } from "components/misc/Buttons";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import { SectionHeading } from "components/misc/Headings";
 import { blogPosts } from "data/blogPosts";
-import BlogCard from "./BlogCard";
+import BlogCard from "components/blog/BlogCard";
 import SvgDecoratorBlob1 from "images/svg-decorator-blob-10.svg?react";
 import SvgDecoratorBlob2 from "images/svg-decorator-blob-2.svg?react";
 
@@ -23,7 +23,7 @@ const DecoratorBlob2 = () => (
   <SvgDecoratorBlob2 className="pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 text-indigo-400" />
 );
 
-const BlogSection = () => {
+const RecentPostsSection = () => {
   const preview = blogPosts.slice(0, 3);
 
   return (
@@ -46,4 +46,4 @@ const BlogSection = () => {
   );
 };
 
-export default BlogSection;
+export default RecentPostsSection;

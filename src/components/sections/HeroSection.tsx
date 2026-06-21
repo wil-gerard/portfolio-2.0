@@ -6,7 +6,7 @@ import GithubIcon from "../../images/github-icon.svg?react";
 const socialLinkClass =
   "cursor-pointer inline-block p-2 rounded-full bg-gray-100 text-primary-500 hover:bg-primary-800 focus:bg-primary-800 hover:text-gray-100 focus:text-gray-100 transition duration-300 m-2 lg:mr-4 lg:mb-0 lg:mt-0 lg:ml-0";
 
-const BackgroundAsImage = () => {
+const HeroSection = () => {
   return (
     <div
       className="relative -mx-8 -mt-8 bg-center bg-cover min-h-screen"
@@ -48,4 +48,4 @@ const BackgroundAsImage = () => {
   );
 };
 
-export default BackgroundAsImage;
+export default HeroSection;

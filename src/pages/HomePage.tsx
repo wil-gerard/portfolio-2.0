@@ -1,17 +1,17 @@
-import BlogSection from "components/blog/BlogSection";
-import TabCardGrid from "components/cards/TabCardGrid";
-import TwoColWithButton from "components/features/TwoColWithButton";
-import SimpleContactUs from "components/forms/SimpleContactUs";
-import BackgroundAsImage from "components/hero/BackgroundAsImage";
 import PageShell from "components/layout/PageShell";
+import AboutSection from "components/sections/AboutSection";
+import ContactSection from "components/sections/ContactSection";
+import HeroSection from "components/sections/HeroSection";
+import PortfolioSection from "components/sections/portfolio/PortfolioSection";
+import RecentPostsSection from "components/sections/RecentPostsSection";
 
 const HomePage = () => (
   <PageShell revealSections={false}>
-    <BackgroundAsImage />
-    <TwoColWithButton />
-    <TabCardGrid />
-    <BlogSection />
-    <SimpleContactUs />
+    <HeroSection />
+    <AboutSection />
+    <PortfolioSection />
+    <RecentPostsSection />
+    <ContactSection />
   </PageShell>
 );
 

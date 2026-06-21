@@ -12,7 +12,7 @@ const inputClass =
 const InputContainer = tag("div", "relative py-5 mt-6");
 const Label = tag("label", "absolute top-0 left-0 tracking-wide font-semibold text-sm");
 
-const SimpleContactUs = () => {
+const ContactSection = () => {
   return (
     <div className="relative">
       <div className="max-w-7xl mx-auto py-20 lg:py-24">
@@ -89,4 +89,4 @@ const SimpleContactUs = () => {
   );
 };
 
-export default SimpleContactUs;
+export default ContactSection;
