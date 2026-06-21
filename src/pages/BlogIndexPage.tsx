@@ -1,13 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { tag } from "helpers/tag";
-import { primaryButtonClass } from "components/misc/Buttons";
+import { primaryButtonClassName } from "components/ui/Button";
 import PostCollection from "components/blog/PostCollection";
 import TagFilterButton from "components/blog/TagFilterButton";
-import { Container } from "components/misc/Layouts";
 import { blogPosts } from "data/blogPosts";
-
-const FilterRow = tag("div", "flex flex-wrap justify-center gap-3 mt-8");
 
 const allTags = Array.from(new Set(blogPosts.flatMap((p) => p.tags)));
 
@@ -19,13 +15,13 @@ const BlogIndexPage = () => {
     : blogPosts;
 
   return (
-    <Container>
+    <div className="relative">
       <PostCollection
         title="All Posts"
         subtitle="Thoughts and insights about web development and technology"
         posts={filtered}
         controls={(
-          <FilterRow>
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
             <TagFilterButton
               label="All"
               active={activeTag === null}
@@ -39,11 +35,11 @@ const BlogIndexPage = () => {
                 onClick={() => setActiveTag(tagName)}
               />
             ))}
-          </FilterRow>
+          </div>
         )}
-        footer={<Link className={primaryButtonClass} to="/">← Back to Portfolio</Link>}
+        footer={<Link className={primaryButtonClassName} to="/">← Back to Portfolio</Link>}
       />
-    </Container>
+    </div>
   );
 };
 

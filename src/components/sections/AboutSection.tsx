@@ -1,14 +1,10 @@
-import { tag } from "helpers/tag";
-import { SectionHeading } from "components/misc/Headings";
-import { PrimaryButton } from "components/misc/Buttons";
+import { primaryButtonClassName } from "components/ui/Button";
+import SectionHeading from "components/ui/SectionHeading";
 import ProfilePic from "images/profile-pic.png";
 import Resume from "images/resume/wil-gerard-resume.pdf";
 import SvgDotPattern from "images/dot-pattern.svg?react";
 
 const columnBase = "w-full max-w-md mx-auto md:max-w-none md:mx-0";
-
-const Lede = tag("p", "mt-5 text-base md:text-lg lg:text-xl font-semibold leading-relaxed text-secondary-500");
-const Para = tag("p", "mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100");
 
 const AboutSection = () => {
   return (
@@ -30,26 +26,31 @@ const AboutSection = () => {
               About Me
             </SectionHeading>
             <div className="mt-4 text-center md:text-left">
-              <Lede>I'm a full stack developer based in the Twin Cities.</Lede>
-              <Para>
+              <p className="mt-5 text-base md:text-lg lg:text-xl font-semibold leading-relaxed text-secondary-500">
+                I'm a full stack developer based in the Twin Cities.
+              </p>
+              <p className="mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100">
                 My foundation is HTML, CSS, JavaScript, and TypeScript. Though constantly changing,
                 lately I've been diving deeper into React.js, Node, Hono, Next.js, and Cloudflare Workers.
-              </Para>
-              <Para>
+              </p>
+              <p className="mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100">
                 I'm usually building something: a product idea, a developer workflow, an AI experiment,
                 or a tool that makes a real problem easier to solve. I like software that is practical and
                 personal enough to feel like someone cared while making it.
-              </Para>
-              <Para>
+              </p>
+              <p className="mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100">
                 Outside of code I'm into design, photography, music, horror movies, rock climbing, board
                 games, and cooking when I'm in the mood to do it right. I live here with my cat Lou, who
                 is very much in charge.
-              </Para>
+              </p>
             </div>
-            <a href={Resume} target="_blank" rel="noreferrer">
-              <PrimaryButton className="mt-8 md:mt-8 text-sm inline-block mx-auto md:mx-0">
-                View my resume
-              </PrimaryButton>
+            <a
+              className={`${primaryButtonClassName} mt-8 text-sm inline-block mx-auto md:mx-0`}
+              href={Resume}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View my resume
             </a>
           </div>
         </div>

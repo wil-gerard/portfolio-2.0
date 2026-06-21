@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
-import { tag } from "helpers/tag";
-import { ContentWithPaddingXl } from "components/misc/Layouts";
-import { SectionHeading } from "components/misc/Headings";
+import SectionContainer from "components/ui/SectionContainer";
+import SectionHeading from "components/ui/SectionHeading";
 import { BlogPost } from "data/blogPosts";
 import PostCard from "./PostCard";
 
@@ -13,21 +12,18 @@ type PostCollectionProps = {
   footer?: ReactNode;
 };
 
-const Subtitle = tag("p", "text-center text-gray-500 mt-4 text-lg");
-const Grid = tag("div", "mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8");
-
 const PostCollection = ({ title, subtitle, posts, controls, footer }: PostCollectionProps) => (
-  <ContentWithPaddingXl>
+  <SectionContainer>
     <SectionHeading>{title}</SectionHeading>
-    {subtitle && <Subtitle>{subtitle}</Subtitle>}
+    {subtitle && <p className="text-center text-gray-500 mt-4 text-lg">{subtitle}</p>}
     {controls}
-    <Grid>
+    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts.map((post) => (
         <PostCard key={post.slug} post={post} />
       ))}
-    </Grid>
+    </div>
     {footer && <div className="flex justify-center mt-12">{footer}</div>}
-  </ContentWithPaddingXl>
+  </SectionContainer>
 );
 
 export default PostCollection;

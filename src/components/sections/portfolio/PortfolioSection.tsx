@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
-import { SectionHeading } from "components/misc/Headings";
+import SectionContainer from "components/ui/SectionContainer";
+import SectionHeading from "components/ui/SectionHeading";
 import { photos, projects } from "data/portfolioItems";
 import SvgDecoratorBlob1 from "images/svg-decorator-blob-1.svg?react";
 import SvgDecoratorBlob3 from "images/svg-decorator-blob-3.svg?react";
@@ -21,8 +21,8 @@ const PortfolioSection = () => {
         initialIndex={selectedPhotoIndex}
         onClose={() => setSelectedPhotoIndex(null)}
       />
-      <Container>
-        <ContentWithPaddingXl>
+      <div className="relative">
+        <SectionContainer>
           <div className="flex justify-between items-center flex-col xl:flex-row">
             <SectionHeading>Portfolio</SectionHeading>
             <PortfolioTabs activeTab={activeTab} onChange={setActiveTab} />
@@ -46,10 +46,10 @@ const PortfolioSection = () => {
                   <ProjectCard key={project.title} project={project} />
                 ))}
           </motion.div>
-        </ContentWithPaddingXl>
+        </SectionContainer>
         <SvgDecoratorBlob1 className="pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15" />
         <SvgDecoratorBlob3 className="pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-50" />
-      </Container>
+      </div>
     </>
   );
 };

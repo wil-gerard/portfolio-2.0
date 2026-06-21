@@ -1,26 +1,15 @@
 import { Link } from "react-router-dom";
-import { tag } from "helpers/tag";
-import { hoverLift } from "components/misc/cardStyles";
+import { cardHoverClassName } from "components/ui/cardStyles";
 import { BlogPost } from "data/blogPosts";
 import PostMeta from "./PostMeta";
 
-const cardClass = `bg-gray-100 rounded-lg overflow-hidden flex flex-col no-underline ${hoverLift}`;
+const cardClass = `bg-gray-100 rounded-lg overflow-hidden flex flex-col no-underline ${cardHoverClassName}`;
 
 const Thumbnail = ({ src }: { src: string }) => (
   <div
     className="w-full bg-cover bg-center"
     style={{ paddingTop: "52%", backgroundImage: `url(${src})` }}
   />
-);
-
-const Body = tag("div", "p-6 flex flex-col flex-1");
-const DateText = tag("p", "text-sm text-gray-500");
-const Title = tag("h3", "text-xl font-bold text-secondary-500 mt-1 leading-snug");
-const Subtitle = tag("p", "text-base text-secondary-300 mt-1");
-const Excerpt = tag("p", "text-sm text-gray-500 mt-3 leading-relaxed flex-1");
-const ReadMore = tag(
-  "span",
-  "mt-4 text-sm font-semibold text-primary-500 group-hover:text-primary-700 transition duration-200"
 );
 
 type PostCardProps = {
@@ -30,14 +19,16 @@ type PostCardProps = {
 const PostCard = ({ post }: PostCardProps) => (
   <Link className={`${cardClass} group`} to={`/blog/${post.slug}`}>
     {post.thumbnail && <Thumbnail src={post.thumbnail} />}
-    <Body>
-      <DateText>{post.date}</DateText>
-      <Title>{post.title}</Title>
-      <Subtitle>{post.subtitle}</Subtitle>
-      <Excerpt>{post.excerpt}</Excerpt>
+    <div className="p-6 flex flex-col flex-1">
+      <p className="text-sm text-gray-500">{post.date}</p>
+      <h3 className="text-xl font-bold text-secondary-500 mt-1 leading-snug">{post.title}</h3>
+      <p className="text-base text-secondary-300 mt-1">{post.subtitle}</p>
+      <p className="text-sm text-gray-500 mt-3 leading-relaxed flex-1">{post.excerpt}</p>
       <PostMeta tags={post.tags} />
-      <ReadMore>Read More →</ReadMore>
-    </Body>
+      <span className="mt-4 text-sm font-semibold text-primary-500 group-hover:text-primary-700 transition duration-200">
+        Read More →
+      </span>
+    </div>
   </Link>
 );
 

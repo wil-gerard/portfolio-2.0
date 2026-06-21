@@ -1,4 +1,3 @@
-import { tag } from "helpers/tag";
 import LinkedinIcon from "../../images/linkedin-icon.svg?react";
 import GithubIcon from "../../images/github-icon.svg?react";
 import SvgDotPatternIcon from "../../images/dot-pattern.svg?react";
@@ -8,9 +7,6 @@ const socialLinkClass =
 
 const inputClass =
   "w-full bg-transparent text-gray-100 text-base font-medium tracking-wide border-b-2 py-2 hover:border-pink-400 focus:border-pink-400 focus:outline-hidden transition duration-200 placeholder:text-gray-500";
-
-const InputContainer = tag("div", "relative py-5 mt-6");
-const Label = tag("label", "absolute top-0 left-0 tracking-wide font-semibold text-sm");
 
 const ContactSection = () => {
   return (
@@ -40,8 +36,8 @@ const ContactSection = () => {
             <form className="mt-4" method="POST" action="https://formspree.io/f/xgerkqlv">
               <div className="flex flex-col sm:flex-row justify-between">
                 <div className="sm:w-5/12 flex flex-col">
-                  <InputContainer>
-                    <Label htmlFor="name-input">Your Name</Label>
+                  <div className="relative py-5 mt-6">
+                    <label className="absolute top-0 left-0 tracking-wide font-semibold text-sm" htmlFor="name-input">Your Name</label>
                     <input
                       className={inputClass}
                       id="name-input"
@@ -49,9 +45,9 @@ const ContactSection = () => {
                       name="name"
                       placeholder="E.g. Jean-Luc Picard"
                     />
-                  </InputContainer>
-                  <InputContainer>
-                    <Label htmlFor="email-input">Your Email Address</Label>
+                  </div>
+                  <div className="relative py-5 mt-6">
+                    <label className="absolute top-0 left-0 tracking-wide font-semibold text-sm" htmlFor="email-input">Your Email Address</label>
                     <input
                       className={inputClass}
                       id="email-input"
@@ -59,18 +55,18 @@ const ContactSection = () => {
                       name="email"
                       placeholder="E.g. jean-luc-picard@mail.com"
                     />
-                  </InputContainer>
+                  </div>
                 </div>
                 <div className="sm:w-5/12 flex flex-col">
-                  <InputContainer className="flex-1">
-                    <Label htmlFor="message-input">Your Message</Label>
+                  <div className="relative py-5 mt-6 flex-1">
+                    <label className="absolute top-0 left-0 tracking-wide font-semibold text-sm" htmlFor="message-input">Your Message</label>
                     <textarea
                       className={`${inputClass} h-24 sm:h-full resize-none`}
                       id="message-input"
                       name="message"
                       placeholder="Details about your company or project"
                     />
-                  </InputContainer>
+                  </div>
                 </div>
               </div>
 

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { primaryButtonClass } from "components/misc/Buttons";
+import { primaryButtonClassName } from "components/ui/Button";
 import PostCollection from "components/blog/PostCollection";
-import { Container } from "components/misc/Layouts";
 import { blogPosts } from "data/blogPosts";
 import SvgDecoratorBlob1 from "images/svg-decorator-blob-10.svg?react";
 import SvgDecoratorBlob2 from "images/svg-decorator-blob-2.svg?react";
@@ -17,16 +16,16 @@ const RecentPostsSection = () => {
   const preview = blogPosts.slice(0, 3);
 
   return (
-    <Container>
+    <div className="relative">
       <PostCollection
         title="Latest Blog Posts"
         subtitle="Thoughts and insights about web development and technology"
         posts={preview}
-        footer={<Link className={primaryButtonClass} to="/blog">View All Posts</Link>}
+        footer={<Link className={primaryButtonClassName} to="/blog">View All Posts</Link>}
       />
       <DecoratorBlob1 />
       <DecoratorBlob2 />
-    </Container>
+    </div>
   );
 };
 

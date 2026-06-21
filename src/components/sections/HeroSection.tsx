@@ -1,5 +1,4 @@
 import HeroImage from "images/hero-background.jpg";
-import { Subheading } from "components/misc/Headings";
 import LinkedinIcon from "../../images/linkedin-icon.svg?react";
 import GithubIcon from "../../images/github-icon.svg?react";
 
@@ -22,7 +21,9 @@ const HeroSection = () => {
             <h1 className="text-3xl text-center lg:text-left sm:text-4xl lg:text-5xl xl:text-6xl font-black text-gray-100 leading-none">
               <span className="inline-block mt-2">Hi, I'm Wil</span>
             </h1>
-            <Subheading>Full Stack Developer</Subheading>
+            <h2 className="font-bold text-center text-gray-100 mt-2 lg:text-left">
+              Full Stack Developer
+            </h2>
             <div className="mt-6">
               <a
                 className={socialLinkClass}

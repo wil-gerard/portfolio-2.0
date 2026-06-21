@@ -1,22 +1,10 @@
-import React, { ComponentProps } from "react";
+import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { tag } from "helpers/tag";
-import { primaryButtonClass } from "components/misc/Buttons";
-import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
+import { primaryButtonClassName } from "components/ui/Button";
+import SectionContainer from "components/ui/SectionContainer";
 import { blogPosts } from "data/blogPosts";
 import PostMeta from "components/blog/PostMeta";
 import CodeBlock from "components/blog/CodeBlock";
-
-const PostWrapper = tag("div", "max-w-3xl mx-auto");
-const Title = tag("h1", "text-4xl sm:text-5xl font-black tracking-wide");
-const DateText = tag("p", "text-sm text-gray-500 mt-2");
-const Subtitle = tag("p", "text-xl text-secondary-300 mt-2");
-const MetaRow = tag("div", "mt-4");
-const BackRow = tag("div", "mt-12");
-const NotFound = tag("p", "text-center text-gray-500 text-lg mt-12");
-const BackLink = (props: ComponentProps<typeof Link>) => (
-  <Link {...props} className={primaryButtonClass} />
-);
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -24,27 +12,27 @@ const BlogPostPage = () => {
 
   if (!post) {
     return (
-      <Container>
-        <ContentWithPaddingXl>
-          <NotFound>Post not found.</NotFound>
+      <div className="relative">
+        <SectionContainer>
+          <p className="text-center text-gray-500 text-lg mt-12">Post not found.</p>
           <div className="flex justify-center mt-12">
-            <BackLink to="/blog">← Back to Blog</BackLink>
+            <Link className={primaryButtonClassName} to="/blog">← Back to Blog</Link>
           </div>
-        </ContentWithPaddingXl>
-      </Container>
+        </SectionContainer>
+      </div>
     );
   }
 
   return (
-    <Container>
-      <ContentWithPaddingXl>
-        <PostWrapper>
-          <Title>{post.title}</Title>
-          <DateText>{post.date} · {post.readTime}</DateText>
-          <Subtitle>{post.subtitle}</Subtitle>
-          <MetaRow>
+    <div className="relative">
+      <SectionContainer>
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-black tracking-wide">{post.title}</h1>
+          <p className="text-sm text-gray-500 mt-2">{post.date} · {post.readTime}</p>
+          <p className="text-xl text-secondary-300 mt-2">{post.subtitle}</p>
+          <div className="mt-4">
             <PostMeta tags={post.tags} />
-          </MetaRow>
+          </div>
           {post.thumbnail && (
             <img
               className="w-full rounded-xl mt-8 max-h-[420px] object-cover"
@@ -58,12 +46,12 @@ const BlogPostPage = () => {
               { components: { pre: CodeBlock } }
             )}
           </div>
-          <BackRow>
-            <BackLink to="/blog">← Back to Blog</BackLink>
-          </BackRow>
-        </PostWrapper>
-      </ContentWithPaddingXl>
-    </Container>
+          <div className="mt-12">
+            <Link className={primaryButtonClassName} to="/blog">← Back to Blog</Link>
+          </div>
+        </div>
+      </SectionContainer>
+    </div>
   );
 };
 
