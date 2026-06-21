@@ -1,18 +1,18 @@
 import { tag } from "helpers/tag";
-import BlogTag from "./BlogTag";
+import PostTag from "./PostTag";
 
 const TagRow = tag("div", "flex flex-wrap gap-2 mt-4");
 
-type BlogMetaProps = {
+type PostMetaProps = {
   tags: string[];
 };
 
-const BlogMeta = ({ tags }: BlogMetaProps) => (
+const PostMeta = ({ tags }: PostMetaProps) => (
   <TagRow>
     {tags.map((label) => (
-      <BlogTag key={label} label={label} />
+      <PostTag key={label} label={label} />
     ))}
   </TagRow>
 );
 
-export default BlogMeta;
+export default PostMeta;

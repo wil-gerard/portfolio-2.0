@@ -4,7 +4,7 @@ import { tag } from "helpers/tag";
 import { primaryButtonClass } from "components/misc/Buttons";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import { blogPosts } from "data/blogPosts";
-import BlogMeta from "components/blog/BlogMeta";
+import PostMeta from "components/blog/PostMeta";
 import CodeBlock from "components/blog/CodeBlock";
 
 const PostWrapper = tag("div", "max-w-3xl mx-auto");
@@ -43,7 +43,7 @@ const BlogPostPage = () => {
           <DateText>{post.date} · {post.readTime}</DateText>
           <Subtitle>{post.subtitle}</Subtitle>
           <MetaRow>
-            <BlogMeta tags={post.tags} />
+            <PostMeta tags={post.tags} />
           </MetaRow>
           {post.thumbnail && (
             <img

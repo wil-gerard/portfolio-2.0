@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { tag } from "helpers/tag";
 import { hoverLift } from "components/misc/cardStyles";
 import { BlogPost } from "data/blogPosts";
-import BlogMeta from "./BlogMeta";
+import PostMeta from "./PostMeta";
 
 const cardClass = `bg-gray-100 rounded-lg overflow-hidden flex flex-col no-underline ${hoverLift}`;
 
@@ -23,11 +23,11 @@ const ReadMore = tag(
   "mt-4 text-sm font-semibold text-primary-500 group-hover:text-primary-700 transition duration-200"
 );
 
-type BlogCardProps = {
+type PostCardProps = {
   post: BlogPost;
 };
 
-const BlogCard = ({ post }: BlogCardProps) => (
+const PostCard = ({ post }: PostCardProps) => (
   <Link className={`${cardClass} group`} to={`/blog/${post.slug}`}>
     {post.thumbnail && <Thumbnail src={post.thumbnail} />}
     <Body>
@@ -35,10 +35,10 @@ const BlogCard = ({ post }: BlogCardProps) => (
       <Title>{post.title}</Title>
       <Subtitle>{post.subtitle}</Subtitle>
       <Excerpt>{post.excerpt}</Excerpt>
-      <BlogMeta tags={post.tags} />
+      <PostMeta tags={post.tags} />
       <ReadMore>Read More →</ReadMore>
     </Body>
   </Link>
 );
 
-export default BlogCard;
+export default PostCard;
