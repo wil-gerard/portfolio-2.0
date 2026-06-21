@@ -76,13 +76,13 @@ const SimpleContactUs = () => {
 
               <button
                 type="submit"
-                className="w-full sm:w-32 mt-6 py-3 bg-gray-100 text-primary-500 rounded-full font-bold tracking-wide shadow-lg uppercase text-sm transition duration-300 focus:outline-hidden focus:shadow-outline hover:bg-gray-300 hover:text-primary-700"
+                className="w-full sm:w-32 mt-6 py-3 bg-gray-100 text-primary-500 rounded-full font-bold tracking-wide shadow-lg uppercase text-sm transition duration-300 focus:outline-hidden focus:shadow-outline hover:bg-gray-300 hover:text-primary-700 hover:-translate-y-px focus:-translate-y-px hover:shadow-xl"
               >
                 Submit
               </button>
             </form>
           </div>
-          <SvgDotPatternIcon className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-primary-500 fill-current w-24" />
+          <SvgDotPatternIcon className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 -z-10 text-primary-500 fill-current w-20" />
         </div>
       </div>
     </div>

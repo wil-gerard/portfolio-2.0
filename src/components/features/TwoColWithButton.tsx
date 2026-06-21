@@ -72,7 +72,7 @@ export default ({
             <img className={imageClass} style={imageCss ?? undefined} src={imageSrc} alt="Wil Gerard" />
             {imageDecoratorBlob && (
               <SvgDotPattern
-                className="w-20 h-20 absolute right-0 bottom-0 translate-x-1/3 translate-y-1/3 fill-current text-primary-500 -z-10"
+                className="w-20 absolute right-0 bottom-0 fill-current text-primary-500 -z-10"
                 style={imageDecoratorBlobCss ?? undefined}
               />
             )}

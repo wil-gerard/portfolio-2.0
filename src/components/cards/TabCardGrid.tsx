@@ -82,11 +82,11 @@ const CardContent = tag("p", "mt-1 text-sm font-medium text-gray-600");
 const photoCardClass = `bg-gray-200 rounded-b-sm block max-w-xs mx-auto sm:max-w-none sm:mx-0 cursor-pointer ${hoverLift}`;
 const PhotoCard = (props: JSX.IntrinsicElements["div"]) => <div {...props} className={photoCardClass} />;
 
-const DecoratorBlobTopLeft = () => (
-  <SvgDecoratorBlob1 className="pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15 -translate-x-1/4 -translate-y-12 text-primary-500" />
+const DecoratorBlob1 = () => (
+  <SvgDecoratorBlob1 className="pointer-events-none -z-20 absolute right-0 top-0 h-64 w-64 opacity-15" />
 );
-const DecoratorBlobBottomRight = () => (
-  <SvgDecoratorBlob3 className="pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 translate-x-1/4 text-secondary-300" />
+const DecoratorBlob2 = () => (
+  <SvgDecoratorBlob3 className="pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-50" />
 );
 
 
@@ -281,8 +281,8 @@ const TabCardGrid = ({
           </TabContent>
         ))}
       </ContentWithPaddingXl>
-      <DecoratorBlobTopLeft />
-      <DecoratorBlobBottomRight />
+      <DecoratorBlob1 />
+      <DecoratorBlob2 />
     </Container>
     </>
   );
