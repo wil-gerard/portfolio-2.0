@@ -7,7 +7,7 @@ type PortfolioTabsProps = {
 
 const tabs: PortfolioTab[] = ["Development + Design", "Photography"];
 const tabBaseClass =
-  "cursor-pointer px-6 py-3 mt-2 sm:mt-0 sm:mr-2 last:mr-0 text-gray-600 font-medium rounded-xs transition duration-300 text-sm sm:text-base w-1/2 sm:w-auto text-center hover:bg-gray-300 hover:text-gray-700";
+  "cursor-pointer px-6 py-3 mt-2 sm:mt-0 sm:mr-2 last:mr-0 text-gray-700 font-medium rounded-xs transition duration-300 text-sm sm:text-base w-1/2 sm:w-auto text-center hover:bg-gray-300";
 
 const PortfolioTabs = ({ activeTab, onChange }: PortfolioTabsProps) => (
   <div className="flex flex-wrap bg-gray-200 px-2 py-2 rounded-sm leading-none mt-12 xl:mt-0">

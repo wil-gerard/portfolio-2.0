@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import SectionContainer from "components/ui/SectionContainer";
 import SectionHeading from "components/ui/SectionHeading";
 import { BlogPost } from "data/blogPosts";
@@ -15,7 +15,7 @@ type PostCollectionProps = {
 const PostCollection = ({ title, subtitle, posts, controls, footer }: PostCollectionProps) => (
   <SectionContainer>
     <SectionHeading>{title}</SectionHeading>
-    {subtitle && <p className="text-center text-gray-500 mt-4 text-lg">{subtitle}</p>}
+    {subtitle && <p className="text-center text-gray-700 mt-4 text-lg">{subtitle}</p>}
     {controls}
     <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts.map((post) => (

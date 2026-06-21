@@ -6,7 +6,7 @@ const socialLinkClass =
   "cursor-pointer inline-block p-2 rounded-full bg-gray-100 text-primary-500 hover:bg-primary-800 focus:bg-primary-800 hover:text-gray-100 focus:text-gray-100 transition duration-300 m-2";
 
 const inputClass =
-  "w-full bg-transparent text-gray-100 text-base font-medium tracking-wide border-b-2 py-2 hover:border-pink-400 focus:border-pink-400 focus:outline-hidden transition duration-200 placeholder:text-gray-500";
+  "w-full bg-transparent text-gray-100 text-base font-medium tracking-wide border-b-2 py-2 hover:border-pink-400 focus:border-pink-400 focus:outline-hidden transition duration-200 placeholder:text-gray-400";
 
 const ContactSection = () => {
   return (
@@ -21,6 +21,7 @@ const ContactSection = () => {
                 href="https://linkedin.com/in/wilgerard/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
                 <LinkedinIcon className="w-6 h-6" />
               </a>
@@ -29,6 +30,7 @@ const ContactSection = () => {
                 href="https://github.com/wil-gerard"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
               >
                 <GithubIcon className="w-6 h-6" />
               </a>

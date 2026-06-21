@@ -1,5 +1,5 @@
 import { cardHoverClassName } from "components/ui/cardStyles";
-import { Photo } from "data/portfolioItems";
+import type { Photo } from "data/portfolioItems";
 
 type PhotoCardProps = {
   photo: Photo;
@@ -19,7 +19,7 @@ const PhotoCard = ({ photo, onSelect }: PhotoCardProps) => (
       />
       <div className="p-4 text-gray-900">
         <h3 className="text-lg font-semibold">{photo.title}</h3>
-        <p className="mt-1 text-sm font-medium text-gray-600">{photo.location}</p>
+        <p className="mt-1 text-sm font-medium text-gray-700">{photo.location}</p>
       </div>
     </button>
   </div>
