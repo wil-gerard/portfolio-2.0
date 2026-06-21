@@ -1,8 +1,7 @@
 import React, { useEffect } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
 import Navbar from "components/nav/Navbar"
-import "style.css"
-import "tailwindcss/dist/base.css"
+import "index.css"
 import AnimationRevealPage from "helpers/AnimationRevealPage";
 import BackgroundAsImage from "components/hero/BackgroundAsImage";
 import TwoColWithButton from "components/features/TwoColWithButton";

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import macrosPlugin from 'vite-plugin-babel-macros';
 import svgr from 'vite-plugin-svgr';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -39,6 +40,7 @@ ${routes.map((r) => `  <url>\n    <loc>${domain}${r}</loc>\n  </url>`).join('\n'
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
+    tailwindcss(),
     macrosPlugin(),
     svgr(),
     {

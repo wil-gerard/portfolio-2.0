@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Custom brand palettes */
+  --color-primary-100: #99acff;
+  --color-primary-200: #859bff;
+  --color-primary-300: #708aff;
+  --color-primary-400: #5c7aff;
+  --color-primary-500: #4769ff;
+  --color-primary-600: #3358ff;
+  --color-primary-700: #1f48ff;
+  --color-primary-800: #0a37ff;
+  --color-primary-900: #002df5;
+
+  --color-secondary-100: #7c8ba1;
+  --color-secondary-200: #667892;
+  --color-secondary-300: #506582;
+  --color-secondary-400: #3a5173;
+  --color-secondary-500: #243e63;
+  --color-secondary-600: #203859;
+  --color-secondary-700: #1d324f;
+  --color-secondary-800: #192b45;
+  --color-secondary-900: #16253b;
+
+  /* Cool-gray scale carried over from the v2 config */
+  --color-gray-lightest: #fff;
+  --color-gray-100: #f7fafc;
+  --color-gray-200: #edf2f7;
+  --color-gray-300: #e2e8f0;
+  --color-gray-400: #cbd5e0;
+  --color-gray-500: #a0aec0;
+  --color-gray-600: #718096;
+  --color-gray-700: #4a5568;
+  --color-gray-800: #2d3748;
+  --color-gray-900: #1a202c;
+
+  /* Exact accent shades referenced by components */
+  --color-blue-500: #4299e1;
+  --color-pink-400: #f687b3;
+  --color-indigo-400: #7f9cf5;
+  --color-teal-400: #4fd1c5;
+
+  /* Custom breakpoint (v4 default 2xl is 1536px) */
+  --breakpoint-2xl: 1440px;
+
+  /* Display font */
+  --font-display: "Inter", system-ui;
+
+  /* v2 focus-ring shadow removed from v4 defaults */
+  --shadow-outline: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
