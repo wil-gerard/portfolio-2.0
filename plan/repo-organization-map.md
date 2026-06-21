@@ -4,25 +4,40 @@ This file is the placement contract for source files.
 
 ## Global principles
 
-- Keep the portfolio app focused on the components rendered from `src/App.js`.
-- Shared primitives belong under `src/components/misc`.
-- Page sections belong under `src/components/*` by section type.
+- Keep the portfolio app focused on components reachable from `src/app/App.tsx`.
+- Name components by their product role rather than their layout or styling technique.
+- Route components belong in `src/pages` and use the `Page` suffix.
+- Homepage sections belong in `src/components/sections` and use the `Section` suffix.
+- Shared primitives belong in `src/components/ui` only when they have multiple credible consumers.
 - Static assets belong under `src/images` only when imported by reachable source.
 
 ## Folder contracts
 
+### `src/app/*`
+
+- Purpose: application wiring and route-level helpers.
+- Include: route registration, scroll restoration, and other app-wide behavior.
+- Exclude: page content and reusable presentation.
+
+### `src/pages/*`
+
+- Purpose: components directly mounted by routes.
+- Include: `HomePage`, `BlogIndexPage`, and `BlogPostPage`.
+- Exclude: presentation shared between routes or homepage sections.
+
 ### `src/components/*`
 
-- Purpose: React UI sections and shared primitives used by the portfolio app.
-- Include: components reachable from `src/App.js`.
-- Exclude: unused starter templates, alternate landing pages, and demo-only components.
-- Allowed imports: `src/components/misc`, `src/helpers`, `src/images`, package dependencies.
+- `layout`: site-wide chrome and page shells.
+- `sections`: semantic homepage sections; related portfolio components live in its `portfolio` subfolder.
+- `blog`: post cards, metadata, filters, and shared post-collection presentation.
+- `ui`: cross-domain primitives with multiple consumers.
+- Exclude: `misc`, `common`, and `helpers` catch-all folders.
 
-### `src/helpers/*`
+### `src/data/*`
 
-- Purpose: small reusable runtime helpers used by reachable UI.
-- Include: wrappers/hooks imported by active source.
-- Exclude: helpers only needed by removed templates.
+- Purpose: typed content records used by presentation components.
+- Include: blog metadata and portfolio project/photo records.
+- Exclude: component state and rendered JSX where a typed representation is clearer.
 
 ### `src/images/*`
 
@@ -33,3 +48,4 @@ This file is the placement contract for source files.
 ## Change Log
 
 - 2026-05-31: Initial map for unused code cleanup.
+- 2026-06-21: Adopted semantic page, section, domain, and UI ownership.
