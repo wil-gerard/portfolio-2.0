@@ -1,2 +1,6 @@
-import tw from "twin.macro";
-export const PrimaryButton = tw.button`px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`;
+import { tag } from "helpers/tag";
+
+export const PrimaryButton = tag(
+  "button",
+  "px-8 py-3 font-bold rounded-sm bg-primary-500 text-gray-100 hover:bg-primary-700 focus:bg-primary-700 hover:text-gray-200 focus:text-gray-200 focus:shadow-outline focus:outline-hidden transition duration-300"
+);

@@ -1,12 +1,12 @@
 import React from "react";
-import tw from "twin.macro";
+import { tag } from "helpers/tag";
 
 /* framer-motion and useInView here are used to animate the sections in when we reach them in the viewport
  */
 import { motion } from "framer-motion";
 import useInView from "@owaiswiz/use-in-view";
 
-const StyledDiv = tw.div`font-display min-h-screen text-secondary-500 p-8 overflow-hidden`;
+const StyledDiv = tag("div", "font-display min-h-screen text-secondary-500 p-8 overflow-hidden");
 
 type AnimationRevealProps = {
   disabled?: boolean;
