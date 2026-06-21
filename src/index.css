@@ -22,7 +22,7 @@
   --color-primary-200: #859bff;
   --color-primary-300: #708aff;
   --color-primary-400: #5c7aff;
-  --color-primary-500: #4769ff;
+  --color-primary-500: #4262ed;
   --color-primary-600: #3358ff;
   --color-primary-700: #1f48ff;
   --color-primary-800: #0a37ff;
@@ -124,4 +124,21 @@
 .post-prose a:hover,
 .post-prose a:focus {
   text-decoration-color: #1f48ff;
+}
+
+@keyframes portfolio-panel-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.portfolio-panel {
+  animation: portfolio-panel-enter 400ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-panel {
+    animation: none;
+  }
 }

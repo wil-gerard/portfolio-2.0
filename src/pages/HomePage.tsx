@@ -6,7 +6,7 @@ import PortfolioSection from "components/sections/portfolio/PortfolioSection";
 import RecentPostsSection from "components/sections/RecentPostsSection";
 
 const HomePage = () => (
-  <PageShell revealSections={false}>
+  <PageShell>
     <HeroSection />
     <AboutSection />
     <PortfolioSection />
