@@ -1,6 +1,7 @@
 import { primaryButtonClassName } from "components/ui/Button";
 import SectionHeading from "components/ui/SectionHeading";
-import ProfilePic from "images/profile-pic.png";
+import ProfilePic from "images/profile-pic-384.webp";
+import ProfilePicLarge from "images/profile-pic-627.webp";
 import Resume from "images/resume/wil-gerard-resume.pdf";
 import SvgDotPattern from "images/dot-pattern.svg?react";
 
@@ -15,7 +16,13 @@ const AboutSection = () => {
             <img
               className="rounded-full border border-gray-200 shadow-sm"
               src={ProfilePic}
+              srcSet={`${ProfilePic} 384w, ${ProfilePicLarge} 627w`}
+              sizes="(min-width: 768px) 33vw, calc(100vw - 4rem)"
               alt="Wil Gerard"
+              width="627"
+              height="627"
+              loading="lazy"
+              decoding="async"
             />
             <SvgDotPattern className="w-20 absolute right-0 bottom-0 fill-current text-primary-500 -z-10" />
           </div>
@@ -29,16 +36,16 @@ const AboutSection = () => {
               <p className="mt-5 text-base md:text-lg lg:text-xl font-semibold leading-relaxed text-secondary-500">
                 I'm a full stack developer based in the Twin Cities.
               </p>
-              <p className="mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100">
+              <p className="mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-300">
                 My foundation is HTML, CSS, JavaScript, and TypeScript. Though constantly changing,
                 lately I've been diving deeper into React.js, Node, Hono, Next.js, and Cloudflare Workers.
               </p>
-              <p className="mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100">
+              <p className="mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-300">
                 I'm usually building something: a product idea, a developer workflow, an AI experiment,
                 or a tool that makes a real problem easier to solve. I like software that is practical and
                 personal enough to feel like someone cared while making it.
               </p>
-              <p className="mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100">
+              <p className="mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-300">
                 Outside of code I'm into design, photography, music, horror movies, rock climbing, board
                 games, and cooking when I'm in the mood to do it right. I live here with my cat Lou, who
                 is very much in charge.

@@ -1,4 +1,4 @@
-import { ComponentType, SVGProps } from "react";
+import type { ComponentType, SVGProps } from "react";
 import CloudflareIcon from "images/tech/cloudflare.svg?react";
 import ExpressJsIcon from "images/tech/expressjs.svg?react";
 import HerokuIcon from "images/tech/heroku-icon.svg?react";
@@ -11,10 +11,14 @@ import RenderIcon from "images/tech/Render Symbol SVG.svg?react";
 import ResendIcon from "images/tech/resend-icon-black.svg?react";
 import TailwindIcon from "images/tech/tailwindcss.svg?react";
 import TypeScriptIcon from "images/tech/typescript.svg?react";
-import Cragcast from "images/portfolio/cragcast.png";
-import DevLocator from "images/portfolio/dev-locator.png";
-import GitConnected from "images/portfolio/git-connected.png";
-import Graybox from "images/portfolio/graybox.png";
+import Cragcast from "images/portfolio/cragcast-640.webp";
+import CragcastLarge from "images/portfolio/cragcast-1280.webp";
+import DevLocator from "images/portfolio/dev-locator-640.webp";
+import DevLocatorLarge from "images/portfolio/dev-locator-1280.webp";
+import GitConnected from "images/portfolio/git-connected-640.webp";
+import GitConnectedLarge from "images/portfolio/git-connected-1280.webp";
+import Graybox from "images/portfolio/graybox-640.webp";
+import GrayboxLarge from "images/portfolio/graybox-1280.webp";
 import PhotographyImage1 from "images/portfolio/photography-1.jpg";
 import PhotographyImage2 from "images/portfolio/photography-2.jpg";
 import PhotographyImage3 from "images/portfolio/photography-3.jpg";
@@ -26,6 +30,7 @@ export type TechnologyIcon = ComponentType<SVGProps<SVGSVGElement>>;
 
 export type Project = {
   imageSrc: string;
+  imageSrcSet: string;
   title: string;
   description: string;
   url: string;
@@ -41,6 +46,7 @@ export type Photo = {
 export const projects: Project[] = [
   {
     imageSrc: Graybox,
+    imageSrcSet: `${Graybox} 640w, ${GrayboxLarge} 1280w`,
     title: "Graybox",
     description:
       "Graybox locks your Screen Time passcode in an encrypted vault behind a deliberate unlock flow. Enough friction to stop casual bypasses, not enough to lock you out when it matters.",
@@ -49,6 +55,7 @@ export const projects: Project[] = [
   },
   {
     imageSrc: DevLocator,
+    imageSrcSet: `${DevLocator} 640w, ${DevLocatorLarge} 1280w`,
     title: "Dev Locator",
     description:
       "Dev Locator searches GitHub by location so you can find developers near you, filter by language or stats, and browse their profiles at a glance.",
@@ -57,6 +64,7 @@ export const projects: Project[] = [
   },
   {
     imageSrc: GitConnected,
+    imageSrcSet: `${GitConnected} 640w, ${GitConnectedLarge} 1280w`,
     title: "Git Connected",
     description:
       "Git Connected is an open source platform for early career engineers to collaborate, get feedback, and build a real professional network.",
@@ -65,6 +73,7 @@ export const projects: Project[] = [
   },
   {
     imageSrc: Cragcast,
+    imageSrcSet: `${Cragcast} 640w, ${CragcastLarge} 1280w`,
     title: "Cragcast",
     description:
       "Cragcast checks the weather at your climbing spot and tells you whether conditions are safe. Powered by Xweather data and a simple climbing risk algorithm.",

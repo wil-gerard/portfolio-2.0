@@ -1,4 +1,5 @@
-import HeroImage from "images/hero-background.jpg";
+import HeroDesktop from "images/hero-background-1600.webp";
+import HeroMobile from "images/hero-background-800.webp";
 import LinkedinIcon from "../../images/linkedin-icon.svg?react";
 import GithubIcon from "../../images/github-icon.svg?react";
 
@@ -7,10 +8,18 @@ const socialLinkClass =
 
 const HeroSection = () => {
   return (
-    <div
-      className="relative -mx-8 -mt-8 bg-center bg-cover min-h-screen"
-      style={{ backgroundImage: `url(${HeroImage})` }}
-    >
+    <div className="relative -mx-8 -mt-8 min-h-screen">
+      <picture>
+        <source media="(min-width: 1024px)" srcSet={HeroDesktop} />
+        <img
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          src={HeroMobile}
+          alt=""
+          width="800"
+          height="1200"
+          fetchPriority="high"
+        />
+      </picture>
       <div className="z-10 absolute inset-0 bg-primary-500 opacity-25" />
       <div className="z-20 relative px-4 sm:px-8 max-w-7xl min-h-screen flex items-center mx-auto">
         <div className="w-full flex flex-col items-center lg:flex-row lg:justify-between lg:py-32">
@@ -30,6 +39,7 @@ const HeroSection = () => {
                 href="https://linkedin.com/in/wilgerard/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
                 <LinkedinIcon className="w-6 h-6" />
               </a>
@@ -38,6 +48,7 @@ const HeroSection = () => {
                 href="https://github.com/wil-gerard"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
               >
                 <GithubIcon className="w-6 h-6" />
               </a>

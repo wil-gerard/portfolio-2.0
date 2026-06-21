@@ -1,5 +1,5 @@
 import { cardHoverClassName } from "components/ui/cardStyles";
-import { Project } from "data/portfolioItems";
+import type { Project } from "data/portfolioItems";
 
 type ProjectCardProps = {
   project: Project;
@@ -13,13 +13,20 @@ const ProjectCard = ({ project }: ProjectCardProps) => (
       target="_blank"
       rel="noreferrer noopener"
     >
-      <div
-        className="h-56 xl:h-96 bg-center bg-cover rounded-t-sm"
-        style={{ backgroundImage: `url("${project.imageSrc}")` }}
+      <img
+        className="h-56 xl:h-96 w-full object-cover object-center rounded-t-sm"
+        src={project.imageSrc}
+        srcSet={project.imageSrcSet}
+        sizes="(min-width: 1280px) 553px, (min-width: 1024px) 50vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, calc(100vw - 6rem)"
+        alt=""
+        width="640"
+        height="448"
+        loading="lazy"
+        decoding="async"
       />
       <div className="p-4 text-gray-900">
         <h3 className="text-lg font-semibold">{project.title}</h3>
-        <p className="mt-1 text-sm font-medium text-gray-600">{project.description}</p>
+        <p className="mt-1 text-sm font-medium text-gray-700">{project.description}</p>
         <h4 className="text-sm font-medium mt-2">Built with:</h4>
         <div className="flex flex-row justify-start mt-2 [&_svg]:w-6 [&_svg]:h-6 [&_svg]:mr-3">
           {project.technologies.map((Technology, index) => (
