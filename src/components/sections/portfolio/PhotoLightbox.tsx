@@ -1,14 +1,9 @@
 import { useState, useEffect, MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Photo } from "data/portfolioItems";
 
-type LightboxPhoto = {
-  imageSrc: string;
-  title: string;
-  content: string;
-};
-
-type LightboxProps = {
-  photos: LightboxPhoto[];
+type PhotoLightboxProps = {
+  photos: Photo[];
   initialIndex: number | null;
   onClose: () => void;
 };
@@ -16,7 +11,7 @@ type LightboxProps = {
 const navButtonClass =
   "bg-white text-gray-900 rounded-full flex items-center justify-center font-bold leading-none shrink-0 transition duration-200 w-9 h-9 text-[22px] cursor-pointer border-0 opacity-85 hover:opacity-100";
 
-const Lightbox = ({ photos, initialIndex, onClose }: LightboxProps) => {
+const PhotoLightbox = ({ photos, initialIndex, onClose }: PhotoLightboxProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex ?? 0);
 
   useEffect(() => {
@@ -83,7 +78,7 @@ const Lightbox = ({ photos, initialIndex, onClose }: LightboxProps) => {
             </div>
             <div className="mt-4 text-center text-white">
               <h3 className="text-lg font-semibold">{photo.title}</h3>
-              <p className="text-sm text-gray-400 mt-1">{photo.content}</p>
+              <p className="text-sm text-gray-400 mt-1">{photo.location}</p>
             </div>
           </motion.div>
         </motion.div>
@@ -92,4 +87,4 @@ const Lightbox = ({ photos, initialIndex, onClose }: LightboxProps) => {
   );
 };
 
-export default Lightbox;
+export default PhotoLightbox;
