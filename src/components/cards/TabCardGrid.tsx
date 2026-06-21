@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, ComponentProps } from "react";
 import { motion } from "framer-motion";
 import Lightbox from "components/misc/Lightbox";
-import tw from "twin.macro";
-import styled, { css } from "styled-components";
+import { tag } from "helpers/tag";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import { SectionHeading } from "components/misc/Headings";
 import { hoverLift } from "components/misc/cardStyles";
@@ -42,62 +41,44 @@ type TabCardGridProps = {
   tabs?: Record<string, PortfolioCard[]>;
 };
 
-const HeaderRow = tw.div`flex justify-between items-center flex-col xl:flex-row`;
-const Header = tw(SectionHeading)``;
-const TabsControl = tw.div`flex flex-wrap bg-gray-200 px-2 py-2 rounded leading-none mt-12 xl:mt-0`;
+const HeaderRow = tag("div", "flex justify-between items-center flex-col xl:flex-row");
+const Header = SectionHeading;
+const TabsControl = tag("div", "flex flex-wrap bg-gray-200 px-2 py-2 rounded-sm leading-none mt-12 xl:mt-0");
 
-const TabControl = styled.div<{ active?: boolean }>`
-  ${tw`cursor-pointer px-6 py-3 mt-2 sm:mt-0 sm:mr-2 last:mr-0 text-gray-600 font-medium rounded-sm transition duration-300 text-sm sm:text-base w-1/2 sm:w-auto text-center`}
-  &:hover {
-    ${tw`bg-gray-300 text-gray-700`}
-  }
-  ${(props) => props.active && tw`bg-primary-500! text-gray-100!`}
-  }
-`;
+const tabControlClass = (active: boolean) =>
+  "cursor-pointer px-6 py-3 mt-2 sm:mt-0 sm:mr-2 last:mr-0 text-gray-600 font-medium rounded-xs transition duration-300 text-sm sm:text-base w-1/2 sm:w-auto text-center hover:bg-gray-300 hover:text-gray-700" +
+  (active ? " !bg-primary-500 !text-gray-100" : "");
 
-const TabContent = tw(
-  motion.div
-)`mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12`;
+const TabControl = ({ active, ...props }: { active?: boolean } & JSX.IntrinsicElements["div"]) => (
+  <div {...props} className={tabControlClass(!!active)} />
+);
 
-const Card = styled.a`
-  ${tw`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0`}
-  ${hoverLift}
-`;
+const TabContent = (props: ComponentProps<typeof motion.div>) => (
+  <motion.div {...props} className="mt-6 flex flex-wrap sm:-mr-10 md:-mr-6 lg:-mr-12" />
+);
 
-const CardImageContainer = styled.div<{ imageSrc: string }>`
-  ${(props) =>
-    css`
-      background-image: url("${props.imageSrc}");
-    `}
-  ${tw`h-56 xl:h-96 bg-center bg-cover rounded-t`}
-`;
+const cardClass = `bg-gray-200 rounded-b-sm block max-w-xs mx-auto sm:max-w-none sm:mx-0 ${hoverLift}`;
+const Card = (props: JSX.IntrinsicElements["a"]) => <a {...props} className={cardClass} />;
 
-const CardPhotographyContainer = tw.div`mt-10 w-full sm:w-1/2 md:w-1/3 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/2`;
-const CardContainer = styled.div<{ imageSrc: string }>`
-  ${(props) =>
-    css`
-      background-image: url("${props.imageSrc}");
-    `}
-  ${tw`h-56 xl:h-96 bg-center bg-cover rounded-t`}
-`;
+const CardImageContainer = ({ imageSrc }: { imageSrc: string }) => (
+  <div
+    className="h-56 xl:h-96 bg-center bg-cover rounded-t-sm"
+    style={{ backgroundImage: `url("${imageSrc}")` }}
+  />
+);
+const CardContainer = CardImageContainer;
 
-const CardTechIcons = styled.div`
-  ${tw`flex flex-row justify-start mt-2`}
-  svg {
-    ${tw`w-6 h-6 mr-3`}
-  }
-`;
+const CardPhotographyContainer = tag("div", "mt-10 w-full sm:w-1/2 md:w-1/3 sm:pr-10 md:pr-6 lg:pr-12 lg:w-1/2");
 
-const BuiltWith = tw.h6`text-sm font-medium mt-2`;
+const CardTechIcons = tag("div", "flex flex-row justify-start mt-2 [&_svg]:w-6 [&_svg]:h-6 [&_svg]:mr-3");
 
-const CardText = tw.div`p-4 text-gray-900`;
-const CardTitle = tw.h5`text-lg font-semibold`;
-const CardContent = tw.p`mt-1 text-sm font-medium text-gray-600`;
+const BuiltWith = tag("h6", "text-sm font-medium mt-2");
+const CardText = tag("div", "p-4 text-gray-900");
+const CardTitle = tag("h5", "text-lg font-semibold");
+const CardContent = tag("p", "mt-1 text-sm font-medium text-gray-600");
 
-const PhotoCard = styled.div`
-  ${tw`bg-gray-200 rounded-b block max-w-xs mx-auto sm:max-w-none sm:mx-0 cursor-pointer`}
-  ${hoverLift}
-`;
+const photoCardClass = `bg-gray-200 rounded-b-sm block max-w-xs mx-auto sm:max-w-none sm:mx-0 cursor-pointer ${hoverLift}`;
+const PhotoCard = (props: JSX.IntrinsicElements["div"]) => <div {...props} className={photoCardClass} />;
 
 
 const TabCardGrid = ({

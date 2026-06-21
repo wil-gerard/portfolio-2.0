@@ -1,9 +1,2 @@
-import { css } from "styled-components";
-
-export const hoverLift = css`
-  transition: box-shadow 300ms, transform 300ms;
-  &:hover {
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
-  }
-`;
+export const hoverLift =
+  "transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.12)]";
