@@ -37,7 +37,15 @@ const BlogIndexPage = () => {
             ))}
           </div>
         )}
-        footer={<Link className={primaryButtonClassName} to="/">← Back to Portfolio</Link>}
+        footer={(
+          <Link
+            className={primaryButtonClassName}
+            state={{ restoreScrollPosition: true }}
+            to="/"
+          >
+            ← Back to Portfolio
+          </Link>
+        )}
       />
     </div>
   );
