@@ -1,0 +1,130 @@
+import toggleFailure from "./toggle-failure.mp4";
+import togglePoster from "./toggle-failure.png";
+
+I removed one line from a weather map's temperature toggle. The button still changed. The temperatures stayed on the map.
+
+Checking the button's `aria-pressed` state would miss that bug. To catch it, I used a Storybook interaction test that checks the MapsGL layer after the click.
+
+The extra assertion is short. Getting the map ready for that assertion takes more care.
+
+<figure>
+  <video controls playsInline preload="none" poster={togglePoster} src={toggleFailure} aria-label="Storybook runs the broken temperature toggle and shows the failing layer assertion" style={{ width: "100%", height: "auto" }} />
+  <figcaption>The button changes to off. Temperatures remain visible, and the layer assertion fails.</figcaption>
+</figure>
+
+## A button can pass while the map is wrong
+
+The component has a Mapbox basemap, an Xweather MapsGL temperature layer, and a React button. The toggle handler updates both the SDK and React state.
+
+```ts
+const next = !visible;
+instance.setWeatherLayerVisibility("temperatures", next);
+setVisible(next);
+```
+
+Remove the middle line and React still updates the button. This assertion passes.
+
+```ts
+await userEvent.click(button);
+await expect(button).toHaveAttribute("aria-pressed", "false");
+```
+
+The weather layer has its own state. React can say one thing while MapsGL renders another. I introduced this bug on purpose so I could check whether the test detected it.
+
+## Give the map a starting condition
+
+For an ordinary button, you can render the component and click it. This component also needs a host map, a MapsGL controller, and weather data from an external service.
+
+I fixed the camera over Minneapolis and used one temperature layer. The component waits for a Mapbox render event, then checks whether MapsGL has data at the map center.
+
+```ts
+if (!instance.isReady || instance.isLoading) return;
+
+const layer = instance.getWeatherLayer("temperatures");
+if (!layer || Array.isArray(layer) || !layer.visible) return;
+
+const sample = layer.queryFeatures(CENTER, map.getZoom(), false, false);
+if (!sample || sample.nodata || !Number.isFinite(sample.value)) return;
+```
+
+After those checks, the component reports readiness and calls `onReady` with the controller. The story uses that callback to get the layer it will test. Loading errors and a timeout after 45 seconds produce an error state.
+
+Sampling a temperature gives me evidence that weather data reached the layer. The render event gives me a point to run that check. Neither proves that the GPU drew every tile correctly. That distinction matters when deciding what a passing test means.
+
+## Check the result in MapsGL
+
+Storybook's [play function](https://storybook.js.org/docs/writing-tests/interaction-testing) runs the interaction in a browser. I pass a spy as the readiness callback and wait for the component before clicking.
+
+Here is the toggle story from the example. It uses Storybook 8.6 and `@storybook/test`.
+
+```tsx
+export const TogglesTemperature: Story = {
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(() => {
+      expect(
+        canvas.queryByRole("alert") ??
+          canvas.queryByText("Weather map ready")
+      ).not.toBeNull();
+    }, { timeout: 60000 });
+
+    if (canvas.queryByRole("alert")) {
+      throw new Error("Weather map failed to load");
+    }
+
+    await expect(args.onReady).toHaveBeenCalledTimes(1);
+    if (!args.onReady) throw new Error("Expected a readiness callback");
+
+    const controller = args.onReady.mock.calls[0][0];
+    const layer = controller.getWeatherLayer("temperatures");
+    if (!layer || Array.isArray(layer)) {
+      throw new Error("Expected one temperature layer");
+    }
+
+    const button = canvas.getByRole("button", {
+      name: "Temperature layer",
+    });
+
+    await userEvent.click(button);
+    await expect(button).toHaveAttribute("aria-pressed", "false");
+    await expect(layer.visible).toBe(false);
+
+    await userEvent.click(button);
+    await expect(button).toHaveAttribute("aria-pressed", "true");
+    await expect(layer.visible).toBe(true);
+    await expect(controller.getWeatherLayer("temperatures")).toBe(layer);
+  },
+};
+```
+
+The layer assertion catches the missing SDK call. The second click checks restoration, and the last assertion checks that the control kept the same layer instance. MapsGL provides [`setWeatherLayerVisibility`](https://www.xweather.com/docs/mapsgl/reference/map-controller) for toggling an existing layer.
+
+## Remove the call and run it
+
+[Clone the example](https://github.com/wil-gerard/mapsgl-storybook-testing) and follow its README to configure browser credentials for Mapbox and Xweather. The Xweather account needs MapsGL access.
+
+Build Storybook and serve it from a terminal.
+
+```sh
+npm run build-storybook
+python3 -m http.server 6007 --bind 127.0.0.1 --directory storybook-static
+```
+
+Run the tests from another terminal.
+
+```sh
+npm run test:maps -- --url http://127.0.0.1:6007
+```
+
+Then remove the visibility call, rebuild, and run the same command. Serving a static build keeps hot reload from interrupting the experiment.
+
+The button assertion passes. The layer assertion fails with `expected true to be false`. The load test still passes because weather data is available. Restore the call and rebuild to recover the passing run.
+
+I verified the failure and recovery in Chromium with MapsGL 1.10.2 and Mapbox GL JS 3.32.0 on October 7, 2026.
+
+## Add visual coverage for visual bugs
+
+These tests catch a control that fails to change layer visibility. They also depend on live services, so a credential or network failure needs investigation.
+
+A wrong palette or a layer drawn in the wrong order needs different coverage. For that, I would compare screenshots with controlled weather data, camera state, and a consistent rendering environment. [Playwright's visual comparison guide](https://playwright.dev/docs/test-snapshots) explains the environment requirements. This example establishes the interaction test first.

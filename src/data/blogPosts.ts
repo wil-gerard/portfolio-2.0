@@ -45,6 +45,17 @@ function getPostContent(slug: string): BlogPost["Content"] {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "test-a-mapsgl-layer-toggle",
+    title: "Testing a weather map in Storybook",
+    subtitle: "Catch a temperature toggle that leaves the layer visible",
+    date: "Oct 7, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "A temperature toggle can change its button state while leaving the map untouched. I used Storybook to check the MapsGL layer, then removed one SDK call to prove the test caught the bug.",
+    tags: ["mapsgl", "storybook", "testing", "react"],
+    Content: getPostContent("test-a-mapsgl-layer-toggle"),
+  },
+  {
     slug: "my-ai-development-stack",
     title: "My AI development stack",
     subtitle: "AGENTS.md, MCP, and skills",
