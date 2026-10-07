@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["mapsgl", "storybook", "testing", "react"],
     thumbnail: {
       src: TemperatureMapThumbnail,
-      srcSet: `${TemperatureMapThumbnail} 1578w`,
+      srcSet: `${TemperatureMapThumbnail} 1550w`,
     },
     Content: getPostContent("test-a-mapsgl-layer-toggle"),
   },
