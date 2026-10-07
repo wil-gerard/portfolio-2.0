@@ -6,6 +6,7 @@ import NodeModulesThumbnail from "content/posts/the-worm-in-your-node-modules/th
 import NodeModulesThumbnailLarge from "content/posts/the-worm-in-your-node-modules/thumbnail-1000.webp";
 import WritingThumbnail from "content/posts/write-to-be-cited/thumbnail-640.webp";
 import WritingThumbnailLarge from "content/posts/write-to-be-cited/thumbnail-1280.webp";
+import TemperatureMapThumbnail from "content/posts/test-a-mapsgl-layer-toggle/temperature-map.png";
 
 export type PostThumbnail = {
   src: string;
@@ -53,6 +54,10 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A temperature toggle can change its button state while leaving the map untouched. I used Storybook to check the MapsGL layer, then removed one SDK call to prove the test caught the bug.",
     tags: ["mapsgl", "storybook", "testing", "react"],
+    thumbnail: {
+      src: TemperatureMapThumbnail,
+      srcSet: `${TemperatureMapThumbnail} 1578w`,
+    },
     Content: getPostContent("test-a-mapsgl-layer-toggle"),
   },
   {
