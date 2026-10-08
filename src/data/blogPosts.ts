@@ -6,7 +6,8 @@ import NodeModulesThumbnail from "content/posts/the-worm-in-your-node-modules/th
 import NodeModulesThumbnailLarge from "content/posts/the-worm-in-your-node-modules/thumbnail-1000.webp";
 import WritingThumbnail from "content/posts/write-to-be-cited/thumbnail-640.webp";
 import WritingThumbnailLarge from "content/posts/write-to-be-cited/thumbnail-1280.webp";
-import TemperatureMapThumbnail from "content/posts/test-a-mapsgl-layer-toggle/temperature-map.png";
+import TemperatureMapThumbnail from "content/posts/test-a-mapsgl-layer-toggle/thumbnail-640.webp";
+import TemperatureMapThumbnailLarge from "content/posts/test-a-mapsgl-layer-toggle/thumbnail-1280.webp";
 
 export type PostThumbnail = {
   src: string;
@@ -56,7 +57,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["mapsgl", "storybook", "testing", "react"],
     thumbnail: {
       src: TemperatureMapThumbnail,
-      srcSet: `${TemperatureMapThumbnail} 1550w`,
+      srcSet: `${TemperatureMapThumbnail} 640w, ${TemperatureMapThumbnailLarge} 1280w`,
     },
     Content: getPostContent("test-a-mapsgl-layer-toggle"),
   },
