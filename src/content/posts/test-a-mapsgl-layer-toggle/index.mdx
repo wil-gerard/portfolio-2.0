@@ -132,7 +132,20 @@ MapsGL provides [`setWeatherLayerVisibility`](https://www.xweather.com/docs/maps
 
 ## Try breaking it
 
-The [example repo](https://github.com/wil-gerard/mapsgl-storybook-testing) includes the component, complete stories, and setup instructions. You'll need a Mapbox token and Xweather credentials with MapsGL access.
+The [example repo](https://github.com/wil-gerard/mapsgl-storybook-testing) includes the component, complete stories, and setup instructions. To run the tests, you'll need credentials from Xweather and Mapbox.
+
+- **Xweather.** Create an app in your Xweather account to get a client ID and client secret. The [MapsGL getting started guide](https://www.xweather.com/docs/mapsgl/getting-started) covers signing up and creating access keys. Each app has a namespace that limits which domains can use its keys. If the map fails to load, check that the namespace allows the host where Storybook runs, such as `localhost`.
+- **Mapbox.** Your account's default public token works. It starts with `pk.` and appears on your [access tokens page](https://console.mapbox.com/account/access-tokens/). Don't use a secret token that starts with `sk.`, because Mapbox GL JS rejects it.
+
+Add them to `.env` in the repo root.
+
+```sh
+XWEATHER_CLIENT_ID=your_client_id
+XWEATHER_CLIENT_SECRET=your_client_secret
+MAPBOX_ACCESS_TOKEN=pk.your_token
+```
+
+Vite embeds these values in the browser build, so keep `.env` out of version control and don't publish the build. If you only want to look at the stories, open the [published Storybook](https://wil-gerard.github.io/mapsgl-storybook-testing/).
 
 Build Storybook and serve the build.
 
