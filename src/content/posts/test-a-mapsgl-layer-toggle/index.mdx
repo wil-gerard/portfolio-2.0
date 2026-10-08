@@ -1,5 +1,6 @@
 import toggleFailure from "./toggle-failure.mp4";
 import togglePoster from "./toggle-failure.png";
+import toggleCaptions from "./toggle-failure.vtt?url";
 
 Developers have reported [layers staying on screen after state updates](https://github.com/visgl/deck.gl/discussions/6646) and [map styles failing to reflect changed data](https://github.com/alex3165/react-mapbox-gl/issues/418). Those reports involve other map libraries. For this example, I wanted to test the connection between a React control and a MapsGL layer.
 
@@ -35,7 +36,9 @@ await expect(layer.visible).toBe(false);
 With the MapsGL call missing, this assertion fails with `expected true to be false`. You can see that happen in the recording below.
 
 <figure>
-  <video controls playsInline preload="none" poster={togglePoster} src={toggleFailure} aria-label="Storybook runs the broken temperature toggle and shows the failing layer assertion" style={{ width: "100%", height: "auto" }} />
+  <video controls playsInline preload="none" poster={togglePoster} src={toggleFailure} aria-label="Storybook runs the broken temperature toggle and shows the failing layer assertion" style={{ width: "100%", height: "auto" }}>
+    <track kind="captions" src={toggleCaptions} srcLang="en" label="English" default />
+  </video>
   <figcaption>I removed the MapsGL visibility call. The button switches to off, but the temperatures remain visible.</figcaption>
 </figure>
 
