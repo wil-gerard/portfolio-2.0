@@ -1,7 +1,7 @@
 import toggleFailure from "./toggle-failure.mp4";
 import togglePoster from "./toggle-failure.png";
 
-A weather layer toggle updates both the React control and the MapsGL layer. I wanted to test that connection in Storybook, including a failure where the button switches off but the temperatures remain visible. To reproduce it, I removed the call that changes the layer's visibility.
+A weather layer toggle updates both the React control and the MapsGL layer. I wanted a Storybook test that catches the button switching off while the temperatures stay on the map. To reproduce that bug, I removed the call that changes the layer's visibility.
 
 ## Start with the toggle
 
@@ -15,7 +15,7 @@ setVisible(next);
 
 `setWeatherLayerVisibility` tells MapsGL to show or hide the temperature layer. `setVisible` updates the React state that controls the button.
 
-Comment out the MapsGL call and click the button. React updates the control, but you haven't told MapsGL to hide anything.
+Comment out the MapsGL call and click the button. The button switches to off and the temperatures stay on the map.
 
 A test like this still passes.
 
@@ -61,7 +61,7 @@ if (!sample || sample.nodata || !Number.isFinite(sample.value)) {
 }
 ```
 
-The temperature sample matters here. Having a controller instance doesn't tell us whether it has received weather data. Querying the map center gives us a value to check before starting the test.
+A controller can exist before any weather data arrives, so I query the map center for a temperature and wait until one comes back.
 
 Once those checks pass, the component calls `onReady` with the MapsGL controller. If loading fails or takes longer than 45 seconds, it displays an error.
 
@@ -71,7 +71,7 @@ This avoids adding a fixed delay and hoping the map finishes loading before we c
 
 Storybook's [play function](https://storybook.js.org/docs/8/writing-stories/play-function) lets us run the interaction in the browser alongside the component.
 
-The example uses Storybook 8.6 and `@storybook/test`. I pass `fn()` as the story's `onReady` callback so the test can inspect the controller after loading. These excerpts come from the [complete toggle story](https://github.com/wil-gerard/mapsgl-storybook-testing).
+I pass `fn()` from `@storybook/test` as the story's `onReady` callback, so the test can grab the controller once the map loads. The excerpts below come from the [complete toggle story](https://github.com/wil-gerard/mapsgl-storybook-testing/blob/main/src/components/WeatherMap.stories.tsx#L37-L60).
 
 First, wait for either the ready message or an error.
 
@@ -128,16 +128,11 @@ await expect(
 ).toBe(layer);
 ```
 
-MapsGL provides [`setWeatherLayerVisibility`](https://www.xweather.com/docs/mapsgl/reference/map-controller) for this, so the toggle can reuse the layer.
+MapsGL provides [`setWeatherLayerVisibility`](https://www.xweather.com/docs/mapsgl/reference/map-controller#managing-data) for this, so the toggle can reuse the layer.
 
 ## Try breaking it
 
-The [example repo](https://github.com/wil-gerard/mapsgl-storybook-testing) includes the component, complete stories, and setup instructions. To run the tests, you'll need credentials from Xweather and Mapbox.
-
-- **Xweather.** Create an app in your Xweather account to get a client ID and client secret. The [MapsGL getting started guide](https://www.xweather.com/docs/mapsgl/getting-started) covers signing up and creating access keys. Each app has a namespace that limits which domains can use its keys. If the map fails to load, check that the namespace allows the host where Storybook runs, such as `localhost`.
-- **Mapbox.** Your account's default public token works. It starts with `pk.` and appears on your [access tokens page](https://console.mapbox.com/account/access-tokens/). Don't use a secret token that starts with `sk.`, because Mapbox GL JS rejects it.
-
-Add them to `.env` in the repo root.
+The [example repo](https://github.com/wil-gerard/mapsgl-storybook-testing) includes the component, complete stories, and setup instructions. You'll need an Xweather client ID and secret with MapsGL access (see the [MapsGL getting started guide](https://www.xweather.com/docs/mapsgl/getting-started)) and a Mapbox token from your [access tokens page](https://console.mapbox.com/account/access-tokens/). Add them to `.env`:
 
 ```sh
 XWEATHER_CLIENT_ID=your_client_id
@@ -145,7 +140,7 @@ XWEATHER_CLIENT_SECRET=your_client_secret
 MAPBOX_ACCESS_TOKEN=pk.your_token
 ```
 
-Vite embeds these values in the browser build, so keep `.env` out of version control and don't publish the build. If you only want to look at the stories, open the [published Storybook](https://wil-gerard.github.io/mapsgl-storybook-testing/).
+If the map doesn't load, check that your Xweather app's namespace allows `localhost`. To browse the stories without credentials, open the [published Storybook](https://wil-gerard.github.io/mapsgl-storybook-testing/).
 
 Build Storybook and serve the build.
 
@@ -163,8 +158,6 @@ npm run test:maps -- --url http://127.0.0.1:6007
 Run them once with the working handler. Then comment out `setWeatherLayerVisibility`, rebuild Storybook, and run them again.
 
 The load test should still pass. In the toggle test, the button check passes and the layer visibility check fails. Restore the call and rebuild to get the passing result back.
-
-I ran that failure and recovery in Chromium with MapsGL 1.10.2 and Mapbox GL JS 3.32.0 on October 7, 2026.
 
 ## Checking the picture too
 
